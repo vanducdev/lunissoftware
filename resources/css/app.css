@@ -1,0 +1,155 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --color-lush-bg: #FFFFFF;
+    --color-lush-card: #FFFFFF;
+    --color-lush-header: #FFFFFF;
+    --color-lush-primary: #168BD2;
+    --color-lush-hover: #0878BD;
+    --color-lush-secondary: #48B4E5;
+    --color-lush-text: #172B3A;
+    --color-lush-muted: #718096;
+    --color-lush-border: #E8EDF2;
+}
+
+:root {
+    --bg-page: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-header: rgba(255, 255, 255, 0.95);
+    --border-color: #E8EDF2;
+    --text-primary: #172B3A;
+    --text-secondary: #718096;
+    --accent-blue: #168BD2;
+    --accent-hover: #0878BD;
+    --accent-light: #48B4E5;
+    --accent-glow: rgba(22, 139, 210, 0.12);
+}
+
+html.dark {
+    --bg-page: #0B1118;
+    --bg-card: #131D27;
+    --bg-header: rgba(11, 17, 24, 0.95);
+    --border-color: #1E2D3D;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --accent-blue: #168BD2;
+    --accent-hover: #48B4E5;
+    --accent-light: #38BDF8;
+    --accent-glow: rgba(22, 139, 210, 0.25);
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+/* Button & Card Components */
+.lush-btn-primary {
+    background-color: #168BD2;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 0.625rem 1.35rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(22, 139, 210, 0.25);
+}
+.lush-btn-primary:hover {
+    background-color: #0878BD;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(22, 139, 210, 0.35);
+}
+.lush-btn-primary:active {
+    transform: translateY(0);
+}
+
+.lush-btn-secondary {
+    background-color: #FFFFFF;
+    color: #172B3A;
+    border: 1px solid var(--border-color);
+    font-weight: 600;
+    padding: 0.625rem 1.35rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+html.dark .lush-btn-secondary {
+    background-color: #131D27;
+    color: #F8FAFC;
+    border-color: #1E2D3D;
+}
+.lush-btn-secondary:hover {
+    border-color: #168BD2;
+    color: #168BD2;
+    transform: translateY(-1px);
+}
+
+.lush-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    transition: all 0.25s ease;
+}
+.lush-card:hover {
+    border-color: rgba(22, 139, 210, 0.4);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(22, 139, 210, 0.08);
+    transform: translateY(-3px);
+}
+html.dark .lush-card:hover {
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(22, 139, 210, 0.2);
+}
+
+.badge-lush {
+    background-color: rgba(22, 139, 210, 0.1);
+    color: #168BD2;
+    border: 1px solid rgba(22, 139, 210, 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Page loading bar */
+#page-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #168BD2, #48B4E5);
+    z-index: 9999;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    width: 0%;
+}
