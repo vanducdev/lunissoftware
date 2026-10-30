@@ -4,9 +4,15 @@
 
 @section('content')
 <div class="space-y-6">
-    <div>
-        <h2 class="text-xl font-bold text-[#172B3A] dark:text-white">Danh Sách Yêu Cầu Tư Vấn</h2>
-        <p class="text-xs text-[#718096]">Theo dõi thông tin khách hàng tiềm năng, nhu cầu phần mềm và tiến độ chăm sóc</p>
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <h2 class="text-xl font-bold text-[#172B3A] dark:text-white">Danh Sách Yêu Cầu Tư Vấn</h2>
+            <p class="text-xs text-[#718096]">Theo dõi thông tin khách hàng tiềm năng, nhu cầu phần mềm và tiến độ chăm sóc</p>
+        </div>
+        <a href="{{ route('admin.contacts.export', request()->all()) }}" class="lush-btn-secondary !text-xs !py-2.5">
+            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Xuất File CSV / Excel</span>
+        </a>
     </div>
 
     <!-- Filter Bar -->
@@ -88,3 +94,4 @@
     </div>
 </div>
 @endsection
+

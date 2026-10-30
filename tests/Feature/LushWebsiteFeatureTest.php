@@ -163,5 +163,35 @@ class LushWebsiteFeatureTest extends TestCase
 
         // Access translations
         $this->actingAs($admin)->get(route('admin.translations.index'))->assertStatus(200);
+
+        // Access extended CRUDs: testimonials, partners, categories, activity logs
+        $this->actingAs($admin)->get(route('admin.testimonials.index'))->assertStatus(200);
+        $this->actingAs($admin)->get(route('admin.partners.index'))->assertStatus(200);
+        $this->actingAs($admin)->get(route('admin.product-categories.index'))->assertStatus(200);
+        $this->actingAs($admin)->get(route('admin.article-categories.index'))->assertStatus(200);
+        $this->actingAs($admin)->get(route('admin.activity-logs.index'))->assertStatus(200);
+
+        // Test contacts CSV stream export
+        $exportResponse = $this->actingAs($admin)->get(route('admin.contacts.export'));
+        $exportResponse->assertStatus(200);
+        $this->assertStringContainsString('text/csv', (string) $exportResponse->headers->get('content-type'));
+
+        // Test clear cache action
+        $cacheResponse = $this->actingAs($admin)->post(route('admin.settings.clear-cache'));
+        $cacheResponse->assertRedirect();
+        $cacheResponse->assertSessionHas('success');
+    }
+
+    public function test_downloads_page_and_sitemap_are_accessible(): void
+    {
+        $downloadResponse = $this->get(route('downloads.index'));
+        $downloadResponse->assertStatus(200);
+        $downloadResponse->assertSee('Trung Tâm Tải Phần Mềm');
+        $downloadResponse->assertSee('Lush Marketing Pro');
+
+        $sitemapResponse = $this->get(route('sitemap'));
+        $sitemapResponse->assertStatus(200);
+        $this->assertStringContainsString('text/xml', (string) $sitemapResponse->headers->get('content-type'));
+        $sitemapResponse->assertSee('urlset');
     }
 }

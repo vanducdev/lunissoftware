@@ -8,6 +8,7 @@ use App\Models\ContactMessage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AdminContactController extends Controller
 {
@@ -61,5 +62,51 @@ class AdminContactController extends Controller
         ActivityLog::log('contact_deleted', "Đã xóa yêu cầu liên hệ từ: {$name}");
 
         return redirect()->route('admin.contacts.index')->with('success', 'Đã xóa yêu cầu liên hệ.');
+    }
+
+    public function export(Request $request): StreamedResponse
+    {
+        $fileName = 'lush_leads_'.date('Y_m_d_His').'.csv';
+        $query = ContactMessage::orderByDesc('created_at');
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $contacts = $query->get();
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"{$fileName}\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        return response()->stream(function () use ($contacts) {
+            $handle = fopen('php://output', 'w');
+            // Write UTF-8 BOM for Excel
+            fwrite($handle, "\xEF\xBB\xBF");
+
+            // Header row
+            fputcsv($handle, ['ID', 'Họ Tên', 'Email', 'Số Điện Thoại', 'Doanh Nghiệp', 'Sản Phẩm Quan Tâm', 'Trạng Thái', 'Nội Dung Yêu Cầu', 'Ghi Chú Admin', 'Ngày Gửi']);
+
+            foreach ($contacts as $c) {
+                fputcsv($handle, [
+                    $c->id,
+                    $c->name,
+                    $c->email,
+                    $c->phone,
+                    $c->company,
+                    $c->product_interest,
+                    $c->status,
+                    $c->message,
+                    $c->admin_notes,
+                    $c->created_at->format('Y-m-d H:i:s'),
+                ]);
+            }
+
+            fclose($handle);
+        }, 200, $headers);
     }
 }

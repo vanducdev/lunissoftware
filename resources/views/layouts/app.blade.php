@@ -23,6 +23,32 @@
     <meta property="og:title" content="@yield('title', 'LushSoftware – Nền tảng phần mềm SaaS')">
     <meta property="og:description" content="@yield('meta_description', 'Tự động hóa tiếp thị, quản trị quan hệ khách hàng và mở rộng kinh doanh.')">
 
+    <!-- Schema.org JSON-LD Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "Organization",
+      "name": "LushSoftware",
+      "url": "{{ url('/') }}",
+      "logo": "{{ asset('favicon.ico') }}",
+      "description": "Nền tảng phần mềm SaaS & Tự động hóa tiếp thị doanh nghiệp.",
+      "telephone": "{{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}",
+      "email": "{{ \App\Models\WebsiteSetting::get('contact_email', 'contact@lushsoftware.vn') }}",
+      "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "Tầng 18, Tòa nhà Lush Tower",
+        "addressLocality": "Cầu Giấy, Hà Nội",
+        "addressCountry": "VN"
+      },
+      "sameAs": [
+        "{{ \App\Models\WebsiteSetting::get('social_facebook', 'https://facebook.com/lushsoftware') }}",
+        "{{ \App\Models\WebsiteSetting::get('social_telegram', 'https://t.me/lushsoftware_official') }}",
+        "{{ \App\Models\WebsiteSetting::get('social_youtube', 'https://youtube.com/@lushsoftware') }}"
+      ]
+    }
+    </script>
+    @stack('schema')
+
     <!-- Script to prevent Dark Mode flicker on initial load -->
     <script>
         (function() {
@@ -77,6 +103,9 @@
                 </a>
                 <a href="{{ route('pricing.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('pricing.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
                     {{ __('Pricing') }}
+                </a>
+                <a href="{{ route('downloads.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('downloads.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                    {{ __('Download') }}
                 </a>
                 <a href="{{ route('articles.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('articles.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
                     {{ __('News') }}
@@ -200,6 +229,7 @@
                 <a href="{{ route('products.index') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('products.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('Products') }}</a>
                 <a href="{{ route('solutions.index') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('solutions.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('Solutions') }}</a>
                 <a href="{{ route('pricing.index') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('pricing.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('Pricing') }}</a>
+                <a href="{{ route('downloads.index') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('downloads.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('Download') }}</a>
                 <a href="{{ route('articles.index') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('articles.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('News') }}</a>
                 <a href="{{ route('about') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('about') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('About Us') }}</a>
                 <a href="{{ route('contact') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('contact') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('Contact') }}</a>
@@ -348,6 +378,77 @@
         </div>
     </footer>
 
+    <!-- Quick Trial / Consultation Modal -->
+    <div id="trial-modal-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden transition-opacity duration-300"></div>
+    <div id="trial-modal" class="fixed inset-0 z-50 hidden overflow-y-auto flex items-center justify-center p-4">
+        <div class="relative bg-white dark:bg-[#131D27] rounded-2xl max-w-lg w-full border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl p-6 sm:p-8 transform transition-all duration-300 scale-95 opacity-0 modal-box">
+            <!-- Close Button -->
+            <button type="button" id="trial-modal-close" class="absolute top-4 right-4 p-2 rounded-lg text-[#718096] hover:text-[#172B3A] dark:hover:text-white hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-[#168BD2]/10 dark:bg-[#168BD2]/20 text-[#168BD2] flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-bold text-[#172B3A] dark:text-white">Đăng Ký Trải Nghiệm Phần Mềm</h3>
+                    <p class="text-xs text-[#718096] dark:text-[#94A3B8]">Dùng thử miễn phí 3 ngày kèm hỗ trợ cài đặt 1-1</p>
+                </div>
+            </div>
+
+            <!-- Modal Form -->
+            <form method="POST" action="{{ route('contact.submit') }}" id="trial-modal-form" class="space-y-3.5">
+                @csrf
+                <input type="hidden" name="subject" value="Đăng ký dùng thử phần mềm qua Modal">
+
+                <div>
+                    <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1">Họ và tên <span class="text-rose-500">*</span></label>
+                    <input type="text" name="name" required placeholder="Nguyễn Văn A" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs focus:outline-none focus:border-[#168BD2]">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1">Số điện thoại / Zalo <span class="text-rose-500">*</span></label>
+                        <input type="tel" name="phone" required placeholder="0988 888 888" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1">Email <span class="text-rose-500">*</span></label>
+                        <input type="email" name="email" required placeholder="email@company.vn" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1">Phần mềm muốn dùng thử</label>
+                    <select name="service_interest" id="trial-modal-product" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs focus:outline-none focus:border-[#168BD2]">
+                        <option value="Lush Marketing Pro">Lush Marketing Pro – Tự động hóa tiếp thị đa kênh</option>
+                        <option value="Lush Social Hub">Lush Social Hub – Quản lý & nuôi dàn nick chuyên sâu</option>
+                        <option value="Lush CRM Enterprise">Lush CRM Enterprise – Quản trị phễu khách hàng & Sales</option>
+                        <option value="Lush Data Scraper">Lush Data Scraper – Quét & phân tích dữ liệu thị trường</option>
+                        <option value="Lush Chatbot AI">Lush Chatbot AI – Trực tin nhắn tự động 24/7</option>
+                        <option value="Lush Traffic Booster">Lush Traffic Booster – Tăng tương tác & lượt truy cập</option>
+                        <option value="Tu_van_tong_the">Tư vấn hệ sinh thái LushSoftware toàn diện</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1">Ghi chú hoặc nhu cầu cụ thể</label>
+                    <textarea name="message" rows="2" placeholder="Ví dụ: Cần nuôi 50 nick Facebook và gửi tin nhắn tự động..." class="w-full px-3.5 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs focus:outline-none focus:border-[#168BD2]"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="lush-btn-primary w-full !justify-center !text-xs !py-3">
+                        Gửi Đăng Ký Trải Nghiệm Miễn Phí
+                    </button>
+                    <p class="text-[11px] text-[#718096] text-center mt-2">
+                        Bảo mật thông tin 100%. Kỹ thuật viên sẽ hỗ trợ kích hoạt bản quyền trong 15 phút.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Flash Message Trigger -->
     @if(session('success'))
         <script>
@@ -364,6 +465,71 @@
         </script>
     @endif
 
+    <script>
+        // Global Trial Modal Script
+        document.addEventListener('DOMContentLoaded', function () {
+            const backdrop = document.getElementById('trial-modal-backdrop');
+            const modal = document.getElementById('trial-modal');
+            const modalBox = modal ? modal.querySelector('.modal-box') : null;
+            const closeBtn = document.getElementById('trial-modal-close');
+            const productSelect = document.getElementById('trial-modal-product');
+
+            function openTrialModal(productName) {
+                if (!modal || !backdrop) return;
+                if (productName && productSelect) {
+                    for (let i = 0; i < productSelect.options.length; i++) {
+                        if (productSelect.options[i].text.toLowerCase().includes(productName.toLowerCase()) || 
+                            productSelect.options[i].value.toLowerCase().includes(productName.toLowerCase())) {
+                            productSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+                backdrop.classList.remove('hidden');
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    if (modalBox) {
+                        modalBox.classList.remove('scale-95', 'opacity-0');
+                        modalBox.classList.add('scale-100', 'opacity-100');
+                    }
+                }, 10);
+            }
+
+            function closeTrialModal() {
+                if (!modal || !backdrop) return;
+                if (modalBox) {
+                    modalBox.classList.remove('scale-100', 'opacity-100');
+                    modalBox.classList.add('scale-95', 'opacity-0');
+                }
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    backdrop.classList.add('hidden');
+                }, 200);
+            }
+
+            document.querySelectorAll('[data-open-trial]').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const prodName = this.getAttribute('data-open-trial') || '';
+                    openTrialModal(prodName);
+                });
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', closeTrialModal);
+            if (backdrop) backdrop.addEventListener('click', closeTrialModal);
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+                    closeTrialModal();
+                }
+            });
+
+            window.openTrialModal = openTrialModal;
+            window.closeTrialModal = closeTrialModal;
+        });
+    </script>
+
     @stack('scripts')
 </body>
 </html>
+

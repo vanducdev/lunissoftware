@@ -147,5 +147,28 @@
             </button>
         </div>
     </form>
+
+    <!-- 6. System Cache & Maintenance -->
+    <div class="lush-card p-6 sm:p-8 space-y-4 border border-rose-100 dark:border-rose-950/40">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+                <h3 class="text-sm font-bold text-[#172B3A] dark:text-white flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    6. Bảo Trì & Xóa Bộ Nhớ Đệm (System Cache)
+                </h3>
+                <p class="text-xs text-[#718096] dark:text-[#94A3B8] mt-1">
+                    Xóa sạch view compiled, cache cấu hình và route để cập nhật tức thì mọi thay đổi giao diện và đa ngôn ngữ.
+                </p>
+            </div>
+            <form method="POST" action="{{ route('admin.settings.clear-cache') }}" onsubmit="return confirm('Bạn có chắc chắn muốn xóa toàn bộ bộ nhớ đệm hệ thống không?');">
+                @csrf
+                <button type="submit" class="lush-btn-secondary !text-xs !py-2.5 !px-5 text-rose-600 hover:text-rose-700 hover:border-rose-400">
+                    <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    Xóa Cache Hệ Thống
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection
+

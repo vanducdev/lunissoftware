@@ -8,6 +8,7 @@ use App\Models\WebsiteSetting;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class AdminSettingController extends Controller
 {
@@ -52,5 +53,13 @@ class AdminSettingController extends Controller
         ActivityLog::log('settings_updated', 'Đã cập nhật cấu hình chung website LushSoftware.');
 
         return back()->with('success', 'Đã lưu cấu hình website thành công.');
+    }
+
+    public function clearCache(): RedirectResponse
+    {
+        Artisan::call('optimize:clear');
+        ActivityLog::log('cache_cleared', 'Đã xóa toàn bộ bộ nhớ đệm cache hệ thống.');
+
+        return back()->with('success', 'Đã xóa sạch bộ nhớ cache, view compiled và config thành công!');
     }
 }

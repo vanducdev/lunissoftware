@@ -1,21 +1,28 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminActivityLogController;
+use App\Http\Controllers\Admin\AdminArticleCategoryController;
 use App\Http\Controllers\Admin\AdminArticleController;
 use App\Http\Controllers\Admin\AdminBannerController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminPartnerController;
+use App\Http\Controllers\Admin\AdminProductCategoryController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminTranslationController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SolutionController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +31,9 @@ use Illuminate\Support\Facades\Route;
 | Web Routes - LushSoftware
 |--------------------------------------------------------------------------
 */
+
+// SEO Sitemap XML
+Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // Localization Switcher
 Route::get('lang/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
@@ -36,6 +46,7 @@ Route::get('/solutions', [SolutionController::class, 'index'])->name('solutions.
 Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index');
 Route::get('/news', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/news/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/downloads', [DownloadController::class, 'index'])->name('downloads.index');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
@@ -63,14 +74,18 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-    // Products CRUD
+    // Products CRUD & Product Categories
     Route::resource('products', AdminProductController::class);
+    Route::resource('product-categories', AdminProductCategoryController::class)->except(['create', 'edit', 'show']);
 
-    // Articles CRUD
+    // Articles CRUD & Article Categories
     Route::resource('articles', AdminArticleController::class);
+    Route::resource('article-categories', AdminArticleCategoryController::class)->except(['create', 'edit', 'show']);
 
-    // Banners CRUD
+    // Banners, Testimonials, Partners CRUD
     Route::resource('banners', AdminBannerController::class);
+    Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
+    Route::resource('partners', AdminPartnerController::class)->except(['show']);
 
     // Customers Management
     Route::get('customers', [AdminCustomerController::class, 'index'])->name('customers.index');
@@ -78,17 +93,22 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::patch('customers/{user}/role', [AdminCustomerController::class, 'toggleRole'])->name('customers.toggle-role');
     Route::delete('customers/{user}', [AdminCustomerController::class, 'destroy'])->name('customers.destroy');
 
-    // Contacts Management
+    // Contacts Management & CSV Export
+    Route::get('contacts/export', [AdminContactController::class, 'export'])->name('contacts.export');
     Route::get('contacts', [AdminContactController::class, 'index'])->name('contacts.index');
     Route::get('contacts/{contact}', [AdminContactController::class, 'show'])->name('contacts.show');
     Route::put('contacts/{contact}', [AdminContactController::class, 'update'])->name('contacts.update');
     Route::delete('contacts/{contact}', [AdminContactController::class, 'destroy'])->name('contacts.destroy');
 
-    // Website Settings
+    // Website Settings & Cache Clear
     Route::get('settings', [AdminSettingController::class, 'index'])->name('settings.index');
     Route::post('settings', [AdminSettingController::class, 'update'])->name('settings.update');
+    Route::post('settings/clear-cache', [AdminSettingController::class, 'clearCache'])->name('settings.clear-cache');
 
     // Multi-language Translations
     Route::get('translations', [AdminTranslationController::class, 'index'])->name('translations.index');
     Route::post('translations', [AdminTranslationController::class, 'update'])->name('translations.update');
+
+    // System Activity Logs
+    Route::get('activity-logs', [AdminActivityLogController::class, 'index'])->name('activity-logs.index');
 });
