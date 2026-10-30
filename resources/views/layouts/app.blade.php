@@ -73,148 +73,153 @@
     <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none *:pointer-events-auto"></div>
 
     <!-- Main Header -->
-    <header id="main-header" class="sticky top-0 z-40 bg-white/95 dark:bg-[#0B1118]/95 backdrop-blur-md border-b border-[#E8EDF2] dark:border-[#1E2D3D] transition-all duration-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <header id="main-header" class="sticky top-0 z-40 bg-white/95 dark:bg-[#0B1118]/95 backdrop-blur-md border-b border-[#E8EDF2] dark:border-[#1E2D3D] transition-all duration-200 shadow-2xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between gap-4">
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-bold text-xl shadow-md shadow-[#168BD2]/20 group-hover:scale-105 transition-transform duration-200">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-bold text-lg shadow-sm shadow-[#168BD2]/30 group-hover:scale-105 transition-transform duration-200">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-xl font-bold tracking-tight text-[#172B3A] dark:text-white flex items-center gap-0.5">
+                    <span class="text-lg font-extrabold tracking-tight text-[#172B3A] dark:text-white flex items-center gap-0.5 leading-none">
                         Lush<span class="text-[#168BD2]">Software</span>
                     </span>
-                    <span class="text-[10px] uppercase font-semibold tracking-wider text-[#718096] dark:text-[#94A3B8]">Tech Ecosystem</span>
+                    <span class="text-[9px] uppercase font-bold tracking-widest text-[#718096] dark:text-[#94A3B8] mt-1">Tech Ecosystem</span>
                 </div>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-                <a href="{{ route('home') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('home') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+            <!-- Desktop Navigation Links (Pill Style, Zero Wrap) -->
+            <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-[13px] font-medium">
+                <a href="{{ route('home') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('home') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('Home') }}
                 </a>
 
-                <!-- Products Mega Menu Dropdown -->
+                <!-- Products Mega Menu Dropdown with Hover Bridge -->
                 <div class="relative group">
-                    <a href="{{ route('products.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1 {{ request()->routeIs('products.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                    <a href="{{ route('products.index') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 {{ request()->routeIs('products.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                         <span>{{ __('Products') }}</span>
-                        <svg class="w-3.5 h-3.5 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <svg class="w-3.5 h-3.5 text-[#718096] group-hover:rotate-180 group-hover:text-[#168BD2] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </a>
                     
-                    <!-- Mega Menu Flyout Panel -->
-                    <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-[560px] bg-white dark:bg-[#131D27] rounded-2xl shadow-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] p-5 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
-                        <div class="grid grid-cols-2 gap-4">
-                            <a href="{{ route('products.show', 'lush-marketing-pro') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
-                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Marketing Pro</h4>
-                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Tự động hóa tiếp thị & tương tác đa kênh</p>
-                                </div>
-                            </a>
+                    <!-- Mega Menu Flyout Panel with Invisible Padding Bridge -->
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[540px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div class="bg-white dark:bg-[#131D27] rounded-2xl shadow-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] p-5">
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="{{ route('products.show', 'lush-marketing-pro') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                    <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Marketing Pro</h4>
+                                        <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Tự động hóa tiếp thị đa kênh</p>
+                                    </div>
+                                </a>
 
-                            <a href="{{ route('products.show', 'lush-social-hub') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
-                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Social Hub</h4>
-                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Quản lý nuôi tài khoản mạng xã hội chuyên sâu</p>
-                                </div>
-                            </a>
+                                <a href="{{ route('products.show', 'lush-social-hub') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                    <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Social Hub</h4>
+                                        <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Quản lý nuôi dàn nick mạng xã hội</p>
+                                    </div>
+                                </a>
 
-                            <a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
-                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush CRM Enterprise</h4>
-                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Phễu bán hàng & chăm sóc khách hàng tự động</p>
-                                </div>
-                            </a>
+                                <a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                    <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush CRM Enterprise</h4>
+                                        <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Quản trị khách hàng & Pipeline</p>
+                                    </div>
+                                </a>
 
-                            <a href="{{ route('products.show', 'lush-data-scraper') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
-                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Data Scraper</h4>
-                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Quét & phân tích dữ liệu thị trường chuẩn xác</p>
-                                </div>
-                            </a>
-                        </div>
+                                <a href="{{ route('products.show', 'lush-data-scraper') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                    <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Data Scraper</h4>
+                                        <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Khai phá & phân tích dữ liệu thị trường</p>
+                                    </div>
+                                </a>
+                            </div>
 
-                        <div class="mt-4 pt-3 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between text-xs">
-                            <a href="{{ route('products.index') }}" class="text-[#168BD2] font-bold hover:underline flex items-center gap-1">
-                                <span>{{ __('All Products') }}</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </a>
-                            <span class="text-[11px] text-[#718096]">Sẵn sàng tải về trên Windows, macOS & Web Cloud</span>
+                            <div class="mt-3.5 pt-3 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between text-xs">
+                                <a href="{{ route('products.index') }}" class="text-[#168BD2] font-bold hover:underline flex items-center gap-1">
+                                    <span>{{ __('All Products') }}</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                                <span class="text-[11px] text-[#718096]">Windows 10/11 & macOS & Web App</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <a href="{{ route('solutions.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('solutions.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                <a href="{{ route('solutions.index') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('solutions.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('Solutions') }}
                 </a>
-                <a href="{{ route('pricing.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('pricing.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                <a href="{{ route('pricing.index') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('pricing.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('Pricing') }}
                 </a>
-                <a href="{{ route('downloads.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('downloads.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                <a href="{{ route('downloads.index') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('downloads.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('Download') }}
                 </a>
-                <a href="{{ route('articles.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('articles.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                <a href="{{ route('articles.index') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('articles.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('News') }}
                 </a>
-                <a href="{{ route('about') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('about') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                <a href="{{ route('about') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('about') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('About Us') }}
                 </a>
-                <a href="{{ route('contact') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('contact') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                <a href="{{ route('contact') }}" class="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-150 {{ request()->routeIs('contact') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:bg-[#168BD2]/5' }}">
                     {{ __('Contact') }}
                 </a>
             </nav>
 
-            <!-- Header Right Controls -->
-            <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Global Spotlight Search Trigger (Ctrl+K) -->
-                <button type="button" id="spotlight-search-btn" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] hover:text-[#168BD2] hover:border-[#168BD2] transition-colors text-xs" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
-                    <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <span class="hidden md:inline font-normal text-[#172B3A] dark:text-[#E2E8F0]">Tìm kiếm...</span>
-                    <kbd class="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-[#718096] bg-[#F8FAFC] dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] rounded">Ctrl K</kbd>
+            <!-- Header Right Controls (Unified Height & Elegant Spacing) -->
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Global Spotlight Search Trigger (Ctrl+K Pill) -->
+                <button type="button" id="spotlight-search-btn" class="h-9 px-3 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#131D27] hover:border-[#168BD2]/50 text-[#718096] dark:text-[#94A3B8] transition-all flex items-center gap-2 group cursor-pointer shadow-2xs" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
+                    <svg class="w-3.5 h-3.5 text-[#168BD2] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <span class="hidden sm:inline text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] whitespace-nowrap">Tìm kiếm</span>
+                    <kbd class="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-[#718096] bg-white dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] rounded-md shadow-2xs">Ctrl K</kbd>
                 </button>
 
                 <!-- Language Selector Dropdown -->
                 <div class="relative group" x-data="{ open: false }">
-                    <button type="button" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2] transition-colors">
-                        <span class="uppercase">{{ app()->getLocale() }}</span>
-                        <svg class="w-3.5 h-3.5 text-[#718096]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <button type="button" class="h-9 px-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2] transition-colors flex items-center gap-1.5 shadow-2xs">
+                        <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span class="uppercase tracking-wider text-[11px] font-bold">{{ app()->getLocale() }}</span>
+                        <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Dropdown Menu -->
-                    <div class="absolute right-0 mt-1 w-36 py-1 bg-white dark:bg-[#131D27] rounded-xl shadow-xl border border-[#E8EDF2] dark:border-[#1E2D3D] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-                        <a href="{{ route('locale.switch', 'vi') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'vi' ? 'text-[#168BD2] font-bold' : '' }}">
-                            <span>Tiếng Việt</span>
-                            <span class="text-[10px] text-[#718096]">VI</span>
-                        </a>
-                        <a href="{{ route('locale.switch', 'en') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'en' ? 'text-[#168BD2] font-bold' : '' }}">
-                            <span>English</span>
-                            <span class="text-[10px] text-[#718096]">EN</span>
-                        </a>
-                        <a href="{{ route('locale.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'zh' ? 'text-[#168BD2] font-bold' : '' }}">
-                            <span>中文</span>
-                            <span class="text-[10px] text-[#718096]">ZH</span>
-                        </a>
-                        <a href="{{ route('locale.switch', 'ko') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'ko' ? 'text-[#168BD2] font-bold' : '' }}">
-                            <span>한국어</span>
-                            <span class="text-[10px] text-[#718096]">KO</span>
-                        </a>
+                    <div class="absolute right-0 top-full pt-1.5 w-36 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                        <div class="py-1 bg-white dark:bg-[#131D27] rounded-xl shadow-xl border border-[#E8EDF2] dark:border-[#1E2D3D]">
+                            <a href="{{ route('locale.switch', 'vi') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'vi' ? 'text-[#168BD2] font-bold bg-[#168BD2]/5' : '' }}">
+                                <span>Tiếng Việt</span>
+                                <span class="text-[10px] text-[#718096]">VI</span>
+                            </a>
+                            <a href="{{ route('locale.switch', 'en') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'en' ? 'text-[#168BD2] font-bold bg-[#168BD2]/5' : '' }}">
+                                <span>English</span>
+                                <span class="text-[10px] text-[#718096]">EN</span>
+                            </a>
+                            <a href="{{ route('locale.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'zh' ? 'text-[#168BD2] font-bold bg-[#168BD2]/5' : '' }}">
+                                <span>中文</span>
+                                <span class="text-[10px] text-[#718096]">ZH</span>
+                            </a>
+                            <a href="{{ route('locale.switch', 'ko') }}" class="flex items-center justify-between px-3 py-2 text-xs font-medium text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'ko' ? 'text-[#168BD2] font-bold bg-[#168BD2]/5' : '' }}">
+                                <span>한국어</span>
+                                <span class="text-[10px] text-[#718096]">KO</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Theme Toggle Button (Light/Dark) -->
-                <button type="button" class="theme-toggle-btn p-2 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:border-[#168BD2] transition-colors" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}">
+                <button type="button" class="theme-toggle-btn h-9 w-9 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] text-[#718096] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-[#48B4E5] hover:border-[#168BD2] flex items-center justify-center transition-colors shadow-2xs" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}">
                     <!-- Sun icon for dark mode -->
                     <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -225,49 +230,53 @@
                     </svg>
                 </button>
 
-                <!-- Auth Buttons (Desktop) -->
+                <div class="hidden sm:block h-5 w-px bg-[#E8EDF2] dark:bg-[#1E2D3D] mx-0.5"></div>
+
+                <!-- Auth Buttons / User Profile (Desktop) -->
                 <div class="hidden sm:flex items-center gap-2">
                     @auth
                         <div class="relative group">
-                            <button type="button" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] hover:border-[#168BD2] transition-colors text-sm font-medium">
-                                <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-6 h-6 rounded-full object-cover">
-                                <span class="max-w-[100px] truncate text-xs font-semibold">{{ auth()->user()->name }}</span>
-                                <svg class="w-3.5 h-3.5 text-[#718096]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            <button type="button" class="h-9 px-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:border-[#168BD2] transition-colors flex items-center gap-2 text-xs font-semibold shadow-2xs">
+                                <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-5.5 h-5.5 rounded-lg object-cover ring-1 ring-[#168BD2]/30">
+                                <span class="max-w-[85px] truncate text-xs font-semibold text-[#172B3A] dark:text-white">{{ auth()->user()->name }}</span>
+                                <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
                             <!-- User Dropdown Menu -->
-                            <div class="absolute right-0 mt-1 w-48 py-1 bg-white dark:bg-[#131D27] rounded-xl shadow-xl border border-[#E8EDF2] dark:border-[#1E2D3D] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-                                @if(auth()->user()->isAdmin())
-                                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#168BD2] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-                                        {{ __('Dashboard') }}
+                            <div class="absolute right-0 top-full pt-1.5 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                                <div class="py-1 bg-white dark:bg-[#131D27] rounded-xl shadow-xl border border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                    @if(auth()->user()->canAccessAdmin())
+                                        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#168BD2] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    @endif
+                                    <a href="{{ route('profile') }}" class="flex items-center gap-2 px-4 py-2 text-xs text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]">
+                                        <svg class="w-4 h-4 text-[#718096]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                        {{ __('Profile') }}
                                     </a>
-                                @endif
-                                <a href="{{ route('profile') }}" class="flex items-center gap-2 px-4 py-2 text-xs text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]">
-                                    <svg class="w-4 h-4 text-[#718096]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                                    {{ __('Profile') }}
-                                </a>
-                                <div class="border-t border-[#E8EDF2] dark:border-[#1E2D3D] my-1"></div>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="w-full text-left flex items-center gap-2 px-4 py-2 text-xs text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-                                        {{ __('Sign Out') }}
-                                    </button>
-                                </form>
+                                    <div class="border-t border-[#E8EDF2] dark:border-[#1E2D3D] my-1"></div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="w-full text-left flex items-center gap-2 px-4 py-2 text-xs text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                                            {{ __('Sign Out') }}
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     @else
-                        <a href="{{ route('login') }}" class="px-3.5 py-1.5 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] transition-colors">
+                        <a href="{{ route('login') }}" class="h-9 px-3 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] transition-colors flex items-center">
                             {{ __('Sign In') }}
                         </a>
-                        <a href="{{ route('register') }}" class="lush-btn-primary !py-1.5 !px-3.5 !text-xs">
+                        <a href="{{ route('register') }}" class="lush-btn-primary !h-9 !py-0 !px-4 !text-xs !rounded-xl">
                             {{ __('Sign Up') }}
                         </a>
                     @endauth
                 </div>
 
                 <!-- Mobile Hamburger Button -->
-                <button type="button" id="mobile-drawer-open" class="lg:hidden p-2 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0]">
+                <button type="button" id="mobile-drawer-open" class="lg:hidden h-9 w-9 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] text-[#172B3A] dark:text-[#E2E8F0] flex items-center justify-center hover:border-[#168BD2] transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>

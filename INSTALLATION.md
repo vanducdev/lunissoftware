@@ -117,3 +117,4 @@ php artisan test --compact
 ```bash
 vendor/bin/pint --format agent
 ```
+

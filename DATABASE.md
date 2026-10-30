@@ -114,3 +114,4 @@ Nền tảng **LushSoftware** được thiết kế chuẩn hóa quan hệ (3NF)
 2. **Status & Published Scope**: Các cột `status`, `is_active`, `is_featured` được lập index phục vụ truy vấn lọc trang chủ và danh mục.
 3. **Slugs**: Các trường `slug` trên `products`, `articles`, `product_categories` được cấu hình `UNIQUE INDEX`, đảm bảo tra cứu theo URL O(1).
 4. **Eager Loading**: Hệ thống sử dụng `with(['category', 'pricings', 'features'])` trong toàn bộ Services để triệt tiêu hoàn toàn vấn đề N+1 Query.
+
