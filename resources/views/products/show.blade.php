@@ -7,6 +7,9 @@
 <!-- Product Hero Section -->
 <section class="py-16 lg:py-20 bg-white dark:bg-[#0B1118] border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+            <x-breadcrumb :items="[['label' => __('Products'), 'url' => route('products.index')], ['label' => $product->name]]" />
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6" data-aos="fade-up">
                 <div class="flex items-center gap-3">

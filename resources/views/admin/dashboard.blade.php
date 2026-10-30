@@ -80,36 +80,18 @@
             </div>
         </div>
 
-        <!-- Visual Bar Chart -->
+        <!-- Visual Bar Chart Dynamic -->
         <div class="h-44 flex items-end gap-3 sm:gap-6 pt-4 border-b border-[#E8EDF2] dark:border-[#1E2D3D] pb-2">
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2]/30 hover:bg-[#168BD2] rounded-t-md h-20 transition-colors"></div>
-                <span class="text-[10px] text-[#718096]">Thứ 2</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2]/40 hover:bg-[#168BD2] rounded-t-md h-28 transition-colors"></div>
-                <span class="text-[10px] text-[#718096]">Thứ 3</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2]/30 hover:bg-[#168BD2] rounded-t-md h-24 transition-colors"></div>
-                <span class="text-[10px] text-[#718096]">Thứ 4</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2]/50 hover:bg-[#168BD2] rounded-t-md h-32 transition-colors"></div>
-                <span class="text-[10px] text-[#718096]">Thứ 5</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2]/60 hover:bg-[#168BD2] rounded-t-md h-36 transition-colors"></div>
-                <span class="text-[10px] text-[#718096]">Thứ 6</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2]/70 hover:bg-[#168BD2] rounded-t-md h-40 transition-colors"></div>
-                <span class="text-[10px] text-[#718096]">Thứ 7</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center gap-2">
-                <div class="w-full bg-[#168BD2] rounded-t-md h-44 shadow-md shadow-[#168BD2]/30 transition-colors"></div>
-                <span class="text-[10px] font-bold text-[#168BD2]">Chủ Nhật</span>
-            </div>
+            @foreach($dailyInquiries as $item)
+                <div class="flex-1 flex flex-col items-center gap-2 group relative">
+                    <div class="w-full bg-[#168BD2]/30 group-hover:bg-[#168BD2] rounded-t-md transition-colors" style="height: {{ $item['height'] }}px;"></div>
+                    <span class="text-[10px] text-[#718096] text-center truncate w-full">{{ $item['date'] }}</span>
+                    <!-- Tooltip -->
+                    <div class="absolute -top-7 bg-[#172B3A] text-white text-[10px] py-0.5 px-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        {{ $item['count'] }} yêu cầu
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 

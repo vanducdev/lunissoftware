@@ -95,9 +95,68 @@
                 <a href="{{ route('home') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('home') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
                     {{ __('Home') }}
                 </a>
-                <a href="{{ route('products.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('products.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
-                    {{ __('Products') }}
-                </a>
+
+                <!-- Products Mega Menu Dropdown -->
+                <div class="relative group">
+                    <a href="{{ route('products.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1 {{ request()->routeIs('products.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
+                        <span>{{ __('Products') }}</span>
+                        <svg class="w-3.5 h-3.5 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    
+                    <!-- Mega Menu Flyout Panel -->
+                    <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-[560px] bg-white dark:bg-[#131D27] rounded-2xl shadow-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] p-5 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="{{ route('products.show', 'lush-marketing-pro') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Marketing Pro</h4>
+                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Tự động hóa tiếp thị & tương tác đa kênh</p>
+                                </div>
+                            </a>
+
+                            <a href="{{ route('products.show', 'lush-social-hub') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Social Hub</h4>
+                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Quản lý nuôi tài khoản mạng xã hội chuyên sâu</p>
+                                </div>
+                            </a>
+
+                            <a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush CRM Enterprise</h4>
+                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Phễu bán hàng & chăm sóc khách hàng tự động</p>
+                                </div>
+                            </a>
+
+                            <a href="{{ route('products.show', 'lush-data-scraper') }}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group/item">
+                                <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors">Lush Data Scraper</h4>
+                                    <p class="text-[11px] text-[#718096] dark:text-[#94A3B8] leading-tight mt-0.5">Quét & phân tích dữ liệu thị trường chuẩn xác</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between text-xs">
+                            <a href="{{ route('products.index') }}" class="text-[#168BD2] font-bold hover:underline flex items-center gap-1">
+                                <span>{{ __('All Products') }}</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                            <span class="text-[11px] text-[#718096]">Sẵn sàng tải về trên Windows, macOS & Web Cloud</span>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="{{ route('solutions.index') }}" class="px-3 py-2 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('solutions.*') ? 'text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:text-[#168BD2] dark:hover:text-[#48B4E5]' }}">
                     {{ __('Solutions') }}
                 </a>
@@ -120,6 +179,13 @@
 
             <!-- Header Right Controls -->
             <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Global Spotlight Search Trigger (Ctrl+K) -->
+                <button type="button" id="spotlight-search-btn" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] hover:text-[#168BD2] hover:border-[#168BD2] transition-colors text-xs" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
+                    <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <span class="hidden md:inline font-normal text-[#172B3A] dark:text-[#E2E8F0]">Tìm kiếm...</span>
+                    <kbd class="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-[#718096] bg-[#F8FAFC] dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] rounded">Ctrl K</kbd>
+                </button>
+
                 <!-- Language Selector Dropdown -->
                 <div class="relative group" x-data="{ open: false }">
                     <button type="button" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2] transition-colors">
@@ -378,6 +444,76 @@
         </div>
     </footer>
 
+    <!-- Global Spotlight / Command Palette Search Modal (Ctrl+K) -->
+    <div id="spotlight-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden transition-opacity duration-200"></div>
+    <div id="spotlight-modal" class="fixed inset-0 z-50 hidden overflow-y-auto flex items-start justify-center p-4 sm:p-6 md:p-20">
+        <div class="relative bg-white dark:bg-[#131D27] rounded-2xl max-w-2xl w-full border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl overflow-hidden transform transition-all duration-200 scale-95 opacity-0 spotlight-box">
+            <!-- Search Input Header -->
+            <div class="flex items-center px-4 py-3.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] gap-3">
+                <svg class="w-5 h-5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="text" id="spotlight-input" placeholder="Tìm kiếm phần mềm, tính năng, bài viết... (Gõ để tìm)" class="flex-1 bg-transparent border-0 text-sm text-[#172B3A] dark:text-white placeholder-[#718096] focus:outline-none focus:ring-0">
+                <kbd class="px-2 py-0.5 text-[11px] font-mono text-[#718096] bg-[#F8FAFC] dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] rounded">ESC</kbd>
+            </div>
+
+            <!-- Search Results Content Area -->
+            <div id="spotlight-results" class="max-h-96 overflow-y-auto p-4 space-y-4">
+                <!-- Default Quick Suggestions -->
+                <div id="spotlight-default-view">
+                    <span class="text-[11px] uppercase font-bold text-[#718096] tracking-wider block mb-2">Gợi ý truy cập nhanh</span>
+                    <div class="space-y-1">
+                        <a href="{{ route('products.show', 'lush-marketing-pro') }}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xs">LM</div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2]">Lush Marketing Pro</h4>
+                                    <p class="text-[11px] text-[#718096]">Tự động hóa tiếp thị & gửi tin nhắn đa luồng</p>
+                                </div>
+                            </div>
+                            <span class="badge-lush text-[10px]">Phổ biến nhất</span>
+                        </a>
+
+                        <a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xs">CR</div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2]">Lush CRM Enterprise</h4>
+                                    <p class="text-[11px] text-[#718096]">Quản trị quan hệ khách hàng và Sales pipeline</p>
+                                </div>
+                            </div>
+                            <span class="badge-lush text-[10px]">Enterprise</span>
+                        </a>
+
+                        <a href="{{ route('pricing.index') }}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-xs">$$</div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2]">Bảng Giá Bản Quyền</h4>
+                                    <p class="text-[11px] text-[#718096]">So sánh chi tiết quyền lợi gói Starter, Pro và Doanh nghiệp</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 text-[#718096]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dynamic Results (Filled by AJAX) -->
+                <div id="spotlight-dynamic-view" class="hidden space-y-4"></div>
+                <div id="spotlight-loading" class="hidden py-8 text-center text-xs text-[#718096]">
+                    <span class="inline-block animate-spin mr-2">⚙</span> Đang tìm kiếm trong hệ sinh thái LushSoftware...
+                </div>
+            </div>
+
+            <!-- Footer Keyboard Hints -->
+            <div class="px-4 py-2.5 bg-[#F8FAFC] dark:bg-[#101923] border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between text-[11px] text-[#718096]">
+                <div class="flex items-center gap-3">
+                    <span><kbd class="px-1.5 py-0.5 bg-white dark:bg-[#1A2634] border rounded text-[10px]">Enter</kbd> để chọn</span>
+                    <span><kbd class="px-1.5 py-0.5 bg-white dark:bg-[#1A2634] border rounded text-[10px]">ESC</kbd> để thoát</span>
+                </div>
+                <span>Hệ sinh thái LushSoftware</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Quick Trial / Consultation Modal -->
     <div id="trial-modal-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden transition-opacity duration-300"></div>
     <div id="trial-modal" class="fixed inset-0 z-50 hidden overflow-y-auto flex items-center justify-center p-4">
@@ -526,6 +662,151 @@
 
             window.openTrialModal = openTrialModal;
             window.closeTrialModal = closeTrialModal;
+
+            // Global Spotlight Search Controller (Ctrl+K)
+            const spotlightBtn = document.getElementById('spotlight-search-btn');
+            const spotlightBackdrop = document.getElementById('spotlight-backdrop');
+            const spotlightModal = document.getElementById('spotlight-modal');
+            const spotlightBox = spotlightModal ? spotlightModal.querySelector('.spotlight-box') : null;
+            const spotlightInput = document.getElementById('spotlight-input');
+            const spotlightDefaultView = document.getElementById('spotlight-default-view');
+            const spotlightDynamicView = document.getElementById('spotlight-dynamic-view');
+            const spotlightLoading = document.getElementById('spotlight-loading');
+            let searchDebounceTimer = null;
+
+            function openSpotlight() {
+                if (!spotlightModal || !spotlightBackdrop) return;
+                spotlightBackdrop.classList.remove('hidden');
+                spotlightModal.classList.remove('hidden');
+                setTimeout(() => {
+                    if (spotlightBox) {
+                        spotlightBox.classList.remove('scale-95', 'opacity-0');
+                        spotlightBox.classList.add('scale-100', 'opacity-100');
+                    }
+                    if (spotlightInput) {
+                        spotlightInput.focus();
+                        spotlightInput.select();
+                    }
+                }, 10);
+            }
+
+            function closeSpotlight() {
+                if (!spotlightModal || !spotlightBackdrop) return;
+                if (spotlightBox) {
+                    spotlightBox.classList.remove('scale-100', 'opacity-100');
+                    spotlightBox.classList.add('scale-95', 'opacity-0');
+                }
+                setTimeout(() => {
+                    spotlightModal.classList.add('hidden');
+                    spotlightBackdrop.classList.add('hidden');
+                }, 150);
+            }
+
+            if (spotlightBtn) spotlightBtn.addEventListener('click', openSpotlight);
+            if (spotlightBackdrop) spotlightBackdrop.addEventListener('click', closeSpotlight);
+
+            // Shortcut listener for Ctrl+K / Cmd+K
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+                    e.preventDefault();
+                    if (spotlightModal && !spotlightModal.classList.contains('hidden')) {
+                        closeSpotlight();
+                    } else {
+                        openSpotlight();
+                    }
+                }
+                if (e.key === 'Escape' && spotlightModal && !spotlightModal.classList.contains('hidden')) {
+                    closeSpotlight();
+                }
+            });
+
+            // Debounced Live Search Fetcher
+            if (spotlightInput) {
+                spotlightInput.addEventListener('input', function() {
+                    const query = this.value.trim();
+                    clearTimeout(searchDebounceTimer);
+
+                    if (query.length === 0) {
+                        spotlightLoading.classList.add('hidden');
+                        spotlightDynamicView.classList.add('hidden');
+                        spotlightDefaultView.classList.remove('hidden');
+                        return;
+                    }
+
+                    spotlightDefaultView.classList.add('hidden');
+                    spotlightLoading.classList.remove('hidden');
+
+                    searchDebounceTimer = setTimeout(async () => {
+                        try {
+                            const res = await fetch(`{{ route('api.search') }}?q=${encodeURIComponent(query)}`);
+                            const data = await res.json();
+                            spotlightLoading.classList.add('hidden');
+                            spotlightDynamicView.classList.remove('hidden');
+
+                            const products = data.data?.products || [];
+                            const articles = data.data?.articles || [];
+
+                            if (products.length === 0 && articles.length === 0) {
+                                spotlightDynamicView.innerHTML = `
+                                    <div class="py-8 text-center text-xs text-[#718096]">
+                                        Không tìm thấy sản phẩm hoặc bài viết phù hợp với "<strong>${query}</strong>".
+                                    </div>
+                                `;
+                                return;
+                            }
+
+                            let html = '';
+                            if (products.length > 0) {
+                                html += `<span class="text-[11px] uppercase font-bold text-[#168BD2] tracking-wider block mb-2">Phần mềm (${products.length})</span>`;
+                                html += `<div class="space-y-1 mb-4">`;
+                                products.forEach(p => {
+                                    html += `
+                                        <a href="${p.url}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xs">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                                </div>
+                                                <div>
+                                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2]">${p.title}</h4>
+                                                    <p class="text-[11px] text-[#718096] truncate max-w-sm">${p.subtitle || ''}</p>
+                                                </div>
+                                            </div>
+                                            <span class="badge-lush text-[10px]">${p.category}</span>
+                                        </a>
+                                    `;
+                                });
+                                html += `</div>`;
+                            }
+
+                            if (articles.length > 0) {
+                                html += `<span class="text-[11px] uppercase font-bold text-[#718096] tracking-wider block mb-2">Bài viết & Cẩm nang (${articles.length})</span>`;
+                                html += `<div class="space-y-1">`;
+                                articles.forEach(a => {
+                                    html += `
+                                        <a href="${a.url}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors group">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-xs">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                                </div>
+                                                <div>
+                                                    <h4 class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2]">${a.title}</h4>
+                                                    <p class="text-[11px] text-[#718096] truncate max-w-sm">${a.subtitle || ''}</p>
+                                                </div>
+                                            </div>
+                                            <span class="text-[10px] text-[#718096]">&rarr;</span>
+                                        </a>
+                                    `;
+                                });
+                                html += `</div>`;
+                            }
+
+                            spotlightDynamicView.innerHTML = html;
+                        } catch (err) {
+                            spotlightLoading.classList.add('hidden');
+                        }
+                    }, 250);
+                });
+            }
         });
     </script>
 

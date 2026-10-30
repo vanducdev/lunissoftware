@@ -7,6 +7,10 @@
 @section('content')
 <article class="py-16 bg-white dark:bg-[#0B1118]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+            <x-breadcrumb :items="[['label' => __('News'), 'url' => route('articles.index')], ['label' => $article->title]]" />
+        </div>
+
         <!-- Post Header -->
         <div class="mb-10 text-center">
             <div class="flex items-center justify-center gap-2 text-xs font-semibold text-[#718096] mb-4">

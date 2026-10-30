@@ -37,9 +37,36 @@ class User extends Authenticatable
         ];
     }
 
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === 'super_admin';
+    }
+
     public function isAdmin(): bool
     {
-        return $this->role === 'admin';
+        return in_array($this->role, ['admin', 'super_admin'], true);
+    }
+
+    public function isEditor(): bool
+    {
+        return in_array($this->role, ['editor', 'admin', 'super_admin'], true);
+    }
+
+    public function isSupport(): bool
+    {
+        return in_array($this->role, ['support', 'admin', 'super_admin'], true);
+    }
+
+    public function hasRole(string|array $roles): bool
+    {
+        $roles = (array) $roles;
+
+        return in_array($this->role, $roles, true);
+    }
+
+    public function canAccessAdmin(): bool
+    {
+        return $this->isActive() && in_array($this->role, ['super_admin', 'admin', 'editor', 'support'], true);
     }
 
     public function isActive(): bool

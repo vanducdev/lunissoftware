@@ -5,7 +5,9 @@
 @section('content')
 <div class="py-12 lg:py-16 bg-white dark:bg-[#0B1118]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header & Breadcrumbs -->
+        <x-breadcrumb :items="[['label' => __('Products')]]" />
+
+        <!-- Header & Title -->
         <div class="text-center max-w-3xl mx-auto mb-12">
             <span class="badge-lush mb-3">{{ __('Products') }}</span>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">

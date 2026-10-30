@@ -194,4 +194,52 @@ class LushWebsiteFeatureTest extends TestCase
         $this->assertStringContainsString('text/xml', (string) $sitemapResponse->headers->get('content-type'));
         $sitemapResponse->assertSee('urlset');
     }
+
+    public function test_security_headers_are_attached_to_responses(): void
+    {
+        $response = $this->get(route('home'));
+        $response->assertStatus(200);
+        $response->assertHeader('X-Content-Type-Options', 'nosniff');
+        $response->assertHeader('X-Frame-Options', 'SAMEORIGIN');
+        $response->assertHeader('X-XSS-Protection', '1; mode=block');
+        $response->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    }
+
+    public function test_live_search_api_returns_json_results(): void
+    {
+        $response = $this->getJson(route('api.search', ['q' => 'Marketing']));
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            'success',
+            'query',
+            'data' => [
+                'products',
+                'articles',
+            ],
+        ]);
+        $response->assertJsonFragment(['title' => 'Lush Marketing Pro']);
+    }
+
+    public function test_contact_form_validates_required_fields(): void
+    {
+        $response = $this->post(route('contact.submit'), []);
+        $response->assertSessionHasErrors(['name', 'email', 'phone']);
+    }
+
+    public function test_admin_can_access_media_library(): void
+    {
+        $admin = User::where('role', 'admin')->first();
+        $this->actingAs($admin)->get(route('admin.media.index'))->assertStatus(200);
+    }
+
+    public function test_rbac_user_roles_evaluation(): void
+    {
+        $admin = User::where('role', 'admin')->first();
+        $this->assertTrue($admin->isAdmin());
+        $this->assertTrue($admin->canAccessAdmin());
+
+        $user = User::where('role', 'user')->first();
+        $this->assertFalse($user->isAdmin());
+        $this->assertFalse($user->canAccessAdmin());
+    }
 }

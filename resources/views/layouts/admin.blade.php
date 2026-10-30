@@ -88,6 +88,11 @@
                     <span>Đối tác chiến lược</span>
                 </a>
 
+                <a href="{{ route('admin.media.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-colors {{ request()->routeIs('admin.media.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#718096] dark:text-[#94A3B8] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] hover:text-[#172B3A] dark:hover:text-white' }}">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Thư viện Tệp tin</span>
+                </a>
+
                 <a href="{{ route('admin.customers.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-colors {{ request()->routeIs('admin.customers.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#718096] dark:text-[#94A3B8] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] hover:text-[#172B3A] dark:hover:text-white' }}">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     <span>Khách hàng & User</span>

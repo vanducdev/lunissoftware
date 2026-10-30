@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ActivityLog;
-use App\Models\ContactMessage;
+use App\Http\Requests\ContactSubmitRequest;
 use App\Models\Product;
 use App\Models\WebsiteSetting;
+use App\Services\ContactService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function __construct(
+        protected ContactService $contactService
+    ) {}
+
     public function about(): View
     {
         $stats = [
@@ -28,7 +32,7 @@ class PageController extends Controller
     public function contact(Request $request): View
     {
         $selectedProduct = $request->query('product');
-        $products = Product::published()->orderBy('order')->get();
+        $products = Product::where('is_active', true)->orderBy('sort_order')->get();
 
         $settings = [
             'hotline' => WebsiteSetting::get('contact_hotline', '1900 886 996'),
@@ -43,21 +47,13 @@ class PageController extends Controller
         return view('pages.contact', compact('products', 'selectedProduct', 'settings'));
     }
 
-    public function submitContact(Request $request): JsonResponse|RedirectResponse
+    public function submitContact(ContactSubmitRequest $request): JsonResponse|RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:30'],
-            'company' => ['nullable', 'string', 'max:255'],
-            'product_interest' => ['nullable', 'string', 'max:255'],
-            'subject' => ['nullable', 'string', 'max:255'],
-            'message' => ['required', 'string', 'max:5000'],
-        ]);
-
-        $message = ContactMessage::create($validated);
-
-        ActivityLog::log('contact_submitted', "Khách hàng {$validated['name']} ({$validated['email']}) đã gửi yêu cầu tư vấn.");
+        $this->contactService->handleSubmission(
+            $request->validated(),
+            $request->ip(),
+            $request->userAgent()
+        );
 
         $successMsg = __('Your message has been sent successfully! Our team will contact you shortly.');
 
@@ -68,7 +64,7 @@ class PageController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', $successMsg);
+        return redirect()->route('contact')->with('success', $successMsg);
     }
 
     public function terms(): View

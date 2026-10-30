@@ -17,7 +17,7 @@ class EnsureUserIsAdmin
             return redirect()->guest(route('login'))->with('error', 'Vui lòng đăng nhập để truy cập trang quản trị.');
         }
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->canAccessAdmin()) {
             abort(403, 'Bạn không có quyền truy cập vào khu vực quản trị.');
         }
 

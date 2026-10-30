@@ -7,12 +7,14 @@ use App\Http\Controllers\Admin\AdminBannerController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminMediaController;
 use App\Http\Controllers\Admin\AdminPartnerController;
 use App\Http\Controllers\Admin\AdminProductCategoryController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminTranslationController;
+use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ProfileController;
@@ -34,6 +36,9 @@ use Illuminate\Support\Facades\Route;
 
 // SEO Sitemap XML
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+// Public Live Search API (Rate-limited)
+Route::middleware('throttle:60,1')->get('api/search', [SearchController::class, 'search'])->name('api.search');
 
 // Localization Switcher
 Route::get('lang/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
@@ -82,10 +87,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('articles', AdminArticleController::class);
     Route::resource('article-categories', AdminArticleCategoryController::class)->except(['create', 'edit', 'show']);
 
-    // Banners, Testimonials, Partners CRUD
+    // Banners, Testimonials, Partners & Media Library CRUD
     Route::resource('banners', AdminBannerController::class);
     Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
     Route::resource('partners', AdminPartnerController::class)->except(['show']);
+    Route::resource('media', AdminMediaController::class)->only(['index', 'store', 'destroy']);
 
     // Customers Management
     Route::get('customers', [AdminCustomerController::class, 'index'])->name('customers.index');

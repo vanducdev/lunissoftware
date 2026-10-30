@@ -12,35 +12,47 @@
     --color-lush-primary: #168BD2;
     --color-lush-hover: #0878BD;
     --color-lush-secondary: #48B4E5;
+    --color-lush-accent: #EAF7FF;
     --color-lush-text: #172B3A;
     --color-lush-muted: #718096;
     --color-lush-border: #E8EDF2;
+    --color-lush-surface: #F8FAFC;
 }
 
 :root {
     --bg-page: #FFFFFF;
     --bg-card: #FFFFFF;
     --bg-header: rgba(255, 255, 255, 0.95);
+    --bg-surface: #F8FAFC;
     --border-color: #E8EDF2;
     --text-primary: #172B3A;
     --text-secondary: #718096;
     --accent-blue: #168BD2;
     --accent-hover: #0878BD;
     --accent-light: #48B4E5;
+    --accent-pale: #EAF7FF;
     --accent-glow: rgba(22, 139, 210, 0.12);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
 }
 
 html.dark {
     --bg-page: #0B1118;
     --bg-card: #131D27;
     --bg-header: rgba(11, 17, 24, 0.95);
+    --bg-surface: #101923;
     --border-color: #1E2D3D;
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
     --accent-blue: #168BD2;
     --accent-hover: #48B4E5;
     --accent-light: #38BDF8;
+    --accent-pale: rgba(22, 139, 210, 0.15);
     --accent-glow: rgba(22, 139, 210, 0.25);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -51,10 +63,16 @@ body {
     overflow-x: hidden;
 }
 
+/* Accessible focus ring across all interactive controls */
+:focus-visible {
+    outline: 2px solid #168BD2;
+    outline-offset: 2px;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
 }
 ::-webkit-scrollbar-track {
     background: transparent;
@@ -67,7 +85,11 @@ html.dark ::-webkit-scrollbar-thumb {
     background: #334155;
 }
 
-/* Button & Card Components */
+/* ========================================================
+   LUSH ENTERPRISE DESIGN SYSTEM COMPONENTS
+   ======================================================== */
+
+/* 1. BUTTON SYSTEM */
 .lush-btn-primary {
     background-color: #168BD2;
     color: #FFFFFF;
@@ -80,6 +102,7 @@ html.dark ::-webkit-scrollbar-thumb {
     gap: 0.5rem;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 8px rgba(22, 139, 210, 0.25);
+    cursor: pointer;
 }
 .lush-btn-primary:hover {
     background-color: #0878BD;
@@ -89,10 +112,16 @@ html.dark ::-webkit-scrollbar-thumb {
 .lush-btn-primary:active {
     transform: translateY(0);
 }
+.lush-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
 
 .lush-btn-secondary {
-    background-color: #FFFFFF;
-    color: #172B3A;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
     border: 1px solid var(--border-color);
     font-weight: 600;
     padding: 0.625rem 1.35rem;
@@ -102,18 +131,36 @@ html.dark ::-webkit-scrollbar-thumb {
     justify-content: center;
     gap: 0.5rem;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-html.dark .lush-btn-secondary {
-    background-color: #131D27;
-    color: #F8FAFC;
-    border-color: #1E2D3D;
+    cursor: pointer;
 }
 .lush-btn-secondary:hover {
     border-color: #168BD2;
     color: #168BD2;
     transform: translateY(-1px);
 }
+.lush-btn-secondary:active {
+    transform: translateY(0);
+}
 
+.lush-btn-ghost {
+    background-color: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.lush-btn-ghost:hover {
+    background-color: var(--bg-surface);
+    color: #168BD2;
+}
+
+/* 2. CARD SYSTEM */
 .lush-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -129,8 +176,36 @@ html.dark .lush-card:hover {
     box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(22, 139, 210, 0.2);
 }
 
+.lush-card-static {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+}
+
+/* 3. INPUT SYSTEM */
+.lush-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.625rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.lush-input:focus {
+    outline: none;
+    border-color: #168BD2;
+    box-shadow: 0 0 0 3px rgba(22, 139, 210, 0.15);
+}
+.lush-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* 4. BADGE SYSTEM */
 .badge-lush {
-    background-color: rgba(22, 139, 210, 0.1);
+    background-color: rgba(22, 139, 210, 0.08);
     color: #168BD2;
     border: 1px solid rgba(22, 139, 210, 0.2);
     font-size: 0.75rem;
@@ -141,8 +216,59 @@ html.dark .lush-card:hover {
     align-items: center;
     gap: 0.35rem;
 }
+.badge-success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
 
-/* Page loading bar */
+/* 5. TABLE SYSTEM */
+.lush-table {
+    width: 100%;
+    text-align: left;
+    font-size: 0.8125rem;
+    border-collapse: collapse;
+}
+.lush-table thead tr {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+.lush-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.15s ease;
+}
+.lush-table tbody tr:hover {
+    background-color: var(--bg-surface);
+}
+
+/* 6. SKELETON SHIMMER */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.skeleton {
+    background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+html.dark .skeleton {
+    background: linear-gradient(90deg, #1A2634 25%, #243447 50%, #1A2634 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* 7. PAGE PROGRESS BAR */
 #page-progress-bar {
     position: fixed;
     top: 0;
@@ -152,4 +278,14 @@ html.dark .lush-card:hover {
     z-index: 9999;
     transition: width 0.3s ease, opacity 0.3s ease;
     width: 0%;
+}
+
+/* 8. PREFERS REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
