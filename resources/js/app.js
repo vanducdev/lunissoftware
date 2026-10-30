@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
 
-    // Sticky Header Shadow on Scroll
-    const header = document.getElementById('main-header');
-    if (header) {
+    // Floating Island Capsule Glow on Scroll
+    const navCapsule = document.getElementById('nav-capsule');
+    if (navCapsule) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('shadow-sm', 'border-b');
+            if (window.scrollY > 15) {
+                navCapsule.classList.add('shadow-[0_16px_45px_-5px_rgba(22,139,210,0.16)]', 'border-[#168BD2]/30');
             } else {
-                header.classList.remove('shadow-sm');
+                navCapsule.classList.remove('shadow-[0_16px_45px_-5px_rgba(22,139,210,0.16)]', 'border-[#168BD2]/30');
             }
         });
     }
