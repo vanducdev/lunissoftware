@@ -389,35 +389,55 @@
         </div>
     </section>
 
-    <!-- 5.3. Danh mục & Hệ sinh thái sản phẩm -->
-    <section class="py-20 lg:py-28 bg-white dark:bg-[#0B1118]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 5.3. Danh mục & Hệ sinh thái sản phẩm (Masterpiece 3D Grid) -->
+    <section class="relative py-20 lg:py-28 bg-white dark:bg-[#0B1118] overflow-hidden">
+        <!-- Ambient radial glow behind products -->
+        <div class="absolute top-0 right-1/3 w-96 h-96 bg-[#168BD2]/6 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-[#48B4E5]/6 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="badge-lush mb-3">{{ __('Ecosystem Products') }}</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
-                    Hệ Sinh Thái Phần Mềm LushSoftware
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#168BD2]/10 border border-[#168BD2]/20 text-[#168BD2] text-xs font-bold tracking-wide uppercase mb-3">
+                    <span class="w-2 h-2 rounded-full bg-[#168BD2] animate-ping"></span>
+                    HỆ SINH THÁI BẢN QUYỀN 2026
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                    Giải Pháp Phần Mềm <br class="hidden sm:inline" />
+                    <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent">
+                        Đột Phá Doanh Số
+                    </span>
+                    Toàn Diện
                 </h2>
-                <p class="text-[#718096] dark:text-[#94A3B8] mt-4 text-base">
-                    Mỗi sản phẩm đều được thiết kế chuyên sâu để giải quyết triệt để từng bài toán tăng trưởng: từ thu hút khách hàng tiềm năng đến quản trị bán hàng và dữ liệu thị trường.
+                <p class="text-[#718096] dark:text-[#94A3B8] mt-4 text-base leading-relaxed">
+                    Mỗi giải pháp được thiết kế chuyên sâu giải quyết triệt để từng nút thắt tăng trưởng: từ tự động hóa tiếp thị, quản trị hàng nghìn tài khoản đến chuyển đổi phễu bán hàng.
                 </p>
             </div>
 
-            <!-- Product Grid -->
+            <!-- Product Grid with Luxury 3D Presentation -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($featuredProducts as $idx => $product)
-                    <div class="lush-card overflow-hidden flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#168BD2]/15 transition-all duration-300 border border-[#E8EDF2] dark:border-[#1E2D3D]" data-aos="fade-up" data-aos-delay="{{ $idx * 80 }}">
+                    <div class="lush-card-vip flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="{{ $idx * 80 }}">
                         <div>
-                            <!-- Top Mockup Image Container (MKT Style Boxshot) -->
-                            <div class="relative w-full h-64 sm:h-72 bg-gradient-to-tr from-[#F8FAFC] via-[#F0F6FB] to-[#E8F3FA] dark:from-[#0D151F] dark:via-[#111A24] dark:to-[#162230] p-6 flex items-center justify-center overflow-hidden border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
+                            <!-- Top 3D Boxshot Stage -->
+                            <div class="relative w-full h-64 sm:h-72 bg-gradient-to-tr from-[#F8FAFC] via-[#F0F6FB] to-[#EAF5FC] dark:from-[#0D151F] dark:via-[#111A24] dark:to-[#162230] p-6 flex items-center justify-center overflow-hidden border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
                                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#168BD2]/5 to-transparent group-hover:via-[#168BD2]/15 transition-all duration-500"></div>
+
+                                <!-- Floating Badge -->
+                                <div class="absolute top-3.5 left-3.5 z-20">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 dark:bg-[#111A24]/90 text-[#172B3A] dark:text-white border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs backdrop-blur-md">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        Bản Quyền 2026
+                                    </span>
+                                </div>
 
                                 @if($product->banner_url)
                                     <a href="{{ route('products.show', $product->slug) }}" class="relative z-10 w-full h-full flex items-center justify-center">
-                                        <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="max-h-full max-w-full object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-xl">
+                                        <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="max-h-full max-w-full object-contain transform group-hover:scale-108 group-hover:-translate-y-2 transition-all duration-500 drop-shadow-[0_15px_25px_rgba(22,139,210,0.22)]">
                                     </a>
                                 @else
                                     <div class="relative z-10 flex flex-col items-center justify-center">
-                                        <x-product-icon :slug="$product->slug" size="xl" class="group-hover:scale-110 transition-transform duration-500 shadow-xl" />
+                                        <x-product-icon :slug="$product->slug" size="xl" class="group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-500 shadow-xl" />
                                     </div>
                                 @endif
                             </div>
@@ -437,18 +457,18 @@
                                 <div class="flex items-start gap-3 mb-2.5">
                                     <div class="shrink-0 mt-0.5">
                                         @if($product->logo_url)
-                                            <img src="{{ $product->logo_url }}" alt="{{ $product->name }}" class="w-9 h-9 rounded-xl object-contain border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs">
+                                            <img src="{{ $product->logo_url }}" alt="{{ $product->name }}" class="w-10 h-10 rounded-xl object-contain border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs group-hover:scale-105 transition-transform">
                                         @else
                                             <x-product-icon :slug="$product->slug" size="sm" />
                                         @endif
                                     </div>
                                     <div>
-                                        <h3 class="text-lg font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors leading-snug">
+                                        <h3 class="text-lg font-black text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors leading-snug">
                                             <a href="{{ route('products.show', $product->slug) }}">
                                                 {{ $product->trans('name') }}
                                             </a>
                                         </h3>
-                                        <p class="text-xs font-semibold text-[#168BD2] mt-0.5 line-clamp-1">
+                                        <p class="text-xs font-bold text-[#168BD2] mt-0.5 line-clamp-1">
                                             {{ $product->trans('tagline') }}
                                         </p>
                                     </div>
@@ -477,12 +497,12 @@
                         <!-- Card Action Buttons -->
                         <div class="p-6 pt-0">
                             <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-2.5">
-                                <a href="{{ route('products.show', $product->slug) }}" class="lush-btn-primary flex-1 !text-xs !py-2.5 !justify-center shadow-md shadow-[#168BD2]/20">
+                                <a href="{{ route('products.show', $product->slug) }}" class="lush-btn-primary flex-1 !text-xs !py-2.5 !justify-center shadow-md shadow-[#168BD2]/20 font-bold group-hover:shadow-lg transition-all">
                                     <span>{{ __('View Details') }}</span>
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                    <svg class="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                                 </a>
-                                <a href="{{ route('contact', ['product' => $product->slug]) }}" data-open-trial="{{ $product->name }}" class="lush-btn-secondary !text-xs !py-2.5 !px-3" title="Đăng ký trải nghiệm">
-                                    <svg class="w-4 h-4 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <a href="{{ route('contact', ['product' => $product->slug]) }}" data-open-trial="{{ $product->name }}" class="lush-btn-secondary !text-xs !py-2.5 !px-3.5 font-bold" title="Đăng ký trải nghiệm">
+                                    <svg class="w-3.5 h-3.5 text-[#168BD2] mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                     <span>{{ __('Try Now') }}</span>
                                 </a>
                             </div>
@@ -491,134 +511,235 @@
                 @endforeach
             </div>
 
-            <div class="text-center mt-12">
-                <a href="{{ route('products.index') }}" class="lush-btn-secondary !py-3 !px-8 text-sm font-bold">
-                    {{ __('All Products') }} &rarr;
+            <div class="text-center mt-14" data-aos="fade-up">
+                <a href="{{ route('products.index') }}" class="lush-btn-secondary !py-3.5 !px-8 text-sm font-bold shadow-sm hover:shadow-md transition-all group">
+                    <span>Xem Tất Cả Giải Pháp (12+ Phần Mềm)</span>
+                    <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 5.4. Giải pháp công nghệ -->
-    <section class="py-20 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 5.4. Giải pháp công nghệ (Interactive Bento Architecture) -->
+    <section class="relative py-20 lg:py-28 bg-[#F8FAFC]/90 dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D] overflow-hidden">
+        <!-- Subtle background glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(22,139,210,0.06),transparent)] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <span class="badge-lush mb-3">{{ __('Our Technology Solutions') }}</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
-                    Giải Pháp Công Nghệ Cho Doanh Nghiệp Thời Đại Số
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                    Giải Pháp Công Nghệ Cho <br class="hidden sm:inline" />
+                    <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent">
+                        Doanh Nghiệp Thời Đại Số
+                    </span>
                 </h2>
-                <p class="text-[#718096] dark:text-[#94A3B8] mt-4 text-base">
-                    Chúng tôi giúp bạn số hóa quy trình kinh doanh, tối đa hóa chuyển đổi và giải phóng sức lao động của đội ngũ.
+                <p class="text-[#718096] dark:text-[#94A3B8] mt-4 text-base leading-relaxed">
+                    Chúng tôi giúp bạn số hóa quy trình kinh doanh, tối đa hóa chuyển đổi và giải phóng 90% sức lao động lặp lại của đội ngũ.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Solution 1 -->
-                <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="50">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white shadow-lg shadow-[#168BD2]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                <div class="lush-card-vip p-6 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white shadow-lg shadow-[#168BD2]/25 ring-1 ring-white/20 flex items-center justify-center font-bold group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-[#168BD2] bg-[#168BD2]/10 border border-[#168BD2]/20 px-2.5 py-1 rounded-full">
+                                45k lead/ngày
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-black text-[#172B3A] dark:text-white mb-2 group-hover:text-[#168BD2] transition-colors">
+                            Tự Động Hóa Tiếp Thị
+                        </h3>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">
+                            Tiếp cận đúng khách hàng tiềm năng qua Email, SMS và Zalo với kịch bản cá nhân hóa tự động theo phễu.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Tự Động Hóa Tiếp Thị</h3>
-                    <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Tiếp cận đúng khách hàng tiềm năng qua Email, SMS và Zalo với kịch bản cá nhân hóa tự động.</p>
-                </div>
-
-                <!-- Solution 2 -->
-                <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#059669] to-[#0D9488] text-white shadow-lg shadow-[#059669]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Quản Trị Bán Hàng CRM</h3>
-                    <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Theo dõi chi tiết phễu khách hàng, tự động chia lead và kiểm soát doanh thu từng nhân sự theo thời gian thực.</p>
-                </div>
-
-                <!-- Solution 3 -->
-                <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="150">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] text-white shadow-lg shadow-[#8B5CF6]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Hội Tụ Đa Kênh Chat</h3>
-                    <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Gom toàn bộ tin nhắn từ Fanpage, TikTok và Website về một màn hình duy nhất, trả lời tức thì.</p>
-                </div>
-
-                <!-- Solution 4 -->
-                <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0284C7] to-[#0369A1] text-white shadow-lg shadow-[#0284C7]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Dữ Liệu & Insight Thị Trường</h3>
-                    <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Thu thập và phân tích dữ liệu ngành, đối thủ để đưa ra các quyết định kinh doanh chuẩn xác.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5.5. Vì sao chọn LushSoftware -->
-    <section class="py-20 lg:py-28 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5" data-aos="fade-right">
-                    <span class="badge-lush mb-3">{{ __('Why Choose LushSoftware') }}</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#172B3A] dark:text-white tracking-tight leading-tight">
-                        Đối Tác Công Nghệ Đáng Tin Cậy Của Doanh Nghiệp
-                    </h2>
-                    <p class="text-[#718096] dark:text-[#94A3B8] mt-4 text-base leading-relaxed">
-                        Khác biệt với các công cụ chắp vá trên thị trường, LushSoftware đem lại một nền tảng đồng bộ, ổn định và tối ưu toàn diện theo tiêu chuẩn quốc tế.
-                    </p>
-                    <div class="pt-6">
-                        <a href="{{ route('about') }}" class="lush-btn-primary !py-3 !px-6 text-sm">
-                            <span>Khám phá tầm nhìn LushSoftware</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <div class="pt-5 mt-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+                        <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#168BD2] group-hover:translate-x-1 transition-transform">
+                            <span>Khám phá giải pháp</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
-                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#168BD2]/30 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#48B4E5] text-white shadow-md shadow-[#168BD2]/25 flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <!-- Solution 2 -->
+                <div class="lush-card-vip p-6 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#059669] to-[#0D9488] text-white shadow-lg shadow-[#059669]/25 ring-1 ring-white/20 flex items-center justify-center font-bold group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+                                Tăng 3.5x Deal
+                            </span>
                         </div>
-                        <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Tốc Độ Xử Lý Tối Ưu</h4>
-                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Cấu trúc hạ tầng điện toán đám mây phân tán cho độ trễ dưới 50ms ở mọi tác vụ.</p>
+                        <h3 class="text-lg font-black text-[#172B3A] dark:text-white mb-2 group-hover:text-emerald-600 transition-colors">
+                            Quản Trị Bán Hàng CRM
+                        </h3>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">
+                            Theo dõi chi tiết phễu khách hàng, tự động chia lead và kiểm soát doanh thu từng nhân sự theo thời gian thực.
+                        </p>
                     </div>
-
-                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#059669]/30 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#059669] to-[#10B981] text-white shadow-md shadow-[#059669]/25 flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Bảo Mật Tiêu Chuẩn Cao</h4>
-                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Mã hóa đa tầng và sao lưu dữ liệu tự động hàng ngày đảm bảo dữ liệu luôn an toàn.</p>
+                    <div class="pt-5 mt-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+                        <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 group-hover:translate-x-1 transition-transform">
+                            <span>Khám phá giải pháp</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
+                </div>
 
-                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#6366F1]/30 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] text-white shadow-md shadow-[#6366F1]/25 flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                <!-- Solution 3 -->
+                <div class="lush-card-vip p-6 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] text-white shadow-lg shadow-[#8B5CF6]/25 ring-1 ring-white/20 flex items-center justify-center font-bold group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-purple-600 bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 rounded-full">
+                                0s Trễ Tin
+                            </span>
                         </div>
-                        <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Cập Nhật Liên Tục</h4>
-                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Luôn nâng cấp và thích ứng theo các thay đổi thuật toán của Facebook, TikTok, Google.</p>
+                        <h3 class="text-lg font-black text-[#172B3A] dark:text-white mb-2 group-hover:text-purple-600 transition-colors">
+                            Hội Tụ Đa Kênh Chat
+                        </h3>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">
+                            Gom toàn bộ tin nhắn từ Fanpage, TikTok và Website về một màn hình duy nhất, trả lời tức thì bằng AI Chatbot.
+                        </p>
                     </div>
+                    <div class="pt-5 mt-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+                        <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-purple-600 group-hover:translate-x-1 transition-transform">
+                            <span>Khám phá giải pháp</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
 
-                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#EA580C]/30 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#EA580C] to-[#F59E0B] text-white shadow-md shadow-[#EA580C]/25 flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <!-- Solution 4 -->
+                <div class="lush-card-vip p-6 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0284C7] to-[#0369A1] text-white shadow-lg shadow-[#0284C7]/25 ring-1 ring-white/20 flex items-center justify-center font-bold group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-sky-600 bg-sky-500/10 border border-sky-500/20 px-2.5 py-1 rounded-full">
+                                AI Insights
+                            </span>
                         </div>
-                        <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Chăm Sóc Tận Tâm 24/7</h4>
-                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Đội ngũ kỹ sư và chuyên viên tư vấn hỗ trợ từ xa qua Ultraview, Zalo và Hotline.</p>
+                        <h3 class="text-lg font-black text-[#172B3A] dark:text-white mb-2 group-hover:text-sky-600 transition-colors">
+                            Dữ Liệu &amp; Insight Thị Trường
+                        </h3>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">
+                            Thu thập và phân tích dữ liệu ngành, đối thủ để đưa ra các quyết định kinh doanh chuẩn xác và kịp thời.
+                        </p>
+                    </div>
+                    <div class="pt-5 mt-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+                        <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 group-hover:translate-x-1 transition-transform">
+                            <span>Khám phá giải pháp</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5.7. Đánh giá khách hàng & Đối tác -->
-    <section class="py-20 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 5.5. Vì sao chọn LushSoftware (Enterprise Proof Showcase) -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <div class="lg:col-span-5 space-y-6" data-aos="fade-right">
+                    <span class="badge-lush">{{ __('Why Choose LushSoftware') }}</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                        Đối Tác Công Nghệ <br />
+                        <span class="bg-gradient-to-r from-[#168BD2] to-[#48B4E5] bg-clip-text text-transparent">
+                            Đáng Tin Cậy
+                        </span>
+                        Của Doanh Nghiệp
+                    </h2>
+                    <p class="text-[#718096] dark:text-[#94A3B8] text-base leading-relaxed">
+                        Khác biệt với các công cụ rời rạc trên thị trường, LushSoftware đem lại một nền tảng đồng bộ, ổn định và tối ưu toàn diện theo tiêu chuẩn quốc tế.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-3 text-sm text-[#172B3A] dark:text-[#E2E8F0] font-semibold">
+                            <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span>Cam kết Uptime SLA 99.99% Cloud Phân Tán</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-[#172B3A] dark:text-[#E2E8F0] font-semibold">
+                            <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span>Hỗ trợ kỹ thuật 24/7 trực tiếp qua Ultraview / Zalo</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-[#172B3A] dark:text-[#E2E8F0] font-semibold">
+                            <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span>Cập nhật liên tục theo thuật toán Meta, TikTok mới nhất</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="{{ route('about') }}" class="lush-btn-primary lush-btn-vip !py-3.5 !px-8 text-sm font-bold shadow-lg shadow-[#168BD2]/25 group">
+                            <span>Khám Phá Tầm Nhìn LushSoftware</span>
+                            <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5" data-aos="fade-left">
+                    <div class="lush-card-vip p-6 group">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#168BD2] to-[#48B4E5] text-white shadow-md shadow-[#168BD2]/25 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h4 class="font-black text-base text-[#172B3A] dark:text-white mb-2 group-hover:text-[#168BD2] transition-colors">Tốc Độ Xử Lý Tối Ưu</h4>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Cấu trúc hạ tầng điện toán đám mây phân tán cho độ trễ dưới 45ms ở mọi tác vụ đa luồng.</p>
+                    </div>
+
+                    <div class="lush-card-vip p-6 group">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#059669] to-[#10B981] text-white shadow-md shadow-[#059669]/25 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h4 class="font-black text-base text-[#172B3A] dark:text-white mb-2 group-hover:text-emerald-600 transition-colors">Bảo Mật Tiêu Chuẩn Cao</h4>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Mã hóa đa tầng và sao lưu dữ liệu tự động hàng ngày đảm bảo tài sản số luôn an toàn tuyệt đối.</p>
+                    </div>
+
+                    <div class="lush-card-vip p-6 group">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] text-white shadow-md shadow-[#6366F1]/25 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <h4 class="font-black text-base text-[#172B3A] dark:text-white mb-2 group-hover:text-indigo-600 transition-colors">Cập Nhật Thuật Toán Liên Tục</h4>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Luôn nâng cấp và thích ứng tự động theo các thay đổi thuật toán của Facebook, TikTok, Google.</p>
+                    </div>
+
+                    <div class="lush-card-vip p-6 group">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EA580C] to-[#F59E0B] text-white shadow-md shadow-[#EA580C]/25 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        </div>
+                        <h4 class="font-black text-base text-[#172B3A] dark:text-white mb-2 group-hover:text-amber-600 transition-colors">Chăm Sóc Kỹ Thuật 24/7</h4>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Đội ngũ kỹ sư và chuyên viên tư vấn hỗ trợ cài đặt từ xa qua Ultraview, Zalo và Hotline chỉ sau 15 phút.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.7. Đánh giá khách hàng & Đối tác (Interactive Slider) -->
+    <section class="py-20 lg:py-28 bg-[#F8FAFC]/90 dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <span class="badge-lush mb-3">{{ __('Customer Testimonials') }}</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
-                    Khách Hàng Nói Gì Về Chúng Tôi
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight">
+                    Khách Hàng Nói Gì Về <span class="bg-gradient-to-r from-[#168BD2] to-[#48B4E5] bg-clip-text text-transparent">LushSoftware</span>
                 </h2>
                 <p class="text-[#718096] dark:text-[#94A3B8] mt-4 text-base">
-                    Sự hài lòng và tăng trưởng doanh số của khách hàng là thước đo thành công lớn nhất của LushSoftware.
+                    Sự hài lòng và tăng trưởng doanh số thực tế của khách hàng là bảo chứng vàng cho chất lượng của LushSoftware.
                 </p>
             </div>
 
@@ -627,25 +748,31 @@
                 <div class="swiper-wrapper">
                     @foreach($testimonials as $testi)
                         <div class="swiper-slide h-auto">
-                            <div class="lush-card p-6 h-full flex flex-col justify-between">
+                            <div class="lush-card-vip p-7 h-full flex flex-col justify-between">
                                 <div>
-                                    <!-- Star rating -->
-                                    <div class="flex items-center gap-1 text-amber-400 mb-4">
-                                        @for($i = 0; $i < $testi->rating; $i++)
-                                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                        @endfor
+                                    <!-- Star rating & Verified badge -->
+                                    <div class="flex items-center justify-between mb-5">
+                                        <div class="flex items-center gap-1 text-amber-400">
+                                            @for($i = 0; $i < $testi->rating; $i++)
+                                                <svg class="w-4 h-4 fill-current drop-shadow-xs" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                            @endfor
+                                        </div>
+                                        <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                                            <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                            Khách Hàng Thật
+                                        </span>
                                     </div>
-                                    <p class="text-sm text-[#172B3A] dark:text-[#E2E8F0] italic leading-relaxed mb-6">
+                                    <p class="text-sm text-[#172B3A] dark:text-[#E2E8F0] leading-relaxed mb-6 font-medium">
                                         "{{ $testi->content }}"
                                     </p>
                                 </div>
-                                <div class="flex items-center gap-3 pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                    <div class="w-10 h-10 rounded-full bg-[#168BD2] text-white font-bold flex items-center justify-center text-sm">
+                                <div class="flex items-center gap-3.5 pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white font-black flex items-center justify-center text-sm shadow-sm ring-2 ring-white dark:ring-[#111A24]">
                                         {{ mb_substr($testi->name, 0, 1) }}
                                     </div>
                                     <div>
                                         <p class="text-sm font-bold text-[#172B3A] dark:text-white">{{ $testi->name }}</p>
-                                        <p class="text-xs text-[#718096] dark:text-[#94A3B8]">{{ $testi->position }} - {{ $testi->company }}</p>
+                                        <p class="text-xs text-[#718096] dark:text-[#94A3B8]">{{ $testi->position }} • {{ $testi->company }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -655,13 +782,15 @@
                 <div class="swiper-pagination"></div>
             </div>
 
-            <!-- Partners Logo Row -->
-            <div class="pt-12 border-t border-[#E8EDF2] dark:border-[#1E2D3D]" data-aos="fade-up">
-                <p class="text-center text-xs uppercase font-bold text-[#718096] tracking-wider mb-8">{{ __('Trusted By Businesses') }}</p>
-                <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
+            <!-- Partners Logo Row (Enterprise Badges) -->
+            <div class="pt-14 border-t border-[#E8EDF2] dark:border-[#1E2D3D]" data-aos="fade-up">
+                <p class="text-center text-xs uppercase font-black text-[#718096] dark:text-[#94A3B8] tracking-widest mb-8">
+                    ĐỒNG HÀNH CÙNG HƠN 15,000+ DOANH NGHIỆP TRÊN TOÀN QUỐC
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
                     @foreach($partners as $partner)
-                        <div class="flex items-center gap-2 font-bold text-lg text-[#718096] dark:text-[#94A3B8]">
-                            <span class="w-2.5 h-2.5 rounded-full bg-[#168BD2]"></span>
+                        <div class="px-5 py-2.5 rounded-2xl bg-white dark:bg-[#111A24] border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs flex items-center gap-2.5 font-bold text-sm text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2]/40 hover:shadow-md transition-all">
+                            <span class="w-2 h-2 rounded-full bg-[#168BD2]"></span>
                             <span>{{ $partner->name }}</span>
                         </div>
                     @endforeach
@@ -670,43 +799,45 @@
         </div>
     </section>
 
-    <!-- 5.8. Tin tức mới nhất -->
+    <!-- 5.8. Tin tức mới nhất (Tech Insights) -->
     <section class="py-20 lg:py-28 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between mb-14" data-aos="fade-up">
                 <div>
                     <span class="badge-lush mb-3">{{ __('Latest News & Insights') }}</span>
-                    <h2 class="text-3xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
-                        Kiến Thức & Tin Tức Công Nghệ
+                    <h2 class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight">
+                        Kiến Thức &amp; <span class="bg-gradient-to-r from-[#168BD2] to-[#48B4E5] bg-clip-text text-transparent">Tin Tức Công Nghệ</span>
                     </h2>
                 </div>
-                <a href="{{ route('articles.index') }}" class="mt-4 md:mt-0 text-sm font-bold text-[#168BD2] hover:underline flex items-center gap-1">
+                <a href="{{ route('articles.index') }}" class="mt-4 md:mt-0 text-sm font-bold text-[#168BD2] hover:underline flex items-center gap-1 group">
                     <span>Xem tất cả bài viết</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach($latestArticles as $article)
-                    <article class="lush-card overflow-hidden flex flex-col justify-between" data-aos="fade-up">
+                    <article class="lush-card-vip flex flex-col justify-between group" data-aos="fade-up">
                         <div class="p-6">
-                            <div class="flex items-center gap-2 text-xs text-[#718096] mb-3">
-                                <span class="text-[#168BD2] font-semibold">{{ $article->category->name ?? 'Công nghệ' }}</span>
-                                <span>•</span>
-                                <span>{{ $article->published_at ? $article->published_at->format('d/m/Y') : $article->created_at->format('d/m/Y') }}</span>
+                            <div class="flex items-center justify-between text-xs text-[#718096] dark:text-[#94A3B8] mb-3">
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#168BD2] bg-[#168BD2]/10 border border-[#168BD2]/20">{{ $article->category->name ?? 'Công nghệ' }}</span>
+                                <span class="font-mono text-[11px]">{{ $article->published_at ? $article->published_at->format('d/m/Y') : $article->created_at->format('d/m/Y') }}</span>
                             </div>
-                            <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-3 hover:text-[#168BD2] transition-colors leading-snug">
+                            <h3 class="text-base font-black text-[#172B3A] dark:text-white mb-2.5 group-hover:text-[#168BD2] transition-colors leading-snug">
                                 <a href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
                             </h3>
                             <p class="text-xs text-[#718096] dark:text-[#94A3B8] line-clamp-3 leading-relaxed">
                                 {{ $article->excerpt }}
                             </p>
                         </div>
-                        <div class="px-6 pb-6 pt-2">
-                            <a href="{{ route('articles.show', $article->slug) }}" class="text-xs font-bold text-[#168BD2] hover:underline flex items-center gap-1">
-                                <span>{{ __('Read More') }}</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </a>
+                        <div class="px-6 pb-6 pt-0">
+                            <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between">
+                                <a href="{{ route('articles.show', $article->slug) }}" class="text-xs font-bold text-[#168BD2] hover:underline flex items-center gap-1">
+                                    <span>{{ __('Read More') }}</span>
+                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                                <span class="text-[10px] text-[#718096] dark:text-[#94A3B8] font-medium">4 phút đọc</span>
+                            </div>
                         </div>
                     </article>
                 @endforeach
@@ -714,24 +845,55 @@
         </div>
     </section>
 
-    <!-- 5.9. High-converting CTA -->
-    <section class="py-20 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+    <!-- 5.9. High-converting CTA (Grand Finale Luxury SaaS Banner) -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D] relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-[#131D27] rounded-3xl border border-[#168BD2]/30 shadow-xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden" data-aos="zoom-in">
+            <div class="relative rounded-3xl bg-gradient-to-br from-[#F8FAFC] via-[#F0F7FC] to-[#E9F5FD] dark:from-[#111A24] dark:via-[#142230] dark:to-[#172A3C] border border-[#168BD2]/30 shadow-2xl shadow-[#168BD2]/10 p-8 sm:p-14 lg:p-20 text-center overflow-hidden" data-aos="zoom-in">
+                <!-- Radiant Ambient Spotlight & Dot Pattern -->
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-15%,rgba(22,139,210,0.18),transparent)] pointer-events-none"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
+
                 <div class="max-w-3xl mx-auto relative z-10 space-y-6">
-                    <span class="badge-lush">SẴN SÀNG BỨT PHÁ DOANH SỐ?</span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
-                        Tăng Tốc Tăng Trưởng Doanh Nghiệp Cùng LushSoftware
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#168BD2]/10 border border-[#168BD2]/25 text-[#168BD2] text-xs font-black tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-[#168BD2] animate-ping"></span>
+                        SẴN SÀNG BỨT PHÁ DOANH SỐ?
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                        Tăng Tốc Tăng Trưởng Cùng <br />
+                        <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent">
+                            LushSoftware Ecosystem
+                        </span>
                     </h2>
-                    <p class="text-base sm:text-lg text-[#718096] dark:text-[#94A3B8] leading-relaxed">
-                        Đăng ký nhận tư vấn lộ trình tự động hóa chuyên biệt cho ngành hàng của bạn. Đội ngũ chuyên gia LushSoftware sẽ liên hệ trong vòng 15 phút.
+
+                    <p class="text-base sm:text-lg text-[#5A6E85] dark:text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
+                        Đăng ký nhận tư vấn lộ trình tự động hóa chuyên biệt cho ngành hàng của bạn. Đội ngũ chuyên gia LushSoftware sẽ liên hệ trực tiếp trong vòng 15 phút.
                     </p>
+
+                    <!-- Trust indicators inside CTA -->
+                    <div class="flex flex-wrap items-center justify-center gap-5 text-xs text-[#172B3A] dark:text-[#E2E8F0] font-semibold pt-1">
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <span>Dùng thử miễn phí 7 ngày</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <span>Triển khai sau 5 phút</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <span>Hỗ trợ kỹ thuật 24/7 Ultraview</span>
+                        </div>
+                    </div>
+
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                        <a href="{{ route('contact') }}" class="lush-btn-primary w-full sm:w-auto text-base !py-3.5 !px-8 shadow-lg shadow-[#168BD2]/30">
-                            {{ __('Get Free Consultation') }}
+                        <a href="{{ route('contact') }}" class="lush-btn-primary lush-btn-vip w-full sm:w-auto text-base !py-4 !px-9 shadow-xl shadow-[#168BD2]/30 font-bold group">
+                            <span class="text-amber-300 mr-1.5">✦</span>
+                            <span>{{ __('Get Free Consultation') }}</span>
+                            <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
-                        <a href="tel:{{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}" class="lush-btn-secondary w-full sm:w-auto text-base !py-3.5 !px-8">
-                            <svg class="w-4 h-4 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        <a href="tel:{{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}" class="lush-btn-secondary w-full sm:w-auto text-base !py-4 !px-8 backdrop-blur-md font-bold group">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse mr-2"></span>
                             <span>Hotline: {{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}</span>
                         </a>
                     </div>

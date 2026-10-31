@@ -356,6 +356,39 @@ html.dark .skeleton {
     transform: rotateY(0deg) rotateX(0deg) translateY(-4px) translateZ(8px);
 }
 
+/* Card Hover Glow & Luxury Shimmer */
+.lush-card-vip {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    border: 1px solid #E8EDF2;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+html.dark .lush-card-vip {
+    background: #111A24;
+    border-color: #1E2D3D;
+}
+.lush-card-vip:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px -15px rgba(22, 139, 210, 0.16), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(22, 139, 210, 0.45);
+}
+.lush-card-vip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #168BD2, #48B4E5, transparent);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.lush-card-vip:hover::after {
+    opacity: 1;
+}
+
 /* 9. PREFERS REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
