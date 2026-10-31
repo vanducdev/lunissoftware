@@ -250,36 +250,80 @@
 
                 <!-- Language Selector Dropdown -->
                 <div class="relative group" x-data="{ open: false }">
-                    <button type="button" class="h-9 px-2.5 sm:px-3 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#141E28] text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2] transition-all flex items-center gap-1.5 shadow-2xs">
-                        <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span class="uppercase tracking-wider text-[11px] font-extrabold">{{ app()->getLocale() }}</span>
-                        <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <button type="button" class="h-9 px-2.5 sm:px-3 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#141E28] text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2] transition-all flex items-center gap-2 shadow-2xs cursor-pointer" title="{{ __('Language') }}">
+                        <x-flag :country="app()->getLocale()" class="w-5 h-3.5" />
+                        <span class="uppercase tracking-wider text-[11px] font-black text-[#172B3A] dark:text-white">{{ app()->getLocale() }}</span>
+                        <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Dropdown Menu -->
-                    <div class="absolute right-0 top-full pt-2 w-40 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-                        <div class="py-1.5 bg-white/98 dark:bg-[#131D27]/98 backdrop-blur-2xl rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.12)] border border-[#E8EDF2] dark:border-[#1E2D3D]">
-                            <a href="{{ route('locale.switch', 'vi') }}" class="flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'vi' ? 'text-[#168BD2] font-bold bg-[#168BD2]/10' : '' }}">
-                                <span class="flex items-center gap-2"><span>🇻🇳</span> <span>Tiếng Việt</span></span>
+                    <div class="absolute right-0 top-full pt-2 w-56 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div class="p-1.5 bg-white/98 dark:bg-[#131D27]/98 backdrop-blur-2xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-[#E8EDF2] dark:border-[#1E2D3D]">
+                            <div class="px-3 py-1.5 text-[10px] uppercase font-black tracking-wider text-[#718096] dark:text-[#94A3B8] border-b border-[#E8EDF2]/80 dark:border-[#1E2D3D]/80 mb-1 flex items-center justify-between">
+                                <span>{{ __('Language') }}</span>
+                                <span class="text-[9px] font-bold text-[#168BD2]">4 REGIONS</span>
+                            </div>
+
+                            <!-- Vietnamese -->
+                            <a href="{{ route('locale.switch', 'vi') }}" class="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all group/lang {{ app()->getLocale() === 'vi' ? 'bg-[#168BD2]/10 text-[#168BD2] font-bold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]' }}">
+                                <div class="flex items-center gap-2.5">
+                                    <x-flag country="vi" class="w-5 h-3.5 group-hover/lang:scale-110 transition-transform" />
+                                    <div class="flex flex-col text-left">
+                                        <span class="leading-tight">Tiếng Việt</span>
+                                        <span class="text-[10px] text-[#718096] font-normal leading-tight">Việt Nam</span>
+                                    </div>
+                                </div>
                                 @if(app()->getLocale() === 'vi')
-                                    <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    <div class="w-5 h-5 rounded-full bg-[#168BD2] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    </div>
                                 @endif
                             </a>
-                            <a href="{{ route('locale.switch', 'en') }}" class="flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'en' ? 'text-[#168BD2] font-bold bg-[#168BD2]/10' : '' }}">
-                                <span class="flex items-center gap-2"><span>🇬🇧</span> <span>English</span></span>
+
+                            <!-- English -->
+                            <a href="{{ route('locale.switch', 'en') }}" class="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all group/lang {{ app()->getLocale() === 'en' ? 'bg-[#168BD2]/10 text-[#168BD2] font-bold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]' }}">
+                                <div class="flex items-center gap-2.5">
+                                    <x-flag country="en" class="w-5 h-3.5 group-hover/lang:scale-110 transition-transform" />
+                                    <div class="flex flex-col text-left">
+                                        <span class="leading-tight">English</span>
+                                        <span class="text-[10px] text-[#718096] font-normal leading-tight">United States / Global</span>
+                                    </div>
+                                </div>
                                 @if(app()->getLocale() === 'en')
-                                    <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    <div class="w-5 h-5 rounded-full bg-[#168BD2] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    </div>
                                 @endif
                             </a>
-                            <a href="{{ route('locale.switch', 'zh') }}" class="flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'zh' ? 'text-[#168BD2] font-bold bg-[#168BD2]/10' : '' }}">
-                                <span class="flex items-center gap-2"><span>🇨🇳</span> <span>中文</span></span>
+
+                            <!-- Chinese -->
+                            <a href="{{ route('locale.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all group/lang {{ app()->getLocale() === 'zh' ? 'bg-[#168BD2]/10 text-[#168BD2] font-bold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]' }}">
+                                <div class="flex items-center gap-2.5">
+                                    <x-flag country="zh" class="w-5 h-3.5 group-hover/lang:scale-110 transition-transform" />
+                                    <div class="flex flex-col text-left">
+                                        <span class="leading-tight">中文</span>
+                                        <span class="text-[10px] text-[#718096] font-normal leading-tight">简体中文 / China</span>
+                                    </div>
+                                </div>
                                 @if(app()->getLocale() === 'zh')
-                                    <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    <div class="w-5 h-5 rounded-full bg-[#168BD2] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    </div>
                                 @endif
                             </a>
-                            <a href="{{ route('locale.switch', 'ko') }}" class="flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ app()->getLocale() === 'ko' ? 'text-[#168BD2] font-bold bg-[#168BD2]/10' : '' }}">
-                                <span class="flex items-center gap-2"><span>🇰🇷</span> <span>한국어</span></span>
+
+                            <!-- Korean -->
+                            <a href="{{ route('locale.switch', 'ko') }}" class="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all group/lang {{ app()->getLocale() === 'ko' ? 'bg-[#168BD2]/10 text-[#168BD2] font-bold' : 'text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634]' }}">
+                                <div class="flex items-center gap-2.5">
+                                    <x-flag country="ko" class="w-5 h-3.5 group-hover/lang:scale-110 transition-transform" />
+                                    <div class="flex flex-col text-left">
+                                        <span class="leading-tight">한국어</span>
+                                        <span class="text-[10px] text-[#718096] font-normal leading-tight">대한민국 / Korea</span>
+                                    </div>
+                                </div>
                                 @if(app()->getLocale() === 'ko')
-                                    <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    <div class="w-5 h-5 rounded-full bg-[#168BD2] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    </div>
                                 @endif
                             </a>
                         </div>
@@ -399,10 +443,22 @@
             <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] space-y-3">
                 <span class="text-xs uppercase font-bold text-[#718096]">{{ __('Language') }}</span>
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="{{ route('locale.switch', 'vi') }}" class="px-3 py-2 rounded-lg text-xs font-semibold text-center border {{ app()->getLocale() === 'vi' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/5' : 'border-[#E8EDF2] dark:border-[#1E2D3D]' }}">Tiếng Việt</a>
-                    <a href="{{ route('locale.switch', 'en') }}" class="px-3 py-2 rounded-lg text-xs font-semibold text-center border {{ app()->getLocale() === 'en' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/5' : 'border-[#E8EDF2] dark:border-[#1E2D3D]' }}">English</a>
-                    <a href="{{ route('locale.switch', 'zh') }}" class="px-3 py-2 rounded-lg text-xs font-semibold text-center border {{ app()->getLocale() === 'zh' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/5' : 'border-[#E8EDF2] dark:border-[#1E2D3D]' }}">中文</a>
-                    <a href="{{ route('locale.switch', 'ko') }}" class="px-3 py-2 rounded-lg text-xs font-semibold text-center border {{ app()->getLocale() === 'ko' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/5' : 'border-[#E8EDF2] dark:border-[#1E2D3D]' }}">한국어</a>
+                    <a href="{{ route('locale.switch', 'vi') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all {{ app()->getLocale() === 'vi' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 font-bold' : 'border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0]' }}">
+                        <x-flag country="vi" class="w-5 h-3.5" />
+                        <span>Tiếng Việt</span>
+                    </a>
+                    <a href="{{ route('locale.switch', 'en') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all {{ app()->getLocale() === 'en' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 font-bold' : 'border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0]' }}">
+                        <x-flag country="en" class="w-5 h-3.5" />
+                        <span>English</span>
+                    </a>
+                    <a href="{{ route('locale.switch', 'zh') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all {{ app()->getLocale() === 'zh' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 font-bold' : 'border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0]' }}">
+                        <x-flag country="zh" class="w-5 h-3.5" />
+                        <span>中文</span>
+                    </a>
+                    <a href="{{ route('locale.switch', 'ko') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all {{ app()->getLocale() === 'ko' ? 'border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 font-bold' : 'border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0]' }}">
+                        <x-flag country="ko" class="w-5 h-3.5" />
+                        <span>한국어</span>
+                    </a>
                 </div>
             </div>
         </div>
