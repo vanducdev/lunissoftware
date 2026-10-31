@@ -53,27 +53,44 @@
                         </a>
                     </div>
 
-                    <!-- Customer Social Proof Strip (VIP Verified) -->
-                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs">
-                        <div class="flex items-center -space-x-2.5 overflow-hidden">
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-black text-[11px] shadow-sm">LS</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white font-black text-[11px] shadow-sm">MK</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white font-black text-[11px] shadow-sm">CR</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-amber-500 to-orange-400 flex items-center justify-center text-white font-black text-[11px] shadow-sm">AI</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-[#EAF7FF] dark:bg-[#1E2D3D] text-[#168BD2] font-black text-[10px] flex items-center justify-center shadow-sm">+15k</div>
-                        </div>
-                        <div class="flex flex-col text-left">
-                            <div class="flex items-center gap-1.5">
-                                <div class="flex text-amber-400 text-xs">
-                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    <!-- Customer Social Proof Strip (Luxury Glass Pill Widget) -->
+                    <div class="pt-2 flex items-center justify-center lg:justify-start">
+                        <div class="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-2.5 sm:p-2 sm:pr-5 rounded-2xl bg-white/90 dark:bg-[#111A24]/90 backdrop-blur-xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-sm hover:shadow-md hover:border-[#168BD2]/35 transition-all duration-300">
+                            <!-- Real Customer Avatars Stack -->
+                            <div class="flex items-center -space-x-3 overflow-visible">
+                                <img src="{{ asset('images/avatars/avatar-1.jpg') }}" alt="Customer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-[#111A24] object-cover shadow-xs hover:scale-115 hover:z-20 transition-transform duration-200" />
+                                <img src="{{ asset('images/avatars/avatar-2.jpg') }}" alt="Customer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-[#111A24] object-cover shadow-xs hover:scale-115 hover:z-20 transition-transform duration-200" />
+                                <img src="{{ asset('images/avatars/avatar-3.jpg') }}" alt="Customer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-[#111A24] object-cover shadow-xs hover:scale-115 hover:z-20 transition-transform duration-200" />
+                                <img src="{{ asset('images/avatars/avatar-4.jpg') }}" alt="Customer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-[#111A24] object-cover shadow-xs hover:scale-115 hover:z-20 transition-transform duration-200" />
+                                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full ring-2 ring-white dark:ring-[#111A24] bg-gradient-to-br from-[#168BD2] via-[#0878BD] to-[#055B91] text-white font-extrabold text-[11px] flex items-center justify-center shadow-xs hover:scale-115 hover:z-20 transition-transform duration-200 cursor-pointer">
+                                    +15k
                                 </div>
-                                <span class="font-black text-[#172B3A] dark:text-white text-xs">4.9/5</span>
-                                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.2 rounded-full">
-                                    <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                    Đã xác thực
-                                </span>
                             </div>
-                            <span class="text-[11px] text-[#718096] dark:text-[#94A3B8]">Hơn 15,000+ cá nhân &amp; doanh nghiệp tin dùng</span>
+
+                            <!-- Divider (desktop) -->
+                            <div class="hidden sm:block h-8 w-px bg-[#E8EDF2] dark:border-[#1E2D3D]"></div>
+
+                            <!-- Rating Details & Verified Badge -->
+                            <div class="flex flex-col text-center sm:text-left">
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5">
+                                    <!-- Sharp glowing SVG stars -->
+                                    <div class="flex items-center gap-0.5 text-amber-400">
+                                        @for ($i = 0; $i < 5; $i++)
+                                            <svg class="w-3.5 h-3.5 fill-current drop-shadow-[0_1px_2px_rgba(245,158,11,0.35)]" viewBox="0 0 20 20">
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                            </svg>
+                                        @endfor
+                                    </div>
+                                    <span class="font-black text-[#172B3A] dark:text-white text-xs">4.9/5</span>
+                                    <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                                        <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                        Đã xác thực
+                                    </span>
+                                </div>
+                                <p class="text-[11px] text-[#5A6E85] dark:text-[#94A3B8] font-medium mt-0.5">
+                                    Hơn <strong class="text-[#172B3A] dark:text-white font-bold">15,000+</strong> cá nhân &amp; doanh nghiệp tin dùng
+                                </p>
+                            </div>
                         </div>
                     </div>
 
