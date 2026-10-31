@@ -429,17 +429,27 @@
                     </div>
                 </div>
 
-                <!-- Theme Toggle Button (Light/Dark) -->
-                <button type="button" class="theme-toggle-btn h-9 w-9 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#141E28] hover:border-[#168BD2] text-[#718096] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-[#48B4E5] flex items-center justify-center transition-all shadow-2xs group cursor-pointer" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}">
-                    <!-- Sun icon for dark mode -->
-                    <svg class="w-4 h-4 hidden dark:block text-amber-400 group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
-                    <!-- Moon icon for light mode -->
-                    <svg class="w-4 h-4 block dark:hidden text-[#168BD2] group-hover:-rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                    </svg>
-                </button>
+                <!-- Luxury Theme Toggle Sliding Pill (Desktop) -->
+                <div class="relative flex items-center">
+                    <button type="button" id="theme-toggle-desktop" class="theme-toggle-btn h-9 px-1.5 py-1 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F1F5F9] dark:bg-[#101923] hover:border-[#168BD2] flex items-center gap-1.5 transition-all shadow-inner group cursor-pointer relative" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}" aria-label="Đổi giao diện Sáng / Tối">
+                        <!-- Sliding Thumb Indicator -->
+                        <span id="theme-thumb-desktop" class="absolute top-1 left-1.5 w-6 h-6 rounded-full bg-white dark:bg-[#1E293B] shadow-sm border border-[#E8EDF2] dark:border-[#334155] transition-transform duration-300 pointer-events-none transform translate-x-0 dark:translate-x-6"></span>
+
+                        <!-- Sun Icon (Light) -->
+                        <span class="relative z-10 w-6 h-6 flex items-center justify-center transition-colors text-amber-500 dark:text-[#64748B]">
+                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </span>
+
+                        <!-- Moon Icon (Dark) -->
+                        <span class="relative z-10 w-6 h-6 flex items-center justify-center transition-colors text-[#94A3B8] dark:text-[#38BDF8]">
+                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:-rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
 
                 <!-- Subtle Vertical Hairline Divider -->
                 <div class="hidden sm:block h-5 w-px bg-gradient-to-b from-transparent via-[#E8EDF2] dark:via-[#1E2D3D] to-transparent mx-0.5"></div>
@@ -538,6 +548,24 @@
                 <a href="{{ route('about') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('about') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('About Us') }}</a>
                 <a href="{{ route('contact') }}" class="px-3 py-2.5 rounded-lg text-sm font-medium {{ request()->routeIs('contact') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#172B3A] dark:text-[#E2E8F0]' }}">{{ __('Contact') }}</a>
             </nav>
+
+            <!-- Mobile Theme Appearance Selector -->
+            <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] space-y-2.5">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs uppercase font-bold text-[#718096] dark:text-[#94A3B8]">GIAO DIỆN HIỂN THỊ</span>
+                    <span class="text-[11px] text-[#168BD2] font-bold" id="current-theme-label">Chế độ Sáng</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button type="button" onclick="window.switchTheme('light', event)" id="theme-btn-light" class="theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0] cursor-pointer">
+                        <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <span>Giao Diện Sáng</span>
+                    </button>
+                    <button type="button" onclick="window.switchTheme('dark', event)" id="theme-btn-dark" class="theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all border-[#E8EDF2] dark:border-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0] cursor-pointer">
+                        <svg class="w-4 h-4 text-[#38BDF8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                        <span>Giao Diện Tối</span>
+                    </button>
+                </div>
+            </div>
 
             <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] space-y-3">
                 <span class="text-xs uppercase font-bold text-[#718096]">{{ __('Language') }}</span>
