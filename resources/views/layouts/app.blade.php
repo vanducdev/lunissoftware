@@ -318,45 +318,28 @@
                     <span>{{ __('Download') }}</span>
                 </a>
 
-                <!-- News Link (Visible on xl+) -->
-                <a href="{{ route('articles.index') }}" class="hidden xl:flex px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 items-center gap-1.5 {{ request()->routeIs('articles.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+                <!-- News Link -->
+                <a href="{{ route('articles.index') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('articles.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('articles.*'))
                         <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('News') }}</span>
                 </a>
 
-                <!-- About Link (Visible on 2xl+) -->
-                <a href="{{ route('about') }}" class="hidden 2xl:flex px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 items-center gap-1.5 {{ request()->routeIs('about') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
-                    @if(request()->routeIs('about'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
-                    @endif
-                    <span>{{ __('About Us') }}</span>
-                </a>
-
-                <!-- Contact Link (Visible on 2xl+) -->
-                <a href="{{ route('contact') }}" class="hidden 2xl:flex px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 items-center gap-1.5 {{ request()->routeIs('contact') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
-                    @if(request()->routeIs('contact'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
-                    @endif
-                    <span>{{ __('Contact') }}</span>
-                </a>
-
-                <!-- More Dropdown for Compact Screens (< 2xl) -->
-                <div class="relative group 2xl:hidden">
-                    <button type="button" class="px-2.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5 cursor-pointer text-xs font-semibold">
+                <!-- More Dropdown (About & Contact) -->
+                <div class="relative group">
+                    <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1 {{ request()->routeIs('about') || request()->routeIs('contact') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06)] font-bold' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }} cursor-pointer text-xs font-semibold">
                         <span>{{ __('More') }}</span>
-                        <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div class="absolute right-0 top-full pt-2 w-44 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                    <div class="absolute right-0 top-full pt-2.5 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
                         <div class="p-1.5 bg-white/98 dark:bg-[#131D27]/98 backdrop-blur-2xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-[#E8EDF2] dark:border-white/10 text-xs font-semibold">
-                            <a href="{{ route('articles.index') }}" class="xl:hidden flex items-center gap-2 px-3 py-2 rounded-xl text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ request()->routeIs('articles.*') ? 'text-[#168BD2] font-bold' : '' }}">
-                                <span>{{ __('News') }}</span>
-                            </a>
-                            <a href="{{ route('about') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ request()->routeIs('about') ? 'text-[#168BD2] font-bold' : '' }}">
+                            <a href="{{ route('about') }}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors {{ request()->routeIs('about') ? 'bg-[#168BD2]/10 text-[#168BD2] font-bold' : '' }}">
+                                <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 <span>{{ __('About Us') }}</span>
                             </a>
-                            <a href="{{ route('contact') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] {{ request()->routeIs('contact') ? 'text-[#168BD2] font-bold' : '' }}">
+                            <a href="{{ route('contact') }}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors {{ request()->routeIs('contact') ? 'bg-[#168BD2]/10 text-[#168BD2] font-bold' : '' }}">
+                                <svg class="w-3.5 h-3.5 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                                 <span>{{ __('Contact') }}</span>
                             </a>
                         </div>
@@ -367,9 +350,8 @@
             <!-- Header Right Controls (Precision Aligned h-9 Dock) -->
             <div class="flex items-center gap-1 sm:gap-1.5 xl:gap-2 shrink-0">
                 <!-- Global Spotlight Search Trigger (Command Palette Pill) -->
-                <button type="button" id="spotlight-search-btn" class="h-9 px-2.5 sm:px-3 2xl:px-3.5 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 hover:shadow-[0_0_15px_rgba(22,139,210,0.12)] text-[#64748B] dark:text-[#94A3B8] transition-all flex items-center gap-2 group cursor-pointer shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
+                <button type="button" id="spotlight-search-btn" class="h-9 px-2.5 sm:px-3 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 hover:shadow-[0_0_15px_rgba(22,139,210,0.12)] text-[#64748B] dark:text-[#94A3B8] transition-all flex items-center gap-1.5 group cursor-pointer shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
                     <svg class="w-3.5 h-3.5 text-[#168BD2] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <span class="hidden 2xl:inline text-xs font-semibold text-[#5A6E85] dark:text-[#94A3B8] group-hover:text-[#172B3A] dark:group-hover:text-white transition-colors whitespace-nowrap">Tìm kiếm</span>
                     <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-bold text-[#64748B] dark:text-[#94A3B8] bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-white/10 rounded-md shadow-2xs group-hover:border-[#168BD2]/40">Ctrl K</kbd>
                 </button>
 
@@ -491,23 +473,25 @@
                 <div class="hidden sm:flex items-center gap-1.5 shrink-0">
                     @auth
                         <div class="relative group">
-                            <button type="button" class="h-9 pl-1.5 pr-2 sm:pr-2.5 xl:pr-3 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs group focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0">
+                            <button type="button" class="h-9 pl-1.5 pr-2.5 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs group focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0">
                                 <div class="relative">
                                     <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-6.5 h-6.5 rounded-full object-cover ring-2 ring-[#168BD2]/30">
                                     <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white dark:ring-[#101923] shadow-[0_0_4px_#10B981]"></span>
                                 </div>
-                                <span class="hidden md:inline-block max-w-[70px] lg:max-w-[85px] xl:max-w-[110px] truncate text-xs font-bold text-[#172B3A] dark:text-white">{{ auth()->user()->name }}</span>
-                                @if(auth()->user()->canAccessAdmin())
-                                    <span class="hidden 2xl:inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#168BD2]/10 dark:bg-[#168BD2]/20 text-[#168BD2] dark:text-[#38BDF8] border border-[#168BD2]/20">ADMIN</span>
-                                @endif
+                                <span class="hidden md:inline-block max-w-[80px] lg:max-w-[90px] truncate text-xs font-bold text-[#172B3A] dark:text-white">{{ auth()->user()->name }}</span>
                                 <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
                             <!-- User Dropdown Menu -->
                             <div class="absolute right-0 top-full pt-2 w-56 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
                                 <div class="py-2 bg-white/98 dark:bg-[#131D27]/98 backdrop-blur-2xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                    <div class="px-4 py-2.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                        <p class="text-xs font-bold text-[#172B3A] dark:text-white truncate">{{ auth()->user()->name }}</p>
-                                        <p class="text-[10px] text-[#718096] truncate mt-0.5">{{ auth()->user()->email }}</p>
+                                    <div class="px-4 py-2.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between">
+                                        <div class="min-w-0 pr-2">
+                                            <p class="text-xs font-bold text-[#172B3A] dark:text-white truncate">{{ auth()->user()->name }}</p>
+                                            <p class="text-[10px] text-[#718096] truncate mt-0.5">{{ auth()->user()->email }}</p>
+                                        </div>
+                                        @if(auth()->user()->canAccessAdmin())
+                                            <span class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#168BD2]/10 dark:bg-[#168BD2]/20 text-[#168BD2] dark:text-[#38BDF8] border border-[#168BD2]/20 shrink-0">ADMIN</span>
+                                        @endif
                                     </div>
                                     @if(auth()->user()->canAccessAdmin())
                                         <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-bold text-[#168BD2] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors">
