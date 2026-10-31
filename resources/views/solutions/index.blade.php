@@ -4,7 +4,7 @@
 @section('meta_description', 'Khám phá các giải pháp công nghệ bứt phá tăng trưởng từ LushSoftware: Tự động hóa tiếp thị, quản trị dàn nick đa kênh, CRM bán hàng và khai thác dữ liệu thị trường.')
 
 @section('content')
-<div class="relative py-12 lg:py-20 bg-white dark:bg-[#0B1118] overflow-hidden">
+<div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -18,7 +18,7 @@
         </div>
 
         <!-- Header & Title Banner -->
-        <div class="text-center max-w-4xl mx-auto mb-16" data-aos="fade-up">
+        <div class="text-center max-w-4xl mx-auto mb-10 lg:mb-12" data-aos="fade-up">
             <!-- High-tech VIP Announcement Pill -->
             <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-4 backdrop-blur-md">
                 <span class="flex h-2 w-2 relative">
@@ -369,4 +369,4 @@
         </div>
     </div>
 </div>
-@endsection\n
+@endsection

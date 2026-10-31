@@ -3,7 +3,7 @@
 @section('title', __('About Us') . ' – LushSoftware')
 
 @section('content')
-<div class="py-16 lg:py-24 bg-white dark:bg-[#0B1118]">
+<div class="pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <x-breadcrumb :items="[['label' => __('About Us')]]" />
 

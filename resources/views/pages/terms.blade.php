@@ -3,7 +3,7 @@
 @section('title', __('Terms of Service') . ' – LushSoftware')
 
 @section('content')
-<div class="py-16 bg-white dark:bg-[#0B1118]">
+<div class="pt-6 pb-16 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-extrabold text-[#172B3A] dark:text-white mb-8">Điều Khoản Dịch Vụ & Sử Dụng Phần Mềm</h1>
 

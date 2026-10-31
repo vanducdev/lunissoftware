@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- 5.1. Hero Section -->
-    <section class="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-white dark:bg-[#0B1118]">
+    <section class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-24 overflow-hidden bg-white dark:bg-[#0B1118]">
         <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(22,139,210,0.18),rgba(255,255,255,0))] pointer-events-none"></div>
         <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] dark:opacity-[0.14] pointer-events-none"></div>

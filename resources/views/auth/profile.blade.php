@@ -3,7 +3,7 @@
 @section('title', __('Profile') . ' – LushSoftware')
 
 @section('content')
-<div class="py-12 lg:py-16 bg-white dark:bg-[#0B1118]">
+<div class="pt-6 pb-16 sm:pt-8 lg:pt-10 lg:pb-20 bg-white dark:bg-[#0B1118]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-10">
             <h1 class="text-2xl sm:text-3xl font-extrabold text-[#172B3A] dark:text-white">

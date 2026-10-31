@@ -5,7 +5,7 @@
 @section('meta_keywords', $article->seo_keywords)
 
 @section('content')
-<article class="relative py-12 lg:py-20 bg-white dark:bg-[#0B1118] overflow-hidden">
+<article class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -169,4 +169,4 @@
         @endif
     </div>
 </article>
-@endsection\n
+@endsection
