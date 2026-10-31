@@ -81,45 +81,47 @@
 
     <!-- Main Floating Island Header (Luxury SaaS & Glassmorphism Design) -->
     <header id="main-header" class="sticky top-2.5 sm:top-3.5 z-40 w-full transition-all duration-300 px-3 sm:px-6 lg:px-8">
-        <div id="nav-capsule" class="max-w-7xl mx-auto bg-white/95 dark:bg-[#0B1118]/95 backdrop-blur-2xl rounded-2xl border border-[#E8EDF2]/90 dark:border-[#1E2D3D]/90 shadow-[0_12px_36px_-6px_rgba(22,139,210,0.08),0_2px_12px_-2px_rgba(0,0,0,0.03)] dark:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.6)] px-3.5 sm:px-5 h-[68px] flex items-center justify-between gap-2.5 sm:gap-4 transition-all duration-300 relative">
-            <!-- Ambient Top Hairline Highlight -->
-            <div class="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#168BD2]/40 to-transparent pointer-events-none rounded-t-2xl"></div>
+        <div id="nav-capsule" class="max-w-7xl mx-auto bg-white/85 dark:bg-[#0B1118]/85 backdrop-blur-2xl rounded-2xl lg:rounded-full border border-white/80 dark:border-white/10 ring-1 ring-black/[0.04] dark:ring-white/[0.05] shadow-[0_16px_40px_-10px_rgba(22,139,210,0.12),0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.7)] px-3.5 sm:px-5 lg:px-6 h-[66px] flex items-center justify-between gap-2 sm:gap-3 lg:gap-4 transition-all duration-300 relative">
+            <!-- Ambient Top Specular Hairline Highlight -->
+            <div class="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#168BD2]/40 dark:via-[#38BDF8]/30 to-transparent pointer-events-none rounded-t-full"></div>
             <!-- Ambient Bottom Soft Glow -->
             <div class="absolute inset-x-12 -bottom-2 h-4 bg-gradient-to-r from-transparent via-[#168BD2]/10 to-transparent blur-md pointer-events-none -z-10"></div>
 
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0">
-                <div class="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden bg-white dark:bg-[#101923] shadow-md shadow-[#168BD2]/20 ring-1 ring-[#E8EDF2] dark:ring-[#1E2D3D] group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#168BD2]/30 transition-all duration-300">
+                <div class="relative flex items-center justify-center w-10 h-10 rounded-2xl overflow-hidden bg-gradient-to-br from-white to-[#F0F8FF] dark:from-[#131D27] dark:to-[#0B1118] shadow-[0_4px_12px_rgba(22,139,210,0.18)] border border-[#E8EDF2] dark:border-white/10 group-hover:scale-105 group-hover:border-[#168BD2]/40 group-hover:shadow-[0_6px_20px_rgba(22,139,210,0.3)] transition-all duration-300">
                     <img src="{{ asset('images/logo.png') }}" alt="LushSoftware" class="w-full h-full object-cover">
+                    <!-- Subtle Gloss Sheen Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-white/50 dark:via-white/5 dark:to-white/10 pointer-events-none"></div>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-[17px] font-black tracking-tight text-[#172B3A] dark:text-white flex items-center gap-0.5 leading-none">
+                    <span class="text-[17px] font-black tracking-tight text-[#0F172A] dark:text-white flex items-center gap-0.5 leading-none">
                         Lush<span class="bg-gradient-to-r from-[#168BD2] via-[#2094DB] to-[#48B4E5] bg-clip-text text-transparent">Software</span>
                     </span>
                     <div class="flex items-center gap-1.5 mt-1">
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_6px_#10B981]"></span>
                         </span>
-                        <span class="text-[9.5px] font-black tracking-widest uppercase text-[#718096] dark:text-[#94A3B8]">ECOSYSTEM</span>
+                        <span class="text-[9.5px] font-black tracking-[0.18em] uppercase text-[#718096] dark:text-[#94A3B8]">ECOSYSTEM</span>
                     </div>
                 </div>
             </a>
 
             <!-- Desktop Navigation Dock (High-End Segmented Glass Dock) -->
-            <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-[#F8FAFC]/90 dark:bg-[#101923]/90 backdrop-blur-md p-1.5 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)] text-[13px] font-semibold">
-                <a href="{{ route('home') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('home') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+            <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 backdrop-blur-md p-1.5 rounded-full border border-[#E2E8F0]/80 dark:border-white/10 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)] text-[13px] font-semibold">
+                <a href="{{ route('home') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('home') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('home'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Home') }}</span>
                 </a>
 
                 <!-- Products Mega Menu Dropdown with Smooth Hover Bridge -->
                 <div class="relative group">
-                    <a href="{{ route('products.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('products.*') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                    <a href="{{ route('products.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('products.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                         @if(request()->routeIs('products.*'))
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                         @endif
                         <span>{{ __('Products') }}</span>
                         <svg class="w-3.5 h-3.5 text-[#718096] group-hover:text-[#168BD2] group-hover:rotate-180 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -295,44 +297,44 @@
                     </div>
                 </div>
 
-                <a href="{{ route('solutions.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('solutions.*') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                <a href="{{ route('solutions.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('solutions.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('solutions.*'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Solutions') }}</span>
                 </a>
 
-                <a href="{{ route('pricing.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('pricing.*') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                <a href="{{ route('pricing.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('pricing.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('pricing.*'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Pricing') }}</span>
                 </a>
 
-                <a href="{{ route('downloads.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('downloads.*') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                <a href="{{ route('downloads.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('downloads.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('downloads.*'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Download') }}</span>
                 </a>
 
-                <a href="{{ route('articles.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('articles.*') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                <a href="{{ route('articles.index') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('articles.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('articles.*'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('News') }}</span>
                 </a>
 
-                <a href="{{ route('about') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('about') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                <a href="{{ route('about') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('about') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('about'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('About Us') }}</span>
                 </a>
 
-                <a href="{{ route('contact') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('contact') ? 'bg-white dark:bg-[#1E2D3D] text-[#168BD2] dark:text-[#38BDF8] shadow-xs font-bold border border-[#E8EDF2]/90 dark:border-[#2D3F52]' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#168BD2] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1A2634]' }}">
+                <a href="{{ route('contact') }}" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('contact') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('contact'))
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Contact') }}</span>
                 </a>
@@ -341,15 +343,15 @@
             <!-- Header Right Controls (Precision Aligned h-9 Dock) -->
             <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <!-- Global Spotlight Search Trigger (Command Palette Pill) -->
-                <button type="button" id="spotlight-search-btn" class="h-9 px-3 sm:px-3.5 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#141E28] hover:border-[#168BD2]/60 text-[#718096] dark:text-[#94A3B8] transition-all flex items-center gap-2 group cursor-pointer shadow-2xs" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
+                <button type="button" id="spotlight-search-btn" class="h-9 px-3 sm:px-3.5 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 hover:shadow-[0_0_15px_rgba(22,139,210,0.12)] text-[#64748B] dark:text-[#94A3B8] transition-all flex items-center gap-2 group cursor-pointer shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
                     <svg class="w-3.5 h-3.5 text-[#168BD2] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     <span class="hidden sm:inline text-xs font-semibold text-[#5A6E85] dark:text-[#94A3B8] group-hover:text-[#172B3A] dark:group-hover:text-white transition-colors whitespace-nowrap">Tìm kiếm</span>
-                    <kbd class="hidden xl:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-bold text-[#718096] bg-white dark:bg-[#1E2D3D] border border-[#E8EDF2] dark:border-[#2D3F52] rounded shadow-2xs group-hover:border-[#168BD2]/40">Ctrl K</kbd>
+                    <kbd class="hidden xl:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-bold text-[#64748B] dark:text-[#94A3B8] bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-white/10 rounded-md shadow-2xs group-hover:border-[#168BD2]/40">Ctrl K</kbd>
                 </button>
 
                 <!-- Language Selector Dropdown -->
                 <div class="relative group" x-data="{ open: false }">
-                    <button type="button" class="h-9 px-2.5 sm:px-3 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#141E28] text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2] transition-all flex items-center gap-2 shadow-2xs cursor-pointer" title="{{ __('Language') }}">
+                    <button type="button" class="h-9 px-2.5 sm:px-3 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] text-xs font-bold text-[#172B3A] dark:text-white hover:border-[#168BD2]/50 transition-all flex items-center gap-2 shadow-2xs cursor-pointer focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none" title="{{ __('Language') }}">
                         <x-flag :country="app()->getLocale()" class="w-5 h-3.5" />
                         <span class="uppercase tracking-wider text-[11px] font-black text-[#172B3A] dark:text-white">{{ app()->getLocale() }}</span>
                         <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/></svg>
@@ -429,17 +431,29 @@
                     </div>
                 </div>
 
-                <!-- Luxury Theme Toggle Switch (Desktop) -->
+                <!-- Luxury Mechanical Theme Toggle Switch (Desktop) -->
                 <div class="relative flex items-center">
-                    <button type="button" id="theme-toggle-desktop" class="theme-toggle-btn w-14 h-8 p-1 rounded-full bg-[#E2E8F0] hover:bg-[#CBD5E1] dark:bg-[#1E293B] dark:hover:bg-[#334155] border border-[#CBD5E1] dark:border-[#334155] transition-all duration-300 focus:outline-none focus:ring-0 active:outline-none cursor-pointer relative shrink-0 flex items-center shadow-inner" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}" aria-label="Đổi giao diện Sáng / Tối">
-                        <!-- Sliding Thumb with Sun / Moon Icons -->
-                        <span class="w-6 h-6 rounded-full bg-white dark:bg-[#0B1118] shadow-md border border-black/5 dark:border-white/10 flex items-center justify-center transition-transform duration-300 transform translate-x-0 dark:translate-x-6 pointer-events-none">
-                            <!-- Sun icon (Light mode) -->
-                            <svg class="w-3.5 h-3.5 block dark:hidden text-amber-500" fill="currentColor" viewBox="0 0 24 24">
+                    <button type="button" id="theme-toggle-desktop" class="theme-toggle-btn w-[58px] h-8 p-[3px] rounded-full bg-[#E2E8F0] hover:bg-[#CBD5E1] dark:bg-[#1E293B] dark:hover:bg-[#28384D] border border-[#CBD5E1]/80 dark:border-white/10 transition-all duration-300 focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none cursor-pointer relative shrink-0 flex items-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)]" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}" aria-label="Đổi giao diện Sáng / Tối">
+                        <!-- Background Track Sub-Icons -->
+                        <div class="absolute inset-x-2 flex items-center justify-between pointer-events-none text-[#718096] dark:text-[#64748B]">
+                            <!-- Ambient Sun in Track -->
+                            <svg class="w-3.5 h-3.5 text-amber-500/70" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
                             </svg>
-                            <!-- Moon icon (Dark mode) -->
-                            <svg class="w-3.5 h-3.5 hidden dark:block text-[#38BDF8]" fill="currentColor" viewBox="0 0 24 24">
+                            <!-- Ambient Moon in Track -->
+                            <svg class="w-3 h-3 text-[#38BDF8]/70" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+
+                        <!-- Sliding Thumb Capsule with Micro-Glow Icon -->
+                        <span class="w-[26px] h-[26px] rounded-full bg-white dark:bg-[#0B1118] shadow-[0_2px_6px_rgba(0,0,0,0.18),0_1px_2px_rgba(0,0,0,0.08)] border border-black/[0.04] dark:border-white/10 flex items-center justify-center transition-transform duration-300 ease-out transform translate-x-0 dark:translate-x-[26px] pointer-events-none relative z-10">
+                            <!-- Active Sun Icon (Light Mode) -->
+                            <svg class="w-3.5 h-3.5 block dark:hidden text-amber-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                            </svg>
+                            <!-- Active Moon Icon (Dark Mode) -->
+                            <svg class="w-3.5 h-3.5 hidden dark:block text-[#38BDF8] drop-shadow-[0_0_6px_rgba(56,189,248,0.7)]" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
                             </svg>
                         </span>
@@ -447,20 +461,20 @@
                 </div>
 
                 <!-- Subtle Vertical Hairline Divider -->
-                <div class="hidden sm:block h-5 w-px bg-gradient-to-b from-transparent via-[#E8EDF2] dark:via-[#1E2D3D] to-transparent mx-0.5"></div>
+                <div class="hidden sm:block h-5 w-px bg-gradient-to-b from-transparent via-[#E2E8F0] dark:via-white/10 to-transparent mx-0.5"></div>
 
                 <!-- Auth Buttons / User Profile (Desktop) -->
                 <div class="hidden sm:flex items-center gap-1.5">
                     @auth
                         <div class="relative group">
-                            <button type="button" class="h-9 pl-1 pr-3 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] hover:bg-white dark:hover:bg-[#141E28] hover:border-[#168BD2] transition-all flex items-center gap-2 cursor-pointer shadow-2xs group">
+                            <button type="button" class="h-9 pl-1.5 pr-3 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 transition-all flex items-center gap-2 cursor-pointer shadow-2xs group focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none">
                                 <div class="relative">
                                     <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-6.5 h-6.5 rounded-full object-cover ring-2 ring-[#168BD2]/30">
-                                    <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white dark:ring-[#101923]"></span>
+                                    <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white dark:ring-[#101923] shadow-[0_0_4px_#10B981]"></span>
                                 </div>
                                 <span class="max-w-[85px] xl:max-w-[120px] truncate text-xs font-bold text-[#172B3A] dark:text-white">{{ auth()->user()->name }}</span>
                                 @if(auth()->user()->canAccessAdmin())
-                                    <span class="hidden xl:inline-block text-[9px] font-black uppercase px-1.5 py-0.2 rounded-full bg-[#168BD2]/10 text-[#168BD2]">ADMIN</span>
+                                    <span class="hidden xl:inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#168BD2]/10 dark:bg-[#168BD2]/20 text-[#168BD2] dark:text-[#38BDF8] border border-[#168BD2]/20">ADMIN</span>
                                 @endif
                                 <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
@@ -510,7 +524,7 @@
                 </div>
 
                 <!-- Mobile Hamburger Button -->
-                <button type="button" id="mobile-drawer-open" class="lg:hidden h-9 w-9 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#101923] text-[#172B3A] dark:text-[#E2E8F0] flex items-center justify-center hover:border-[#168BD2] hover:text-[#168BD2] transition-all shadow-2xs">
+                <button type="button" id="mobile-drawer-open" class="lg:hidden h-9 w-9 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 text-[#172B3A] dark:text-[#E2E8F0] flex items-center justify-center hover:border-[#168BD2] hover:text-[#168BD2] transition-all shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>

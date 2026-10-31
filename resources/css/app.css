@@ -71,6 +71,18 @@ body {
     outline-offset: 2px;
 }
 
+/* Luxury Header Controls Focus Overrides */
+.theme-toggle-btn,
+.theme-toggle-btn:focus,
+.theme-toggle-btn:focus-visible,
+.theme-toggle-btn:active,
+#spotlight-search-btn:focus,
+#spotlight-search-btn:focus-visible {
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 7px;
