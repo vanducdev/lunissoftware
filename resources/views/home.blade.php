@@ -4,102 +4,109 @@
 
 @section('content')
     <!-- 5.1. Hero Section -->
-    <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-white dark:bg-[#0B1118]">
-        <!-- Subtle ambient radiant background glow (White 95%, Ocean Blue Accent 5%) -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(22,139,210,0.14),rgba(255,255,255,0))] pointer-events-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
-        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#168BD2]/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
-        <div class="absolute bottom-10 left-1/4 w-80 h-80 bg-[#48B4E5]/8 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-white dark:bg-[#0B1118]">
+        <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(22,139,210,0.18),rgba(255,255,255,0))] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] dark:opacity-[0.14] pointer-events-none"></div>
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#168BD2]/12 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+        <div class="absolute bottom-10 left-1/4 w-80 h-80 bg-[#48B4E5]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 <!-- Hero Left: Copy & CTAs -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-up">
-                    <!-- High-tech Announcement Pill -->
-                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-[#111A24] border border-[#168BD2]/30 shadow-xs hover:border-[#168BD2] hover:shadow-md hover:shadow-[#168BD2]/10 transition-all duration-300 group cursor-pointer">
+                    <!-- High-tech VIP Announcement Pill -->
+                    <a href="{{ route('products.index') }}" class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs hover:border-[#168BD2] hover:shadow-md hover:shadow-[#168BD2]/15 transition-all duration-300 group cursor-pointer backdrop-blur-md">
                         <span class="flex h-2 w-2 relative">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#168BD2] opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-[#168BD2]"></span>
                         </span>
-                        <span class="text-xs font-bold text-[#168BD2] tracking-wide uppercase">{{ $heroBanner->badge ?? 'CÔNG NGHỆ BỨT PHÁ 2026' }}</span>
+                        <span class="text-xs font-black text-[#168BD2] tracking-wider uppercase">{{ $heroBanner->badge ?? 'CÔNG NGHỆ BỨT PHÁ 2026' }}</span>
                         <span class="text-xs text-[#718096] dark:text-[#94A3B8] hidden sm:inline">• Thế Hệ Phần Mềm Tự Động Mới</span>
                         <svg class="w-3.5 h-3.5 text-[#168BD2] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                    </div>
+                    </a>
 
-                    <!-- Main Headline with Gradient Text Accent -->
-                    <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-[#172B3A] dark:text-white leading-[1.12]">
-                        Hệ Sinh Thái Phần Mềm <br class="hidden sm:inline" />
-                        <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent">
+                    <!-- Main Headline with Perfectly Balanced Line Wrapping & Gradient Glow -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-[3.35rem] font-black tracking-tight text-[#172B3A] dark:text-white leading-[1.14]">
+                        Hệ Sinh Thái Phần Mềm <br />
+                        <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent drop-shadow-xs">
                             Tăng Trưởng Bứt Phá
                         </span>
-                        Toàn Diện
+                        <br class="hidden sm:inline" /> Toàn Diện Doanh Nghiệp
                     </h1>
 
                     <!-- Subtitle -->
-                    <p class="text-base sm:text-lg text-[#5A6E85] dark:text-[#94A3B8] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    <p class="text-base sm:text-lg text-[#5A6E85] dark:text-[#94A3B8] leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
                         {{ $heroBanner->subtitle ?? 'Giải pháp tự động hóa tiếp thị đa kênh, quản trị dàn tài khoản, khai thác dữ liệu thị trường và chốt đơn toàn diện — giúp doanh nghiệp bứt phá doanh thu bền vững.' }}
                     </p>
 
-                    <!-- CTAs -->
+                    <!-- CTAs with VIP Shimmer Sweep -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1">
-                        <a href="{{ route('products.index') }}" class="lush-btn-primary w-full sm:w-auto text-base !py-3.5 !px-8 shadow-xl shadow-[#168BD2]/25 hover:shadow-2xl hover:shadow-[#168BD2]/35 hover:-translate-y-0.5 transition-all group">
+                        <a href="{{ route('products.index') }}" class="lush-btn-primary lush-btn-vip w-full sm:w-auto text-base !py-3.5 !px-8 shadow-xl shadow-[#168BD2]/30 hover:shadow-2xl hover:shadow-[#168BD2]/45 hover:-translate-y-0.5 transition-all group font-bold">
+                            <span class="text-amber-300 mr-1 text-sm">✦</span>
                             <span>Khám Phá Sản Phẩm</span>
-                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
-                        <a href="{{ route('contact') }}" class="lush-btn-secondary w-full sm:w-auto text-base !py-3.5 !px-7 hover:-translate-y-0.5 transition-all group">
+                        <a href="{{ route('contact') }}" class="lush-btn-secondary w-full sm:w-auto text-base !py-3.5 !px-7 hover:-translate-y-0.5 transition-all group backdrop-blur-md">
                             <svg class="w-4 h-4 text-[#168BD2] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                             <span>Nhận Tư Vấn Miễn Phí</span>
                         </a>
                     </div>
 
-                    <!-- Customer Social Proof Strip -->
-                    <div class="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs">
-                        <div class="flex items-center -space-x-2 overflow-hidden">
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-bold text-[11px] shadow-sm">LS</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white font-bold text-[11px] shadow-sm">MK</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-[11px] shadow-sm">CR</div>
-                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-amber-500 to-orange-400 flex items-center justify-center text-white font-bold text-[11px] shadow-sm">AI</div>
+                    <!-- Customer Social Proof Strip (VIP Verified) -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs">
+                        <div class="flex items-center -space-x-2.5 overflow-hidden">
+                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-black text-[11px] shadow-sm">LS</div>
+                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white font-black text-[11px] shadow-sm">MK</div>
+                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white font-black text-[11px] shadow-sm">CR</div>
+                            <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-gradient-to-tr from-amber-500 to-orange-400 flex items-center justify-center text-white font-black text-[11px] shadow-sm">AI</div>
                             <div class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#0B1118] bg-[#EAF7FF] dark:bg-[#1E2D3D] text-[#168BD2] font-black text-[10px] flex items-center justify-center shadow-sm">+15k</div>
                         </div>
                         <div class="flex flex-col text-left">
-                            <div class="flex items-center gap-1 text-amber-400 text-xs">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                                <span class="font-bold text-[#172B3A] dark:text-white ml-1">4.9/5</span>
+                            <div class="flex items-center gap-1.5">
+                                <div class="flex text-amber-400 text-xs">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <span class="font-black text-[#172B3A] dark:text-white text-xs">4.9/5</span>
+                                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.2 rounded-full">
+                                    <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    Đã xác thực
+                                </span>
                             </div>
                             <span class="text-[11px] text-[#718096] dark:text-[#94A3B8]">Hơn 15,000+ cá nhân &amp; doanh nghiệp tin dùng</span>
                         </div>
                     </div>
 
-                    <!-- Trust indicators -->
-                    <div class="pt-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#5A6E85] dark:text-[#94A3B8]">
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 rounded-full bg-[#168BD2]/10 flex items-center justify-center text-[#168BD2]">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <!-- Trust indicators with Glass Pill styling -->
+                    <div class="pt-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 dark:bg-[#131D27]/80 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs">
+                            <div class="w-4 h-4 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-600">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                             </div>
-                            <span class="font-medium text-[#172B3A] dark:text-[#E2E8F0]">Dùng thử miễn phí 7 ngày</span>
+                            <span class="font-semibold text-[#172B3A] dark:text-[#E2E8F0]">Dùng thử miễn phí 7 ngày</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 rounded-full bg-[#168BD2]/10 flex items-center justify-center text-[#168BD2]">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 dark:bg-[#131D27]/80 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs">
+                            <div class="w-4 h-4 rounded-full bg-[#168BD2]/15 flex items-center justify-center text-[#168BD2]">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                             </div>
-                            <span class="font-medium text-[#172B3A] dark:text-[#E2E8F0]">Bảo mật cấp doanh nghiệp</span>
+                            <span class="font-semibold text-[#172B3A] dark:text-[#E2E8F0]">Bảo mật cấp doanh nghiệp</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 rounded-full bg-[#168BD2]/10 flex items-center justify-center text-[#168BD2]">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 dark:bg-[#131D27]/80 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs">
+                            <div class="w-4 h-4 rounded-full bg-amber-500/15 flex items-center justify-center text-amber-600">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                             </div>
-                            <span class="font-medium text-[#172B3A] dark:text-[#E2E8F0]">Hỗ trợ kỹ thuật 24/7 Ultraview</span>
+                            <span class="font-semibold text-[#172B3A] dark:text-[#E2E8F0]">Hỗ trợ kỹ thuật 24/7 Ultraview</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hero Right: Next-Gen 3D SaaS Console & Authentic Software Box Showcase -->
-                <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-delay="150">
+                <div class="lg:col-span-5 relative lush-hero-3d-wrap" data-aos="fade-left" data-aos-delay="150">
                     <div class="relative mx-auto max-w-lg lg:max-w-none">
-                        <!-- Glass Chassis with soft layered shadow -->
-                        <div class="bg-white/95 dark:bg-[#111A24]/95 backdrop-blur-2xl rounded-3xl border border-[#E2E8F0] dark:border-[#1E2D3D] shadow-[0_30px_80px_-15px_rgba(22,139,210,0.22),0_10px_25px_rgba(0,0,0,0.04)] p-5 sm:p-6 relative overflow-hidden transition-all">
+                        <!-- Glass Chassis with 3D Perspective Tilt & Conic Border Beam -->
+                        <div class="lush-hero-3d-chassis lush-border-beam bg-white/95 dark:bg-[#111A24]/95 backdrop-blur-2xl rounded-3xl border border-[#E2E8F0] dark:border-[#1E2D3D] shadow-[0_30px_90px_-15px_rgba(22,139,210,0.25),0_10px_30px_rgba(0,0,0,0.05)] p-5 sm:p-6 relative overflow-hidden transition-all">
                             <!-- Window Chrome bar -->
-                            <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
+                            <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] relative z-10">
                                 <div class="flex items-center gap-1.5">
                                     <span class="w-3 h-3 rounded-full bg-gradient-to-br from-rose-400 to-rose-500 inline-block shadow-2xs"></span>
                                     <span class="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-500 inline-block shadow-2xs"></span>
@@ -139,7 +146,7 @@
                                     <svg viewBox="0 0 400 80" class="w-full h-16 overflow-visible" fill="none">
                                         <defs>
                                             <linearGradient id="heroChartGrad" x1="0" y1="0" x2="0" y2="1">
-                                                <stop offset="0%" stop-color="#168BD2" stop-opacity="0.32" />
+                                                <stop offset="0%" stop-color="#168BD2" stop-opacity="0.35" />
                                                 <stop offset="100%" stop-color="#168BD2" stop-opacity="0.0" />
                                             </linearGradient>
                                         </defs>
@@ -148,8 +155,8 @@
                                         <!-- Crisp line stroke -->
                                         <path d="M 0,65 C 60,60 100,38 160,42 C 220,46 260,20 320,24 C 360,28 385,8 400,10" stroke="#168BD2" stroke-width="2.5" stroke-linecap="round" />
                                         <!-- Pulsing data points -->
-                                        <circle cx="160" cy="42" r="3.5" fill="#168BD2" class="drop-shadow-[0_0_5px_#168BD2]" />
-                                        <circle cx="320" cy="24" r="3.5" fill="#168BD2" class="drop-shadow-[0_0_5px_#168BD2]" />
+                                        <circle cx="160" cy="42" r="3.5" fill="#168BD2" class="drop-shadow-[0_0_6px_#168BD2]" />
+                                        <circle cx="320" cy="24" r="3.5" fill="#168BD2" class="drop-shadow-[0_0_6px_#168BD2]" />
                                         <circle cx="400" cy="10" r="4.5" fill="#48B4E5" class="drop-shadow-[0_0_8px_#48B4E5]" />
                                     </svg>
                                     <div class="flex items-center justify-between text-[10px] text-[#718096] dark:text-[#94A3B8] font-mono pt-1">
@@ -161,87 +168,100 @@
                                 </div>
                             </div>
 
-                            <!-- Live Active Modules Feed with Official 3D Box Thumbnails -->
+                            <!-- Live Active Modules Feed with Authentic 3D Software Box Thumbnails -->
                             <div class="space-y-2.5">
                                 <!-- Module 1: LushCare -->
-                                <div class="p-2.5 sm:p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/40 hover:shadow-md transition-all group">
+                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-lg hover:shadow-[#168BD2]/10 hover:-translate-y-0.5 transition-all group cursor-pointer">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EAF7FF] to-[#D5EDFA] dark:from-[#172535] dark:to-[#1E3043] flex items-center justify-center shrink-0 border border-[#168BD2]/20 shadow-xs group-hover:scale-105 transition-transform overflow-hidden p-1">
-                                            <img src="{{ asset('images/products/LushCare.png') }}" alt="LushCare" class="w-full h-full object-contain">
+                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white to-[#F0F7FC] dark:from-[#172535] dark:to-[#0F1822] flex items-center justify-center shrink-0 border border-[#168BD2]/25 shadow-xs group-hover:scale-110 transition-transform overflow-hidden p-1">
+                                            <img src="{{ asset('images/products/LushCare.png') }}" alt="LushCare" class="w-full h-full object-contain drop-shadow-sm">
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-1.5">
-                                                <p class="text-xs font-bold text-[#172B3A] dark:text-white">LushCare v3.5</p>
-                                                <span class="text-[9px] font-bold text-[#168BD2] bg-[#168BD2]/10 px-1.5 py-0.2 rounded">FLAGSHIP</span>
+                                                <p class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors">LushCare v3.5</p>
+                                                <span class="text-[9px] font-bold text-[#168BD2] bg-[#168BD2]/10 border border-[#168BD2]/20 px-1.5 py-0.2 rounded">FLAGSHIP</span>
                                             </div>
-                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8]">Nuôi nick đa kênh • 45,000 lượt tương tác tự động</p>
+                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8] mt-0.5">Nuôi nick đa kênh • 45,000 lượt tương tác tự động/ngày</p>
                                         </div>
                                     </div>
-                                    <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full flex items-center gap-1 shrink-0">
+                                    <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1 shrink-0 shadow-2xs">
                                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
                                         Kháng Checkpoint
                                     </span>
                                 </div>
 
                                 <!-- Module 2: LushLogin -->
-                                <div class="p-2.5 sm:p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/40 hover:shadow-md transition-all group">
+                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-lg hover:shadow-[#168BD2]/10 hover:-translate-y-0.5 transition-all group cursor-pointer">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EAF7FF] to-[#D5EDFA] dark:from-[#172535] dark:to-[#1E3043] flex items-center justify-center shrink-0 border border-[#168BD2]/20 shadow-xs group-hover:scale-105 transition-transform overflow-hidden p-1">
-                                            <img src="{{ asset('images/products/LushLogin.png') }}" alt="LushLogin" class="w-full h-full object-contain">
+                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white to-[#F0F7FC] dark:from-[#172535] dark:to-[#0F1822] flex items-center justify-center shrink-0 border border-[#168BD2]/25 shadow-xs group-hover:scale-110 transition-transform overflow-hidden p-1">
+                                            <img src="{{ asset('images/products/LushLogin.png') }}" alt="LushLogin" class="w-full h-full object-contain drop-shadow-sm">
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-1.5">
-                                                <p class="text-xs font-bold text-[#172B3A] dark:text-white">LushLogin Antidetect</p>
-                                                <span class="text-[9px] font-bold text-purple-600 bg-purple-500/10 px-1.5 py-0.2 rounded">PRO</span>
+                                                <p class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors">LushLogin Antidetect</p>
+                                                <span class="text-[9px] font-bold text-purple-600 bg-purple-500/10 border border-purple-500/20 px-1.5 py-0.2 rounded">PRO</span>
                                             </div>
-                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8]">Quản trị 2,450 profiles • Vân tay Canvas 100% độc lập</p>
+                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8] mt-0.5">Quản trị 2,450 profiles • Vân tay Canvas 100% độc lập</p>
                                         </div>
                                     </div>
-                                    <span class="text-[10px] font-bold text-[#168BD2] dark:text-[#48B4E5] bg-[#168BD2]/10 border border-[#168BD2]/20 px-2 py-0.5 rounded-full shrink-0">
+                                    <span class="text-[10px] font-bold text-[#168BD2] dark:text-[#48B4E5] bg-[#168BD2]/10 border border-[#168BD2]/20 px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
                                         IPv6 Clean Proxy
                                     </span>
                                 </div>
 
                                 <!-- Module 3: LushCRM -->
-                                <div class="p-2.5 sm:p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/40 hover:shadow-md transition-all group">
+                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-lg hover:shadow-[#168BD2]/10 hover:-translate-y-0.5 transition-all group cursor-pointer">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EAF7FF] to-[#D5EDFA] dark:from-[#172535] dark:to-[#1E3043] flex items-center justify-center shrink-0 border border-[#168BD2]/20 shadow-xs group-hover:scale-105 transition-transform overflow-hidden p-1">
-                                            <img src="{{ asset('images/products/LushCRM.png') }}" alt="LushCRM" class="w-full h-full object-contain">
+                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white to-[#F0F7FC] dark:from-[#172535] dark:to-[#0F1822] flex items-center justify-center shrink-0 border border-[#168BD2]/25 shadow-xs group-hover:scale-110 transition-transform overflow-hidden p-1">
+                                            <img src="{{ asset('images/products/LushCRM.png') }}" alt="LushCRM" class="w-full h-full object-contain drop-shadow-sm">
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-1.5">
-                                                <p class="text-xs font-bold text-[#172B3A] dark:text-white">LushCRM Enterprise</p>
-                                                <span class="text-[9px] font-bold text-emerald-600 bg-emerald-500/10 px-1.5 py-0.2 rounded">SUITE</span>
+                                                <p class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors">LushCRM Enterprise</p>
+                                                <span class="text-[9px] font-bold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.2 rounded">SUITE</span>
                                             </div>
-                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8]">Phễu bán hàng tự động: +85 khách chốt đơn hôm nay</p>
+                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8] mt-0.5">Phễu bán hàng tự động: +85 khách chốt đơn hôm nay</p>
                                         </div>
                                     </div>
-                                    <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full shrink-0">
+                                    <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
                                         +285M ₫
                                     </span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Floating Stat Badge Top Right -->
-                        <div class="absolute -top-4 -right-3 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3 animate-lush-float">
-                            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center font-bold text-xs shadow-sm shadow-emerald-500/30">
-                                99.9%
+                        <!-- Floating Stat Badge Top Right (Carefully Positioned without Overlap) -->
+                        <div class="absolute -top-7 -right-2 sm:-right-6 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-[#1E2D3D] shadow-[0_15px_35px_rgba(16,185,129,0.18)] flex items-center gap-3 animate-lush-float ring-1 ring-emerald-500/20">
+                            <div class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                             </div>
                             <div>
-                                <p class="text-[11px] font-black text-[#172B3A] dark:text-white">Uptime SLA</p>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-xs font-black text-[#172B3A] dark:text-white">99.99%</span>
+                                    <span class="text-[9px] font-bold text-emerald-600 bg-emerald-500/10 px-1.5 py-0.2 rounded">SLA</span>
+                                </div>
                                 <p class="text-[10px] text-[#718096] dark:text-[#94A3B8]">Cloud Phân Tán</p>
                             </div>
                         </div>
 
                         <!-- Floating Stat Badge Bottom Left -->
-                        <div class="absolute -bottom-4 -left-3 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3 animate-lush-float-reverse">
-                            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#2094DB] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#168BD2]/30">
+                        <div class="absolute -bottom-7 -left-2 sm:-left-6 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-[#1E2D3D] shadow-[0_15px_35px_rgba(22,139,210,0.22)] flex items-center gap-3 animate-lush-float-reverse ring-1 ring-[#168BD2]/20">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#2094DB] text-white flex items-center justify-center font-bold text-sm shadow-md shadow-[#168BD2]/30">
                                 ⚡
                             </div>
                             <div>
-                                <p class="text-[11px] font-black text-[#172B3A] dark:text-white">Lush AI Core 2.4</p>
+                                <p class="text-xs font-black text-[#172B3A] dark:text-white">Lush AI Core 2.4</p>
                                 <p class="text-[10px] text-[#718096] dark:text-[#94A3B8]">12+ Công Cụ Tự Động</p>
+                            </div>
+                        </div>
+
+                        <!-- VIP Floating Satellite 3 (Right Middle): 100% Kháng Checkpoint -->
+                        <div class="hidden xl:flex absolute top-1/2 -right-8 -translate-y-1/2 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3 py-2 rounded-xl border border-white/70 dark:border-[#1E2D3D] shadow-xl shadow-[#168BD2]/15 items-center gap-2 animate-lush-float ring-1 ring-[#168BD2]/25">
+                            <span class="text-sm">🛡️</span>
+                            <div class="text-left">
+                                <p class="text-[10px] font-black text-[#172B3A] dark:text-white">100% Kháng Checkpoint</p>
+                                <p class="text-[9px] text-[#168BD2] font-bold">Bản quyền Lush 2026</p>
                             </div>
                         </div>
                     </div>

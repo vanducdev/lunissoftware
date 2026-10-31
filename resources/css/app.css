@@ -283,16 +283,30 @@ html.dark .skeleton {
 /* 8. FLOATING & GLOW ANIMATIONS */
 @keyframes lushFloat {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-7px); }
+    50% { transform: translateY(-8px); }
 }
 @keyframes lushFloatReverse {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(7px); }
+    50% { transform: translateY(8px); }
 }
 @keyframes pulseGlow {
     0%, 100% { opacity: 0.35; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.06); }
+    50% { opacity: 0.75; transform: scale(1.08); }
 }
+@keyframes buttonShimmer {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    100% { transform: translateX(250%) skewX(-20deg); }
+}
+@keyframes spinConic {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes radarPing {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.4); opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
+}
+
 .animate-lush-float {
     animation: lushFloat 5s ease-in-out infinite;
 }
@@ -301,6 +315,71 @@ html.dark .skeleton {
 }
 .animate-pulse-glow {
     animation: pulseGlow 4s ease-in-out infinite;
+}
+.animate-radar {
+    animation: radarPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* VIP Button Shimmer Sweep */
+.lush-btn-vip {
+    position: relative;
+    overflow: hidden;
+}
+.lush-btn-vip::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%);
+    animation: buttonShimmer 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+}
+
+/* 3D Perspective Tilt Chassis */
+.lush-hero-3d-wrap {
+    perspective: 1200px;
+}
+.lush-hero-3d-chassis {
+    transform: rotateY(-4deg) rotateX(3deg) translateZ(0);
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+.lush-hero-3d-chassis:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateY(-4px) translateZ(12px);
+}
+
+/* Border Beam Conic Glow */
+.lush-border-beam {
+    position: relative;
+}
+.lush-border-beam::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 280deg,
+        #168BD2 330deg,
+        #48B4E5 350deg,
+        #EAF7FF 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: spinConic 6s linear infinite;
+    z-index: 20;
 }
 
 /* 9. PREFERS REDUCED MOTION */
