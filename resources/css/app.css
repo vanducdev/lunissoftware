@@ -280,7 +280,30 @@ html.dark .skeleton {
     width: 0%;
 }
 
-/* 8. PREFERS REDUCED MOTION */
+/* 8. FLOATING & GLOW ANIMATIONS */
+@keyframes lushFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-7px); }
+}
+@keyframes lushFloatReverse {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(7px); }
+}
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.06); }
+}
+.animate-lush-float {
+    animation: lushFloat 5s ease-in-out infinite;
+}
+.animate-lush-float-reverse {
+    animation: lushFloatReverse 6s ease-in-out infinite;
+}
+.animate-pulse-glow {
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* 9. PREFERS REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
         animation-duration: 0.01ms !important;
