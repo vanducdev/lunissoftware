@@ -117,17 +117,17 @@
                     </div>
                 </div>
 
-                <!-- Hero Right: Next-Gen 3D SaaS Console & Authentic Software Box Showcase -->
+                <!-- Hero Right: Next-Gen 3D SaaS Console (Clean, Premium, No Emoji) -->
                 <div class="lg:col-span-5 relative lush-hero-3d-wrap" data-aos="fade-left" data-aos-delay="150">
                     <div class="relative mx-auto max-w-lg lg:max-w-none">
-                        <!-- Glass Chassis with 3D Perspective Tilt & Conic Border Beam -->
-                        <div class="lush-hero-3d-chassis lush-border-beam bg-white/95 dark:bg-[#111A24]/95 backdrop-blur-2xl rounded-3xl border border-[#E2E8F0] dark:border-[#1E2D3D] shadow-[0_30px_90px_-15px_rgba(22,139,210,0.25),0_10px_30px_rgba(0,0,0,0.05)] p-5 sm:p-6 relative overflow-hidden transition-all">
+                        <!-- Glass Chassis with 3D Perspective Tilt & Multi-Layer Depth Shadow -->
+                        <div class="lush-hero-3d-chassis bg-white/95 dark:bg-[#111A24]/95 backdrop-blur-2xl rounded-3xl border border-[#E2E8F0] dark:border-[#1E2D3D] shadow-[0_30px_80px_-15px_rgba(22,139,210,0.22),0_10px_25px_rgba(0,0,0,0.04)] p-5 sm:p-6 relative overflow-hidden transition-all">
                             <!-- Window Chrome bar -->
                             <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] relative z-10">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="w-3 h-3 rounded-full bg-gradient-to-br from-rose-400 to-rose-500 inline-block shadow-2xs"></span>
-                                    <span class="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-500 inline-block shadow-2xs"></span>
-                                    <span class="w-3 h-3 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 inline-block shadow-2xs"></span>
+                                    <span class="w-3 h-3 rounded-full bg-rose-400 inline-block shadow-2xs"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-400 inline-block shadow-2xs"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block shadow-2xs"></span>
                                 </div>
                                 <span class="text-[11px] font-mono font-semibold text-[#5A6E85] dark:text-[#94A3B8] bg-[#F8FAFC] dark:bg-[#0B1118] px-3.5 py-1 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-1.5 shadow-2xs">
                                     <svg class="w-3 h-3 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -140,7 +140,7 @@
                                 </span>
                             </div>
 
-                            <!-- Live Telemetry Card with SVG Glowing Wave & Dynamic Sparkline -->
+                            <!-- Live Telemetry Card with Glowing Spline Curve -->
                             <div class="bg-gradient-to-br from-[#F8FAFC] via-[#F1F7FB] to-[#EBF5FB] dark:from-[#152332] dark:via-[#182839] dark:to-[#1B2D40] p-4 sm:p-4.5 rounded-2xl border border-[#E2E8F0] dark:border-[#1E2D3D] mb-3.5 shadow-xs relative overflow-hidden">
                                 <div class="flex items-center justify-between relative z-10">
                                     <div>
@@ -150,11 +150,14 @@
                                         </div>
                                         <p class="text-2xl sm:text-3xl font-black text-[#172B3A] dark:text-white mt-0.5 tracking-tight flex items-center gap-2.5">
                                             1,248,950 
-                                            <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">+42.8%</span>
+                                            <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                                <svg class="w-3 h-3 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                                +42.8%
+                                            </span>
                                         </p>
                                     </div>
-                                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white flex items-center justify-center shadow-md shadow-[#168BD2]/35 shrink-0">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white flex items-center justify-center shadow-md shadow-[#168BD2]/30 shrink-0">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                                     </div>
                                 </div>
 
@@ -185,20 +188,20 @@
                                 </div>
                             </div>
 
-                            <!-- Live Active Modules Feed with Authentic 3D Software Box Thumbnails -->
+                            <!-- Live Active Modules Feed (Custom Bespoke SVG Icons - No Generic Industrial Emojis) -->
                             <div class="space-y-2.5">
                                 <!-- Module 1: LushCare -->
-                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-lg hover:shadow-[#168BD2]/10 hover:-translate-y-0.5 transition-all group cursor-pointer">
+                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-md transition-all group">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white to-[#F0F7FC] dark:from-[#172535] dark:to-[#0F1822] flex items-center justify-center shrink-0 border border-[#168BD2]/25 shadow-xs group-hover:scale-110 transition-transform overflow-hidden p-1">
-                                            <img src="{{ asset('images/products/LushCare.png') }}" alt="LushCare" class="w-full h-full object-contain drop-shadow-sm">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white flex items-center justify-center shrink-0 shadow-xs shadow-[#168BD2]/20 group-hover:scale-105 transition-transform">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-1.5">
                                                 <p class="text-xs font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors">LushCare v3.5</p>
                                                 <span class="text-[9px] font-bold text-[#168BD2] bg-[#168BD2]/10 border border-[#168BD2]/20 px-1.5 py-0.2 rounded">FLAGSHIP</span>
                                             </div>
-                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8] mt-0.5">Nuôi nick đa kênh • 45,000 lượt tương tác tự động/ngày</p>
+                                            <p class="text-[10px] text-[#718096] dark:text-[#94A3B8] mt-0.5">Nuôi nick đa kênh • 45,000 tương tác tự động/ngày</p>
                                         </div>
                                     </div>
                                     <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1 shrink-0 shadow-2xs">
@@ -208,10 +211,10 @@
                                 </div>
 
                                 <!-- Module 2: LushLogin -->
-                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-lg hover:shadow-[#168BD2]/10 hover:-translate-y-0.5 transition-all group cursor-pointer">
+                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-md transition-all group">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white to-[#F0F7FC] dark:from-[#172535] dark:to-[#0F1822] flex items-center justify-center shrink-0 border border-[#168BD2]/25 shadow-xs group-hover:scale-110 transition-transform overflow-hidden p-1">
-                                            <img src="{{ asset('images/products/LushLogin.png') }}" alt="LushLogin" class="w-full h-full object-contain drop-shadow-sm">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#4F46E5] text-white flex items-center justify-center shrink-0 shadow-xs shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-1.5">
@@ -227,10 +230,10 @@
                                 </div>
 
                                 <!-- Module 3: LushCRM -->
-                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-lg hover:shadow-[#168BD2]/10 hover:-translate-y-0.5 transition-all group cursor-pointer">
+                                <div class="p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/50 hover:shadow-md transition-all group">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white to-[#F0F7FC] dark:from-[#172535] dark:to-[#0F1822] flex items-center justify-center shrink-0 border border-[#168BD2]/25 shadow-xs group-hover:scale-110 transition-transform overflow-hidden p-1">
-                                            <img src="{{ asset('images/products/LushCRM.png') }}" alt="LushCRM" class="w-full h-full object-contain drop-shadow-sm">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#059669] to-[#0D9488] text-white flex items-center justify-center shrink-0 shadow-xs shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-1.5">
@@ -240,15 +243,15 @@
                                             <p class="text-[10px] text-[#718096] dark:text-[#94A3B8] mt-0.5">Phễu bán hàng tự động: +85 khách chốt đơn hôm nay</p>
                                         </div>
                                     </div>
-                                    <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
+                                    <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0 shadow-2xs font-mono">
                                         +285M ₫
                                     </span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Floating Stat Badge Top Right (Carefully Positioned without Overlap) -->
-                        <div class="absolute -top-7 -right-2 sm:-right-6 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-[#1E2D3D] shadow-[0_15px_35px_rgba(16,185,129,0.18)] flex items-center gap-3 animate-lush-float ring-1 ring-emerald-500/20">
+                        <!-- Floating Stat Badge Top Right (Aerospace Grade Glass Pill) -->
+                        <div class="absolute -top-6 -right-2 sm:-right-6 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl border border-white/80 dark:border-[#1E2D3D] shadow-[0_15px_35px_rgba(16,185,129,0.18)] flex items-center gap-3 animate-lush-float ring-1 ring-emerald-500/20">
                             <div class="relative flex h-3 w-3">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
@@ -262,23 +265,14 @@
                             </div>
                         </div>
 
-                        <!-- Floating Stat Badge Bottom Left -->
-                        <div class="absolute -bottom-7 -left-2 sm:-left-6 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-[#1E2D3D] shadow-[0_15px_35px_rgba(22,139,210,0.22)] flex items-center gap-3 animate-lush-float-reverse ring-1 ring-[#168BD2]/20">
-                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#2094DB] text-white flex items-center justify-center font-bold text-sm shadow-md shadow-[#168BD2]/30">
-                                ⚡
+                        <!-- Floating Stat Badge Bottom Left (Processor Chip SVG - No Emojis) -->
+                        <div class="absolute -bottom-6 -left-2 sm:-left-6 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl border border-white/80 dark:border-[#1E2D3D] shadow-[0_15px_35px_rgba(22,139,210,0.22)] flex items-center gap-3 animate-lush-float-reverse ring-1 ring-[#168BD2]/20">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white flex items-center justify-center shadow-md shadow-[#168BD2]/30 shrink-0">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
                             </div>
                             <div>
                                 <p class="text-xs font-black text-[#172B3A] dark:text-white">Lush AI Core 2.4</p>
                                 <p class="text-[10px] text-[#718096] dark:text-[#94A3B8]">12+ Công Cụ Tự Động</p>
-                            </div>
-                        </div>
-
-                        <!-- VIP Floating Satellite 3 (Right Middle): 100% Kháng Checkpoint -->
-                        <div class="hidden xl:flex absolute top-1/2 -right-8 -translate-y-1/2 z-30 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-xl px-3 py-2 rounded-xl border border-white/70 dark:border-[#1E2D3D] shadow-xl shadow-[#168BD2]/15 items-center gap-2 animate-lush-float ring-1 ring-[#168BD2]/25">
-                            <span class="text-sm">🛡️</span>
-                            <div class="text-left">
-                                <p class="text-[10px] font-black text-[#172B3A] dark:text-white">100% Kháng Checkpoint</p>
-                                <p class="text-[9px] text-[#168BD2] font-bold">Bản quyền Lush 2026</p>
                             </div>
                         </div>
                     </div>
