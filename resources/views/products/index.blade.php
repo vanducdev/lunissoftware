@@ -35,11 +35,11 @@
             </div>
         </div>
 
-        <!-- Category Tabs (MKT Style Category Filter Pills) -->
-        <div class="mb-8" data-aos="fade-up">
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:justify-center">
+        <!-- Category Tabs Sticky Filter Bar -->
+        <div class="sticky top-[69px] z-30 bg-white/95 dark:bg-[#0B1118]/95 backdrop-blur-xl py-3.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-8 shadow-xs transition-all">
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none sm:justify-center max-w-7xl mx-auto">
                 <!-- All tab -->
-                <a href="{{ route('products.index', array_filter(['search' => request('search'), 'sort' => request('sort')])) }}" class="shrink-0 px-4 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 {{ !request('category') ? 'bg-[#168BD2] text-white shadow-md shadow-[#168BD2]/30 scale-105' : 'bg-[#F8FAFC] dark:bg-[#131D27] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#1E2D3D] hover:border-[#168BD2] hover:text-[#168BD2]' }}">
+                <a href="{{ route('products.index', array_filter(['search' => request('search'), 'sort' => request('sort')])) }}" class="shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 {{ !request('category') ? 'bg-[#168BD2] text-white shadow-md shadow-[#168BD2]/30 scale-105' : 'bg-[#F8FAFC] dark:bg-[#131D27] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#1E2D3D] hover:border-[#168BD2] hover:text-[#168BD2]' }}">
                     <span>Tất Cả Sản Phẩm</span>
                     <span class="px-2 py-0.5 rounded-full text-[10px] {{ !request('category') ? 'bg-white/20 text-white' : 'bg-[#E8EDF2] dark:bg-[#1E2D3D] text-[#718096]' }}">
                         {{ $categories->sum('products_count') }}
@@ -47,7 +47,7 @@
                 </a>
 
                 @foreach($categories as $cat)
-                    <a href="{{ route('products.index', array_filter(['category' => $cat->slug, 'search' => request('search'), 'sort' => request('sort')])) }}" class="shrink-0 px-4 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 {{ request('category') === $cat->slug ? 'bg-[#168BD2] text-white shadow-md shadow-[#168BD2]/30 scale-105' : 'bg-[#F8FAFC] dark:bg-[#131D27] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#1E2D3D] hover:border-[#168BD2] hover:text-[#168BD2]' }}">
+                    <a href="{{ route('products.index', array_filter(['category' => $cat->slug, 'search' => request('search'), 'sort' => request('sort')])) }}" class="shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 {{ request('category') === $cat->slug ? 'bg-[#168BD2] text-white shadow-md shadow-[#168BD2]/30 scale-105' : 'bg-[#F8FAFC] dark:bg-[#131D27] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#1E2D3D] hover:border-[#168BD2] hover:text-[#168BD2]' }}">
                         <span>{{ $cat->name }}</span>
                         <span class="px-2 py-0.5 rounded-full text-[10px] {{ request('category') === $cat->slug ? 'bg-white/20 text-white' : 'bg-[#E8EDF2] dark:bg-[#1E2D3D] text-[#718096]' }}">
                             {{ $cat->products_count }}
@@ -88,12 +88,10 @@
                 @foreach($products as $product)
                     <div class="lush-card overflow-hidden flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#168BD2]/15 transition-all duration-300 border border-[#E8EDF2] dark:border-[#1E2D3D]" data-aos="fade-up">
                         <div>
-                            <!-- Top Mockup Image Container (MKT Software Style Boxshot) -->
+                            <!-- Top Mockup Image Container (Clean Unobstructed Mockup) -->
                             <div class="relative w-full aspect-[16/10] bg-gradient-to-tr from-[#F8FAFC] via-[#F0F6FB] to-[#E8F3FA] dark:from-[#0D151F] dark:via-[#111A24] dark:to-[#162230] p-4 flex items-center justify-center overflow-hidden border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                <!-- Glowing hover backdrop -->
                                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#168BD2]/5 to-transparent group-hover:via-[#168BD2]/15 transition-all duration-500"></div>
 
-                                <!-- Product Mockup Image -->
                                 @if($product->banner_url)
                                     <a href="{{ route('products.show', $product->slug) }}" class="relative z-10 w-full h-full flex items-center justify-center">
                                         <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
@@ -103,29 +101,27 @@
                                         <x-product-icon :slug="$product->slug" size="xl" class="group-hover:scale-110 transition-transform duration-500 shadow-xl" />
                                     </div>
                                 @endif
-
-                                <!-- Category Badge (Top Left) -->
-                                <div class="absolute top-3 left-3 z-20">
-                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/95 dark:bg-[#101923]/95 backdrop-blur-md text-[#168BD2] border border-[#168BD2]/20 shadow-xs">
-                                        {{ $product->category->name ?? 'SaaS' }}
-                                    </span>
-                                </div>
-
-                                <!-- Hot / Version Badge (Top Right) -->
-                                <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
-                                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#172B3A]/90 dark:bg-white/90 text-white dark:text-[#172B3A] shadow-xs">
-                                        {{ $product->version ?? 'v2.4' }}
-                                    </span>
-                                    @if($product->is_featured)
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#168BD2] to-[#0878BD] text-white shadow-xs animate-pulse">
-                                            HOT
-                                        </span>
-                                    @endif
-                                </div>
                             </div>
 
                             <!-- Card Body Content -->
                             <div class="p-6">
+                                <!-- Category & Version Badge Header -->
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#168BD2]/10 text-[#168BD2] border border-[#168BD2]/20">
+                                        {{ $product->category->name ?? 'SaaS' }}
+                                    </span>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#F8FAFC] dark:bg-[#1A2634] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#2D3F52]">
+                                            {{ $product->version ?? 'v2.4' }}
+                                        </span>
+                                        @if($product->is_featured)
+                                            <span class="px-2 py-0.5 rounded-full text-[9.5px] font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-2xs">
+                                                HOT
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
                                 <!-- Title with App Icon -->
                                 <div class="flex items-start gap-3 mb-2.5">
                                     <div class="shrink-0 mt-0.5">

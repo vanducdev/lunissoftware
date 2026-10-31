@@ -234,23 +234,19 @@
                                         <x-product-icon :slug="$product->slug" size="xl" class="group-hover:scale-110 transition-transform duration-500 shadow-xl" />
                                     </div>
                                 @endif
-
-                                <!-- Category Badge -->
-                                <div class="absolute top-3 left-3 z-20">
-                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/95 dark:bg-[#101923]/95 backdrop-blur-md text-[#168BD2] border border-[#168BD2]/20 shadow-xs">
-                                        {{ $product->category->name ?? 'SaaS' }}
-                                    </span>
-                                </div>
-
-                                <!-- Version Badge -->
-                                <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
-                                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#172B3A]/90 dark:bg-white/90 text-white dark:text-[#172B3A] shadow-xs">
-                                        {{ $product->version ?? 'v2.4' }}
-                                    </span>
-                                </div>
                             </div>
 
                             <div class="p-6">
+                                <!-- Category & Version Badge Header -->
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#168BD2]/10 text-[#168BD2] border border-[#168BD2]/20">
+                                        {{ $product->category->name ?? 'SaaS' }}
+                                    </span>
+                                    <span class="px-2 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#F8FAFC] dark:bg-[#1A2634] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#2D3F52]">
+                                        {{ $product->version ?? 'v2.4' }}
+                                    </span>
+                                </div>
+
                                 <!-- Name & Logo -->
                                 <div class="flex items-start gap-3 mb-2.5">
                                     <div class="shrink-0 mt-0.5">

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
   <defs>
     <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F4F4FD"/>
@@ -48,7 +48,7 @@
     <circle cx="44" cy="23" r="5" fill="#F59E0B"/>
     <circle cx="60" cy="23" r="5" fill="#10B981"/>
 
-    <text x="300" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#718096" text-anchor="middle">Lush Social Hub – Multi-Account Farm Manager v2.4</text>
+    <text x="300" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#718096" text-anchor="middle">Lush Social Hub â€“ Multi-Account Farm Manager v2.4</text>
 
     <!-- Sidebar -->
     <rect x="0" y="47" width="140" height="333" fill="#F8FAFC"/>
@@ -56,55 +56,55 @@
     
     <rect x="14" y="65" width="112" height="28" rx="8" fill="#6366F1" opacity="0.1"/>
     <rect x="22" y="75" width="8" height="8" rx="2" fill="#6366F1"/>
-    <text x="36" y="83" font-family="sans-serif" font-size="11" font-weight="700" fill="#6366F1">Dàn Tài Khoản</text>
+    <text x="36" y="83" font-family="sans-serif" font-size="11" font-weight="700" fill="#6366F1">DÃ n TÃ i Khoáº£n</text>
 
-    <text x="36" y="120" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Tương tác tự động</text>
-    <text x="36" y="152" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Đăng bài đa kênh</text>
-    <text x="36" y="184" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Quản lý Proxy/IP</text>
-    <text x="36" y="216" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Thống kê dàn</text>
+    <text x="36" y="120" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">TÆ°Æ¡ng tÃ¡c tá»± Ä‘á»™ng</text>
+    <text x="36" y="152" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">ÄÄƒng bÃ i Ä‘a kÃªnh</text>
+    <text x="36" y="184" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Quáº£n lÃ½ Proxy/IP</text>
+    <text x="36" y="216" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Thá»‘ng kÃª dÃ n</text>
 
     <!-- Content -->
     <g transform="translate(160, 65)">
       <rect width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
-      <text x="12" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Tài khoản Live</text>
+      <text x="12" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">TÃ i khoáº£n Live</text>
       <text x="12" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#172B3A">2,450 Nick</text>
-      <text x="12" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">100% Kháng Checkpoint</text>
+      <text x="12" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">100% KhÃ¡ng Checkpoint</text>
 
       <rect x="145" y="0" width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
-      <text x="157" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Tương tác hôm nay</text>
+      <text x="157" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">TÆ°Æ¡ng tÃ¡c hÃ´m nay</text>
       <text x="157" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#6366F1">198,400</text>
-      <text x="157" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">Tự động lướt & cmt</text>
+      <text x="157" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">Tá»± Ä‘á»™ng lÆ°á»›t &amp; cmt</text>
 
       <rect x="290" y="0" width="130" height="70" rx="10" fill="url(#indigoGrad)"/>
-      <text x="302" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.9">Nền tảng</text>
-      <text x="302" y="48" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">FB · Zalo · TikTok</text>
-      <text x="302" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#E0E7FF">Đồng bộ Profile Chrome</text>
+      <text x="302" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.9">Ná»n táº£ng</text>
+      <text x="302" y="48" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">FB Â· Zalo Â· TikTok</text>
+      <text x="302" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#E0E7FF">Äá»“ng bá»™ Profile Chrome</text>
     </g>
 
     <!-- Grid of accounts simulation -->
     <g transform="translate(160, 150)">
       <rect width="420" height="205" rx="12" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
-      <text x="18" y="28" font-family="sans-serif" font-size="13" font-weight="800" fill="#172B3A">Danh Sách Profile Đang Chạy Giả Lập</text>
-      <text x="320" y="28" font-family="sans-serif" font-size="10" font-weight="700" fill="#10B981">Đang chạy 48 tab ●</text>
+      <text x="18" y="28" font-family="sans-serif" font-size="13" font-weight="800" fill="#172B3A">Danh SÃ¡ch Profile Äang Cháº¡y Giáº£ Láº­p</text>
+      <text x="320" y="28" font-family="sans-serif" font-size="10" font-weight="700" fill="#10B981">Äang cháº¡y 48 tab â—</text>
 
       <g transform="translate(18, 45)">
         <rect width="384" height="34" rx="8" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
         <circle cx="20" cy="17" r="7" fill="#10B981"/>
         <text x="36" y="21" font-family="sans-serif" font-size="11" font-weight="700" fill="#172B3A">Profile #01 (HoangLan_Marketing)</text>
         <text x="260" y="21" font-family="sans-serif" font-size="10" fill="#718096">Proxy: 14.225.2.14</text>
-        <text x="340" y="21" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">Lướt Reel</text>
+        <text x="340" y="21" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">LÆ°á»›t Reel</text>
 
         <rect y="44" width="384" height="34" rx="8" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
         <circle cx="20" cy="61" r="7" fill="#10B981"/>
         <text x="36" y="65" font-family="sans-serif" font-size="11" font-weight="700" fill="#172B3A">Profile #02 (TuanAnh_BDS)</text>
         <text x="260" y="65" font-family="sans-serif" font-size="10" fill="#718096">Proxy: 118.69.15.8</text>
-        <text x="340" y="65" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">Kết bạn</text>
+        <text x="340" y="65" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">Káº¿t báº¡n</text>
 
         <rect y="88" width="384" height="34" rx="8" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
         <circle cx="20" cy="105" r="7" fill="#10B981"/>
         <text x="36" y="109" font-family="sans-serif" font-size="11" font-weight="700" fill="#172B3A">Profile #03 (MinhChau_Beauty)</text>
         <text x="260" y="109" font-family="sans-serif" font-size="10" fill="#718096">Proxy: 171.244.9.22</text>
-        <text x="340" y="109" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">Đăng nhóm</text>
+        <text x="340" y="109" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">ÄÄƒng nhÃ³m</text>
       </g>
     </g>
   </g>
@@ -115,6 +115,8 @@
     <circle cx="24" cy="24" r="14" fill="url(#indigoGrad)"/>
     <path d="M20 22 A4 4 0 1 1 28 22 A4 4 0 1 1 20 22 Z M18 30 C18 27 22 26 24 26 C26 26 30 27 30 30 Z" fill="#FFFFFF" transform="translate(0, -3) scale(0.9)"/>
     <text x="46" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#172B3A">Lush Social Hub</text>
-    <text x="46" y="38" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">HỆ THỐNG NUÔI NICK</text>
+    <text x="46" y="38" font-family="sans-serif" font-size="10" font-weight="700" fill="#6366F1">Há»† THá»NG NUÃ”I NICK</text>
   </g>
 </svg>
+
+
