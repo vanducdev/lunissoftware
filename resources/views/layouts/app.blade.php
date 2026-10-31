@@ -9,8 +9,12 @@
     <meta name="description" content="@yield('meta_description', \App\Models\WebsiteSetting::get('meta_description', 'Hệ sinh thái công nghệ tự động hóa Marketing, CRM và tối ưu vận hành doanh nghiệp.'))">
     <meta name="keywords" content="@yield('meta_keywords', \App\Models\WebsiteSetting::get('meta_keywords', 'lush software, phan mem marketing, crm'))">
 
+    <!-- Robots & Googlebot Directives -->
+    <meta name="robots" content="@yield('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')">
+    <meta name="googlebot" content="@yield('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')">
+
     <!-- Canonical & Alternate Hreflang for SEO -->
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="@yield('canonical_url', url()->current())">
     <link rel="alternate" hreflang="vi" href="{{ url()->current() }}?lang=vi">
     <link rel="alternate" hreflang="en" href="{{ url()->current() }}?lang=en">
     <link rel="alternate" hreflang="zh" href="{{ url()->current() }}?lang=zh">
@@ -21,36 +25,73 @@
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
 
-    <!-- Open Graph / Facebook / Twitter -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('title', 'LushSoftware – Nền tảng phần mềm SaaS')">
-    <meta property="og:description" content="@yield('meta_description', 'Tự động hóa tiếp thị, quản trị quan hệ khách hàng và mở rộng kinh doanh.')">
-    <meta property="og:image" content="{{ asset('images/banner.png') }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ asset('images/banner.png') }}">
+    <!-- Open Graph (Facebook / Zalo / LinkedIn) -->
+    <meta property="og:site_name" content="LushSoftware">
+    <meta property="og:locale" content="{{ app()->getLocale() === 'vi' ? 'vi_VN' : (app()->getLocale() === 'zh' ? 'zh_CN' : (app()->getLocale() === 'ko' ? 'ko_KR' : 'en_US')) }}">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="@yield('canonical_url', url()->current())">
+    <meta property="og:title" content="@yield('og_title', View::yieldContent('title', \App\Models\WebsiteSetting::get('meta_title', 'LushSoftware – Giải pháp phần mềm Marketing & SaaS hàng đầu')))">
+    <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', \App\Models\WebsiteSetting::get('meta_description', 'Hệ sinh thái công nghệ tự động hóa Marketing, CRM và tối ưu vận hành doanh nghiệp.')))">
+    <meta property="og:image" content="@yield('og_image', asset('images/banner.png'))">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="@yield('og_title', 'LushSoftware')">
+    @yield('extra_og')
 
-    <!-- Schema.org JSON-LD Structured Data for Google -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lushsoftware">
+    <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'LushSoftware'))">
+    <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Tự động hóa tiếp thị & SaaS.'))">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/banner.png'))">
+
+    <!-- Schema.org JSON-LD Structured Data for Google (Organization + WebSite with Sitelinks Search) -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
-      "@@type": "Organization",
-      "name": "LushSoftware",
-      "url": "{{ url('/') }}",
-      "logo": "{{ asset('images/logo.png') }}",
-      "description": "Nền tảng phần mềm SaaS & Tự động hóa tiếp thị doanh nghiệp.",
-      "telephone": "{{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}",
-      "email": "{{ \App\Models\WebsiteSetting::get('contact_email', 'contact@lushsoftware.vn') }}",
-      "address": {
-        "@@type": "PostalAddress",
-        "streetAddress": "Tầng 18, Tòa nhà Lush Tower",
-        "addressLocality": "Cầu Giấy, Hà Nội",
-        "addressCountry": "VN"
-      },
-      "sameAs": [
-        "{{ \App\Models\WebsiteSetting::get('social_facebook', 'https://facebook.com/lushsoftware') }}",
-        "{{ \App\Models\WebsiteSetting::get('social_telegram', 'https://t.me/lushsoftware_official') }}",
-        "{{ \App\Models\WebsiteSetting::get('social_youtube', 'https://youtube.com/@lushsoftware') }}"
+      "@@graph": [
+        {
+          "@@type": "Organization",
+          "@@id": "{{ url('/#organization') }}",
+          "name": "LushSoftware",
+          "url": "{{ url('/') }}",
+          "logo": {
+            "@@type": "ImageObject",
+            "url": "{{ asset('images/logo.png') }}",
+            "caption": "LushSoftware Logo"
+          },
+          "description": "Nền tảng phần mềm SaaS & Tự động hóa tiếp thị đa kênh doanh nghiệp.",
+          "telephone": "{{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}",
+          "email": "{{ \App\Models\WebsiteSetting::get('contact_email', 'contact@lushsoftware.vn') }}",
+          "address": {
+            "@@type": "PostalAddress",
+            "streetAddress": "Tầng 18, Tòa nhà Lush Tower",
+            "addressLocality": "Cầu Giấy, Hà Nội",
+            "addressCountry": "VN"
+          },
+          "sameAs": [
+            "{{ \App\Models\WebsiteSetting::get('social_facebook', 'https://facebook.com/lushsoftware') }}",
+            "{{ \App\Models\WebsiteSetting::get('social_telegram', 'https://t.me/lushsoftware_official') }}",
+            "{{ \App\Models\WebsiteSetting::get('social_youtube', 'https://youtube.com/@lushsoftware') }}"
+          ]
+        },
+        {
+          "@@type": "WebSite",
+          "@@id": "{{ url('/#website') }}",
+          "url": "{{ url('/') }}",
+          "name": "LushSoftware",
+          "publisher": {
+            "@@id": "{{ url('/#organization') }}"
+          },
+          "potentialAction": {
+            "@@type": "SearchAction",
+            "target": {
+              "@@type": "EntryPoint",
+              "urlTemplate": "{{ url('/news') }}?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
       ]
     }
     </script>

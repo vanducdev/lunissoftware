@@ -3,6 +3,49 @@
 @section('title', __('Pricing') . ' – LushSoftware')
 @section('meta_description', 'Bảng giá bản quyền các phần mềm LushSoftware: Tự động hóa tiếp thị, nuôi nick đa kênh, CRM và phân tích dữ liệu. Cam kết minh bạch, hoàn tiền 100% trong 7 ngày.')
 
+@push('schema')
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@@type": "Question",
+      "name": "Sau khi thanh toán bao lâu thì tôi nhận được bản quyền phần mềm?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "Hệ thống kích hoạt bản quyền hoàn toàn tự động ngay sau khi hoàn tất giao dịch (qua mã quét QR). Bạn sẽ nhận ngay thông tin kích hoạt qua email và tin nhắn xác nhận. Đồng thời kỹ sư LushSoftware sẽ liên hệ hỗ trợ cài đặt Ultraview trực tiếp trong 5 - 15 phút."
+      }
+    },
+    {
+      "@@type": "Question",
+      "name": "Tôi có thể chuyển đổi bản quyền sang máy tính khác không?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "Có. LushSoftware cung cấp cơ chế chuyển đổi máy tính linh hoạt. Bạn có thể tự gỡ bản quyền trên máy cũ và kích hoạt lại trên máy mới thông qua tài khoản cá nhân hoặc liên hệ hỗ trợ kỹ thuật trong 5 phút."
+      }
+    },
+    {
+      "@@type": "Question",
+      "name": "Chính sách hoàn tiền của LushSoftware hoạt động như thế nào?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "Chúng tôi cam kết hoàn tiền 100% trong vòng 7 ngày nếu phần mềm phát sinh lỗi kỹ thuật do hệ thống của LushSoftware và đội ngũ hỗ trợ không khắc phục được cho bạn."
+      }
+    },
+    {
+      "@@type": "Question",
+      "name": "Hình thức thanh toán nào được chấp nhận?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "LushSoftware hỗ trợ chuyển khoản ngân hàng qua mã VietQR tự động kích hoạt, thẻ Visa/MasterCard, ví điện tử và thanh toán USDT cho khách hàng quốc tế. Xuất hóa đơn VAT điện tử đầy đủ theo yêu cầu doanh nghiệp."
+      }
+    }
+  ]
+}
+</script>
+@endpush
+
 @section('content')
 <div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->

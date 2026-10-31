@@ -49,8 +49,9 @@ class AdminArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', 'unique:articles,slug'],
             'category_id' => ['nullable', 'exists:article_categories,id'],
-            'excerpt' => ['nullable', 'string', 'max:500'],
+            'excerpt' => ['nullable', 'string', 'max:1000'],
             'content' => ['required', 'string'],
             'status' => ['required', 'in:draft,published,scheduled'],
             'published_at' => ['nullable', 'date'],
@@ -58,19 +59,34 @@ class AdminArticleController extends Controller
             'seo_title' => ['nullable', 'string', 'max:255'],
             'seo_description' => ['nullable', 'string', 'max:500'],
             'seo_keywords' => ['nullable', 'string', 'max:255'],
+            'focus_keyword' => ['nullable', 'string', 'max:100'],
+            'canonical_url' => ['nullable', 'string', 'max:255'],
+            'robots_meta' => ['nullable', 'string', 'max:50'],
+            'reading_time' => ['nullable', 'integer', 'min:1'],
             'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:2048'],
         ]);
 
-        $validated['slug'] = Str::slug($validated['title']);
-        $originalSlug = $validated['slug'];
-        $count = 1;
-        while (Article::where('slug', $validated['slug'])->exists()) {
-            $validated['slug'] = "{$originalSlug}-".$count++;
+        if (empty($validated['slug'])) {
+            $validated['slug'] = Str::slug($validated['title']);
+            $originalSlug = $validated['slug'];
+            $count = 1;
+            while (Article::where('slug', $validated['slug'])->exists()) {
+                $validated['slug'] = "{$originalSlug}-".$count++;
+            }
+        } else {
+            $validated['slug'] = Str::slug($validated['slug']);
         }
 
         $validated['author_id'] = Auth::id();
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['published_at'] = $validated['published_at'] ?? now();
+        $validated['robots_meta'] = $validated['robots_meta'] ?: 'index, follow';
+
+        // Calculate reading time automatically if not given
+        if (empty($validated['reading_time'])) {
+            $wordCount = str_word_count(strip_tags($validated['content']));
+            $validated['reading_time'] = max(1, (int) ceil($wordCount / 200));
+        }
 
         if ($request->hasFile('thumbnail')) {
             $validated['thumbnail'] = $request->file('thumbnail')->store('articles', 'public');
@@ -96,7 +112,7 @@ class AdminArticleController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255', Rule::unique('articles')->ignore($article->id)],
             'category_id' => ['nullable', 'exists:article_categories,id'],
-            'excerpt' => ['nullable', 'string', 'max:500'],
+            'excerpt' => ['nullable', 'string', 'max:1000'],
             'content' => ['required', 'string'],
             'status' => ['required', 'in:draft,published,scheduled'],
             'published_at' => ['nullable', 'date'],
@@ -104,10 +120,21 @@ class AdminArticleController extends Controller
             'seo_title' => ['nullable', 'string', 'max:255'],
             'seo_description' => ['nullable', 'string', 'max:500'],
             'seo_keywords' => ['nullable', 'string', 'max:255'],
+            'focus_keyword' => ['nullable', 'string', 'max:100'],
+            'canonical_url' => ['nullable', 'string', 'max:255'],
+            'robots_meta' => ['nullable', 'string', 'max:50'],
+            'reading_time' => ['nullable', 'integer', 'min:1'],
             'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:2048'],
         ]);
 
+        $validated['slug'] = Str::slug($validated['slug']);
         $validated['is_featured'] = $request->boolean('is_featured');
+        $validated['robots_meta'] = $validated['robots_meta'] ?: 'index, follow';
+
+        if (empty($validated['reading_time'])) {
+            $wordCount = str_word_count(strip_tags($validated['content']));
+            $validated['reading_time'] = max(1, (int) ceil($wordCount / 200));
+        }
 
         if ($request->hasFile('thumbnail')) {
             $validated['thumbnail'] = $request->file('thumbnail')->store('articles', 'public');

@@ -24,6 +24,10 @@ class Article extends Model
         'seo_title',
         'seo_description',
         'seo_keywords',
+        'focus_keyword',
+        'canonical_url',
+        'robots_meta',
+        'reading_time',
         'view_count',
         'is_featured',
         'translations',
@@ -35,6 +39,7 @@ class Article extends Model
             'published_at' => 'datetime',
             'is_featured' => 'boolean',
             'view_count' => 'integer',
+            'reading_time' => 'integer',
             'translations' => 'array',
         ];
     }

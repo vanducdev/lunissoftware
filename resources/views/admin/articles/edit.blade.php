@@ -63,41 +63,37 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div>
+                    <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Ảnh đại diện (Thumbnail)</label>
+                    @if($article->thumbnail)
+                        <div class="mb-2 flex items-center gap-3 p-2 rounded-xl bg-slate-50 dark:bg-[#131D27] border border-[#E8EDF2] dark:border-[#1E2D3D]">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Thumbnail" class="w-16 h-12 rounded-lg object-cover">
+                            <span class="text-[11px] text-[#718096]">Ảnh hiện tại</span>
+                        </div>
+                    @endif
+                    <input type="file" name="thumbnail" accept="image/*" class="w-full px-3 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs focus:outline-none focus:border-[#168BD2]">
+                    <p class="text-[10px] text-[#718096] mt-1">Khuyến nghị kích thước chuẩn SEO: 1200x630px (tối đa 2MB)</p>
+                    @error('thumbnail') <span class="text-xs text-rose-500 mt-1 block">{{ $message }}</span> @enderror
+                </div>
+
+                <div>
                     <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Trạng thái</label>
                     <select name="status" class="w-full px-4 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-sm focus:outline-none focus:border-[#168BD2]">
                         <option value="published" {{ old('status', $article->status) === 'published' ? 'selected' : '' }}>Xuất bản (Published)</option>
                         <option value="draft" {{ old('status', $article->status) === 'draft' ? 'selected' : '' }}>Bản nháp (Draft)</option>
                     </select>
                 </div>
+            </div>
 
-                <div class="flex items-center pt-6">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" name="is_featured" value="1" {{ old('is_featured', $article->is_featured) ? 'checked' : '' }} class="rounded border-[#E8EDF2] text-[#168BD2] focus:ring-[#168BD2]">
-                        <span class="text-xs font-bold text-[#172B3A] dark:text-white">Đặt làm bài viết nổi bật</span>
-                    </label>
-                </div>
+            <div class="pt-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="is_featured" value="1" {{ old('is_featured', $article->is_featured) ? 'checked' : '' }} class="rounded border-[#E8EDF2] text-[#168BD2] focus:ring-[#168BD2]">
+                    <span class="text-xs font-bold text-[#172B3A] dark:text-white">Đặt làm bài viết nổi bật (Hiển thị trang chủ)</span>
+                </label>
             </div>
         </div>
 
-        <!-- SEO Metadata Box -->
-        <div class="lush-card p-6 sm:p-8 space-y-4">
-            <h3 class="text-sm font-bold text-[#172B3A] dark:text-white border-b border-[#E8EDF2] dark:border-[#1E2D3D] pb-3">Cấu Hình SEO Google</h3>
-
-            <div>
-                <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">SEO Title</label>
-                <input type="text" name="seo_title" value="{{ old('seo_title', $article->seo_title) }}" class="w-full px-4 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-sm focus:outline-none focus:border-[#168BD2]">
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">SEO Description</label>
-                <textarea name="seo_description" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-sm focus:outline-none focus:border-[#168BD2]">{{ old('seo_description', $article->seo_description) }}</textarea>
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">SEO Keywords</label>
-                <input type="text" name="seo_keywords" value="{{ old('seo_keywords', $article->seo_keywords) }}" class="w-full px-4 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-sm focus:outline-none focus:border-[#168BD2]">
-            </div>
-        </div>
+        <!-- Advanced Yoast / RankMath SEO Suite -->
+        @include('admin.articles._seo_suite', ['article' => $article])
 
         <div class="flex items-center justify-end gap-3">
             <a href="{{ route('admin.articles.index') }}" class="lush-btn-secondary !text-xs !py-2.5">Hủy bỏ</a>

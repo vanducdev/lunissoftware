@@ -2,6 +2,7 @@
 
 @section('title', __('Solutions') . ' – LushSoftware')
 @section('meta_description', 'Khám phá các giải pháp công nghệ bứt phá tăng trưởng từ LushSoftware: Tự động hóa tiếp thị, quản trị dàn nick đa kênh, CRM bán hàng và khai thác dữ liệu thị trường.')
+@section('canonical_url', route('solutions.index'))
 
 @section('content')
 <div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">

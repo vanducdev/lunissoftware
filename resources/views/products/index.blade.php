@@ -2,6 +2,7 @@
 
 @section('title', __('All Products') . ' – LushSoftware')
 @section('meta_description', 'Khám phá hệ sinh thái phần mềm LushSoftware: Tự động hóa tiếp thị, nuôi nick đa kênh, quản trị CRM và quét dữ liệu thị trường chuyên nghiệp.')
+@section('canonical_url', route('products.index'))
 
 @section('content')
 <div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">

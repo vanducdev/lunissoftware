@@ -1,2 +1,15 @@
 User-agent: *
-Disallow:
+Allow: /
+Allow: /build/
+Allow: /images/
+Allow: /storage/
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /api/
+Disallow: /profile/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+
+Sitemap: https://lushsoftware.vn/sitemap.xml

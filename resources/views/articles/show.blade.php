@@ -4,6 +4,52 @@
 @section('meta_description', $article->seo_description ?: Str::limit(strip_tags($article->excerpt), 160))
 @section('meta_keywords', $article->seo_keywords)
 
+@section('og_type', 'article')
+@section('og_title', $article->seo_title ?: $article->title)
+@section('og_description', $article->seo_description ?: Str::limit(strip_tags($article->excerpt), 160))
+@section('og_image', $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('images/banner.png'))
+@section('canonical_url', $article->canonical_url ?: route('articles.show', $article->slug))
+@section('robots', $article->robots_meta ?: 'index, follow')
+
+@section('extra_og')
+    <meta property="article:published_time" content="{{ ($article->published_at ?? $article->created_at)->toIso8601String() }}">
+    <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}">
+    <meta property="article:author" content="{{ $article->author->name ?? 'LushSoftware' }}">
+    <meta property="article:section" content="{{ $article->category->name ?? 'Công nghệ' }}">
+@endsection
+
+@push('schema')
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@@type": "WebPage",
+    "@@id": "{{ route('articles.show', $article->slug) }}"
+  },
+  "headline": "{{ addslashes($article->seo_title ?: $article->title) }}",
+  "description": "{{ addslashes($article->seo_description ?: Str::limit(strip_tags($article->excerpt), 160)) }}",
+  "image": [
+    "{{ $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('images/banner.png') }}"
+  ],
+  "datePublished": "{{ ($article->published_at ?? $article->created_at)->toIso8601String() }}",
+  "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+  "author": {
+    "@@type": "Person",
+    "name": "{{ addslashes($article->author->name ?? 'Ban Biên Tập LushSoftware') }}"
+  },
+  "publisher": {
+    "@@type": "Organization",
+    "name": "LushSoftware",
+    "logo": {
+      "@@type": "ImageObject",
+      "url": "{{ asset('images/logo.png') }}"
+    }
+  }
+}
+</script>
+@endpush
+
 @section('content')
 <article class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
@@ -88,6 +134,8 @@
         <!-- Main Article Content Frame -->
         <div class="bg-white dark:bg-[#111A24] p-8 sm:p-12 lg:p-14 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs mb-14" data-aos="fade-up">
             <div class="prose prose-slate dark:prose-invert max-w-none text-base sm:text-lg leading-relaxed prose-headings:font-black prose-headings:text-[#172B3A] dark:prose-headings:text-white prose-p:text-[#5A6E85] dark:prose-p:text-[#94A3B8] prose-p:leading-relaxed prose-a:text-[#168BD2] prose-strong:text-[#172B3A] dark:prose-strong:text-white prose-img:rounded-2xl prose-img:shadow-lg">
+                <x-table-of-contents />
+
                 {!! $article->content !!}
             </div>
 

@@ -208,6 +208,9 @@
             </div>
         </div>
 
+        <!-- Product SEO Metadata Configuration -->
+        @include('admin.products._seo_fields')
+
         <div class="flex items-center justify-end gap-3 pt-4">
             <a href="{{ route('admin.products.index') }}" class="lush-btn-secondary !text-xs !py-2.5">Hủy bỏ</a>
             <button type="submit" class="lush-btn-primary !text-xs !py-2.5 shadow-lg shadow-[#168BD2]/25">

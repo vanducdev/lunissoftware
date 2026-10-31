@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', \App\Models\WebsiteSetting::get('meta_title', 'LushSoftware – Nền tảng phần mềm & Tự động hóa tăng trưởng doanh nghiệp'))
+@section('meta_description', \App\Models\WebsiteSetting::get('meta_description', 'LushSoftware - Hệ sinh thái phần mềm tự động hóa tiếp thị, nuôi nick đa kênh và CRM tăng trưởng doanh nghiệp 2026.'))
+@section('canonical_url', route('home'))
 
 @section('content')
     <!-- 5.1. Hero Section -->

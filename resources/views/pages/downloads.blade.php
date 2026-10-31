@@ -2,6 +2,7 @@
 
 @section('title', 'Trung Tâm Tải Phần Mềm & Cài Đặt – LushSoftware')
 @section('meta_description', 'Tải bản cài đặt mới nhất của các phần mềm LushCare, LushLogin, LushCRM, LushZalo tương thích Windows 10/11, macOS và Web Cloud. Đã quét mã độc 100%, hỗ trợ cài đặt 1-1.')
+@section('canonical_url', route('downloads.index'))
 
 @section('content')
 <div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">

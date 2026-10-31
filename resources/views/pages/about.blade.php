@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', __('About Us') . ' – LushSoftware')
+@section('meta_description', 'Tìm hiểu về LushSoftware: Sứ mệnh, tầm nhìn và đội ngũ kỹ sư tiên phong phát triển các giải pháp phần mềm tự động hóa marketing, CRM bứt phá doanh số.')
+@section('canonical_url', route('about'))
 
 @section('content')
 <div class="pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118]">

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', __('Contact Us') . ' – LushSoftware')
+@section('meta_description', 'Liên hệ với đội ngũ chuyên gia kỹ thuật và tư vấn giải pháp LushSoftware. Hỗ trợ 24/7 qua Hotline, Telegram, Zalo và UltraViewer.')
+@section('canonical_url', route('contact'))
 
 @section('content')
 <div class="pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118]">

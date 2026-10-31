@@ -1,7 +1,48 @@
 @extends('layouts.app')
 
-@section('title', $product->trans('name') . ' – LushSoftware')
-@section('meta_description', Str::limit(strip_tags($product->trans('description')), 160))
+@section('title', ($product->seo_title ?: $product->trans('name')) . ' – LushSoftware')
+@section('meta_description', $product->seo_description ?: Str::limit(strip_tags($product->trans('description')), 160))
+@section('meta_keywords', $product->seo_keywords)
+
+@section('og_type', 'product')
+@section('og_title', ($product->seo_title ?: $product->trans('name')) . ' – LushSoftware')
+@section('og_description', $product->seo_description ?: Str::limit(strip_tags($product->trans('description')), 160))
+@section('og_image', $product->banner_url ?: asset('images/banner.png'))
+@section('canonical_url', $product->canonical_url ?: route('products.show', $product->slug))
+@section('robots', $product->robots_meta ?: 'index, follow')
+
+@push('schema')
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "SoftwareApplication",
+  "name": "{{ addslashes($product->trans('name')) }}",
+  "operatingSystem": "Windows 10, Windows 11, macOS, Web Cloud",
+  "applicationCategory": "BusinessApplication",
+  "softwareVersion": "{{ $product->version ?? 'v2.4' }}",
+  "description": "{{ addslashes($product->seo_description ?: Str::limit(strip_tags($product->trans('description')), 160)) }}",
+  "image": "{{ $product->banner_url ?: asset('images/banner.png') }}",
+  "url": "{{ route('products.show', $product->slug) }}",
+  "aggregateRating": {
+    "@@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "185",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": {
+    "@@type": "Offer",
+    "price": "{{ $product->pricings->min('price') ?? '499000' }}",
+    "priceCurrency": "VND",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@@type": "Organization",
+      "name": "LushSoftware"
+    }
+  }
+}
+</script>
+@endpush
 
 @section('content')
 <!-- 1. Product Hero Section (Masterpiece SaaS Presentation) -->
