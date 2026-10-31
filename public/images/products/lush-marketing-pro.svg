@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F7FD"/>
+      <stop offset="100%" stop-color="#E2F0FB"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#168BD2"/>
+      <stop offset="100%" stop-color="#0878BD"/>
+    </linearGradient>
+    <linearGradient id="boxFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F4F9FD"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#168BD2" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" rx="24"/>
+  
+  <!-- Subtle Grid Lines -->
+  <g stroke="#168BD2" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- Glowing Aura -->
+  <circle cx="400" cy="250" r="180" fill="#168BD2" opacity="0.12" filter="blur(60px)"/>
+
+  <!-- Main Software Window Container -->
+  <g filter="url(#shadow)" transform="translate(100, 60)">
+    <!-- Window Body -->
+    <rect width="600" height="380" rx="18" fill="url(#boxFront)" stroke="#FFFFFF" stroke-width="2"/>
+    
+    <!-- Window Topbar -->
+    <rect width="600" height="46" rx="18" fill="#FFFFFF"/>
+    <path d="M0 32 h600 v14 H0 z" fill="#FFFFFF"/>
+    <line x1="0" y1="46" x2="600" y2="46" stroke="#E8EDF2" stroke-width="1"/>
+    
+    <!-- macOS Dots -->
+    <circle cx="28" cy="23" r="5" fill="#EF4444"/>
+    <circle cx="44" cy="23" r="5" fill="#F59E0B"/>
+    <circle cx="60" cy="23" r="5" fill="#10B981"/>
+
+    <!-- Window Title Bar -->
+    <text x="300" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#718096" text-anchor="middle">Lush Marketing Pro – Enterprise Automation v2.4</text>
+
+    <!-- Sidebar Mockup -->
+    <rect x="0" y="47" width="140" height="333" fill="#F8FAFC" rx="0"/>
+    <line x1="140" y1="47" x2="140" y2="380" stroke="#E8EDF2" stroke-width="1"/>
+    
+    <!-- Sidebar Items -->
+    <rect x="14" y="65" width="112" height="28" rx="8" fill="#168BD2" opacity="0.1"/>
+    <rect x="22" y="75" width="8" height="8" rx="2" fill="#168BD2"/>
+    <text x="36" y="83" font-family="sans-serif" font-size="11" font-weight="700" fill="#168BD2">Tổng quan</text>
+
+    <text x="36" y="120" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Nuôi chiến dịch</text>
+    <text x="36" y="152" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Kịch bản Auto</text>
+    <text x="36" y="184" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Quét khách hàng</text>
+    <text x="36" y="216" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Báo cáo dữ liệu</text>
+
+    <!-- Main Content Canvas -->
+    <!-- Top KPI cards -->
+    <g transform="translate(160, 65)">
+      <rect width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="12" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Tiếp cận 24h</text>
+      <text x="12" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#172B3A">428,950</text>
+      <text x="12" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">↑ +38.4%</text>
+
+      <rect x="145" y="0" width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="157" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Tin gửi tự động</text>
+      <text x="157" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#168BD2">84,120</text>
+      <text x="157" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">Thành công 99.4%</text>
+
+      <rect x="290" y="0" width="130" height="70" rx="10" fill="url(#primaryGrad)"/>
+      <text x="302" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.9">Luồng AI Active</text>
+      <text x="302" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">12 Luồng</text>
+      <text x="302" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#A5F3FC">Tốc độ 1,200/phút</text>
+    </g>
+
+    <!-- Main Chart / Workflow Area -->
+    <g transform="translate(160, 150)">
+      <rect width="420" height="205" rx="12" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="18" y="28" font-family="sans-serif" font-size="13" font-weight="800" fill="#172B3A">Tiến Trình Chạy Tiếp Thị Đa Nền Tảng</text>
+      <text x="330" y="28" font-family="sans-serif" font-size="10" font-weight="700" fill="#168BD2">Real-time Live ●</text>
+
+      <!-- Step nodes -->
+      <g transform="translate(18, 48)">
+        <!-- Node 1 -->
+        <rect width="115" height="130" rx="10" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
+        <circle cx="28" cy="26" r="14" fill="#168BD2"/>
+        <text x="28" y="30" font-family="sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+        <text x="14" y="60" font-family="sans-serif" font-size="11" font-weight="700" fill="#172B3A">Lọc Tệp UID</text>
+        <text x="14" y="78" font-family="sans-serif" font-size="9" fill="#718096">240,000 Data</text>
+        <rect x="14" y="94" width="87" height="6" rx="3" fill="#E8EDF2"/>
+        <rect x="14" y="94" width="87" height="6" rx="3" fill="#10B981"/>
+        <text x="14" y="116" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">✓ Hoàn tất</text>
+
+        <!-- Node 2 -->
+        <rect x="135" y="0" width="115" height="130" rx="10" fill="#F8FAFC" stroke="#168BD2" stroke-width="1.5"/>
+        <circle cx="163" cy="26" r="14" fill="#168BD2"/>
+        <text x="163" y="30" font-family="sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+        <text x="149" y="60" font-family="sans-serif" font-size="11" font-weight="700" fill="#172B3A">Gửi Tin Nhắn</text>
+        <text x="149" y="78" font-family="sans-serif" font-size="9" fill="#718096">Cá nhân hóa AI</text>
+        <rect x="149" y="94" width="87" height="6" rx="3" fill="#E8EDF2"/>
+        <rect x="149" y="94" width="58" height="6" rx="3" fill="#168BD2"/>
+        <text x="149" y="116" font-family="sans-serif" font-size="9" font-weight="700" fill="#168BD2">Đang gửi 68%</text>
+
+        <!-- Node 3 -->
+        <rect x="270" y="0" width="115" height="130" rx="10" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
+        <circle cx="298" cy="26" r="14" fill="#94A3B8"/>
+        <text x="298" y="30" font-family="sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+        <text x="284" y="60" font-family="sans-serif" font-size="11" font-weight="700" fill="#172B3A">Chia Về Sales</text>
+        <text x="284" y="78" font-family="sans-serif" font-size="9" fill="#718096">Tự động đẩy CRM</text>
+        <rect x="284" y="94" width="87" height="6" rx="3" fill="#E8EDF2"/>
+        <text x="284" y="116" font-family="sans-serif" font-size="9" font-weight="600" fill="#718096">Chờ xử lý</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Floating Brand Badge -->
+  <g transform="translate(60, 410)" filter="url(#shadow)">
+    <rect width="180" height="48" rx="24" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1.5"/>
+    <circle cx="24" cy="24" r="14" fill="url(#primaryGrad)"/>
+    <path d="M21 21 L26 19 L23 28 L27 28 L22 34 L23 27 L20 27 Z" fill="#FFFFFF" transform="translate(0, -4)"/>
+    <text x="46" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#172B3A">Lush Marketing Pro</text>
+    <text x="46" y="38" font-family="sans-serif" font-size="10" font-weight="700" fill="#168BD2">BẢN QUYỀN 2026</text>
+  </g>
+</svg>

@@ -7,10 +7,12 @@ use App\Models\ActivityLog;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductFeature;
+use App\Models\ProductImage;
 use App\Models\ProductPricing;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -61,7 +63,9 @@ class AdminProductController extends Controller
             'status' => ['required', 'in:draft,published'],
             'is_featured' => ['nullable', 'boolean'],
             'order' => ['nullable', 'integer'],
+            'banner_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:5120'],
             'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:2048'],
+            'gallery_images.*' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:5120'],
         ]);
 
         $validated['slug'] = Str::slug($validated['name']);
@@ -74,11 +78,27 @@ class AdminProductController extends Controller
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['order'] = $request->input('order', 0);
 
+        if ($request->hasFile('banner_image')) {
+            $validated['banner_image'] = $request->file('banner_image')->store('products/banners', 'public');
+        }
+
         if ($request->hasFile('logo')) {
-            $validated['logo'] = $request->file('logo')->store('products', 'public');
+            $validated['logo'] = $request->file('logo')->store('products/logos', 'public');
         }
 
         $product = Product::create($validated);
+
+        // Upload Gallery Images if present
+        if ($request->hasFile('gallery_images')) {
+            foreach ($request->file('gallery_images') as $idx => $file) {
+                $path = $file->store('products/gallery', 'public');
+                $product->images()->create([
+                    'image_path' => $path,
+                    'caption' => $request->input("gallery_captions.{$idx}", $product->name.' Screenshot '.($idx + 1)),
+                    'order' => $idx + 1,
+                ]);
+            }
+        }
 
         // Add features if present
         if ($request->has('features') && is_array($request->features)) {
@@ -123,7 +143,7 @@ class AdminProductController extends Controller
     public function edit(Product $product): View
     {
         $categories = ProductCategory::where('is_active', true)->orderBy('order')->get();
-        $product->load(['features', 'pricings', 'faqs']);
+        $product->load(['features', 'pricings', 'faqs', 'images']);
 
         return view('admin.products.edit', compact('product', 'categories'));
     }
@@ -143,26 +163,105 @@ class AdminProductController extends Controller
             'status' => ['required', 'in:draft,published'],
             'is_featured' => ['nullable', 'boolean'],
             'order' => ['nullable', 'integer'],
+            'banner_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:5120'],
             'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:2048'],
+            'gallery_images.*' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,svg', 'max:5120'],
         ]);
 
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['order'] = $request->input('order', 0);
 
+        // Handle Banner / Mockup Image
+        if ($request->hasFile('banner_image')) {
+            if ($product->banner_image && str_starts_with($product->banner_image, 'products/') && Storage::disk('public')->exists($product->banner_image)) {
+                Storage::disk('public')->delete($product->banner_image);
+            }
+            $validated['banner_image'] = $request->file('banner_image')->store('products/banners', 'public');
+        } elseif ($request->boolean('remove_banner_image')) {
+            if ($product->banner_image && str_starts_with($product->banner_image, 'products/') && Storage::disk('public')->exists($product->banner_image)) {
+                Storage::disk('public')->delete($product->banner_image);
+            }
+            $validated['banner_image'] = null;
+        }
+
+        // Handle Logo Image
         if ($request->hasFile('logo')) {
-            $validated['logo'] = $request->file('logo')->store('products', 'public');
+            if ($product->logo && str_starts_with($product->logo, 'products/') && Storage::disk('public')->exists($product->logo)) {
+                Storage::disk('public')->delete($product->logo);
+            }
+            $validated['logo'] = $request->file('logo')->store('products/logos', 'public');
+        } elseif ($request->boolean('remove_logo')) {
+            if ($product->logo && str_starts_with($product->logo, 'products/') && Storage::disk('public')->exists($product->logo)) {
+                Storage::disk('public')->delete($product->logo);
+            }
+            $validated['logo'] = null;
         }
 
         $product->update($validated);
+
+        // Upload new Gallery Images
+        if ($request->hasFile('gallery_images')) {
+            foreach ($request->file('gallery_images') as $idx => $file) {
+                $path = $file->store('products/gallery', 'public');
+                $product->images()->create([
+                    'image_path' => $path,
+                    'caption' => $request->input("gallery_captions.{$idx}", $product->name.' Screenshot '.($product->images()->count() + 1)),
+                    'order' => $product->images()->count() + $idx + 1,
+                ]);
+            }
+        }
+
+        // Sync Features if provided
+        if ($request->has('features') && is_array($request->features)) {
+            $product->features()->delete();
+            foreach ($request->features as $idx => $feat) {
+                if (! empty($feat['title'])) {
+                    ProductFeature::create([
+                        'product_id' => $product->id,
+                        'title' => $feat['title'],
+                        'description' => $feat['description'] ?? null,
+                        'icon' => $feat['icon'] ?? 'check-circle',
+                        'order' => $idx + 1,
+                    ]);
+                }
+            }
+        }
 
         ActivityLog::log('product_updated', "Đã cập nhật sản phẩm: {$product->name}");
 
         return redirect()->route('admin.products.index')->with('success', "Cập nhật sản phẩm '{$product->name}' thành công.");
     }
 
+    public function deleteImage(Product $product, ProductImage $image): RedirectResponse
+    {
+        if ($image->product_id === $product->id) {
+            if ($image->image_path && Storage::disk('public')->exists($image->image_path)) {
+                Storage::disk('public')->delete($image->image_path);
+            }
+            $image->delete();
+            ActivityLog::log('product_image_deleted', "Đã xóa ảnh chụp màn hình của sản phẩm: {$product->name}");
+        }
+
+        return back()->with('success', 'Đã xóa ảnh thành công.');
+    }
+
     public function destroy(Product $product): RedirectResponse
     {
         $name = $product->name;
+
+        // Clean up stored files if any
+        if ($product->banner_image && str_starts_with($product->banner_image, 'products/') && Storage::disk('public')->exists($product->banner_image)) {
+            Storage::disk('public')->delete($product->banner_image);
+        }
+        if ($product->logo && str_starts_with($product->logo, 'products/') && Storage::disk('public')->exists($product->logo)) {
+            Storage::disk('public')->delete($product->logo);
+        }
+        foreach ($product->images as $img) {
+            if ($img->image_path && Storage::disk('public')->exists($img->image_path)) {
+                Storage::disk('public')->delete($img->image_path);
+            }
+        }
+
         $product->delete();
 
         ActivityLog::log('product_deleted', "Đã xóa sản phẩm: {$name}");

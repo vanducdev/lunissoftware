@@ -80,6 +80,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     // Products CRUD & Product Categories
+    Route::delete('products/{product}/images/{image}', [AdminProductController::class, 'deleteImage'])->name('products.images.destroy');
     Route::resource('products', AdminProductController::class);
     Route::resource('product-categories', AdminProductCategoryController::class)->except(['create', 'edit', 'show']);
 

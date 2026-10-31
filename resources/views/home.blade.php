@@ -219,51 +219,91 @@
             <!-- Product Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($featuredProducts as $idx => $product)
-                    <div class="lush-card p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="{{ $idx * 80 }}">
+                    <div class="lush-card overflow-hidden flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#168BD2]/15 transition-all duration-300 border border-[#E8EDF2] dark:border-[#1E2D3D]" data-aos="fade-up" data-aos-delay="{{ $idx * 80 }}">
                         <div>
-                            <!-- Header: Icon & Category -->
-                            <div class="flex items-center justify-between mb-5">
-                                <x-product-icon :slug="$product->slug" />
-                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#F8FAFC] dark:bg-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#2D3F52]">
-                                    {{ $product->category->name ?? 'SaaS' }}
-                                </span>
+                            <!-- Top Mockup Image Container (MKT Style Boxshot) -->
+                            <div class="relative w-full aspect-[16/10] bg-gradient-to-tr from-[#F8FAFC] via-[#F0F6FB] to-[#E8F3FA] dark:from-[#0D151F] dark:via-[#111A24] dark:to-[#162230] p-4 flex items-center justify-center overflow-hidden border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#168BD2]/5 to-transparent group-hover:via-[#168BD2]/15 transition-all duration-500"></div>
+
+                                @if($product->banner_url)
+                                    <a href="{{ route('products.show', $product->slug) }}" class="relative z-10 w-full h-full flex items-center justify-center">
+                                        <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-md">
+                                    </a>
+                                @else
+                                    <div class="relative z-10 flex flex-col items-center justify-center">
+                                        <x-product-icon :slug="$product->slug" size="xl" class="group-hover:scale-110 transition-transform duration-500 shadow-xl" />
+                                    </div>
+                                @endif
+
+                                <!-- Category Badge -->
+                                <div class="absolute top-3 left-3 z-20">
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/95 dark:bg-[#101923]/95 backdrop-blur-md text-[#168BD2] border border-[#168BD2]/20 shadow-xs">
+                                        {{ $product->category->name ?? 'SaaS' }}
+                                    </span>
+                                </div>
+
+                                <!-- Version Badge -->
+                                <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
+                                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#172B3A]/90 dark:bg-white/90 text-white dark:text-[#172B3A] shadow-xs">
+                                        {{ $product->version ?? 'v2.4' }}
+                                    </span>
+                                </div>
                             </div>
 
-                            <!-- Name & Tagline -->
-                            <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-2">
-                                <a href="{{ route('products.show', $product->slug) }}" class="hover:text-[#168BD2] transition-colors">
-                                    {{ $product->trans('name') }}
-                                </a>
-                            </h3>
-                            <p class="text-xs font-semibold text-[#168BD2] mb-3">
-                                {{ $product->trans('tagline') }}
-                            </p>
-                            <p class="text-sm text-[#718096] dark:text-[#94A3B8] line-clamp-3 mb-6 leading-relaxed">
-                                {{ $product->trans('description') }}
-                            </p>
-
-                            <!-- Key Features Pills -->
-                            @if($product->features->count() > 0)
-                                <div class="space-y-2 mb-6 pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                    @foreach($product->features->take(3) as $feature)
-                                        <div class="flex items-start gap-2 text-xs text-[#172B3A] dark:text-[#E2E8F0]">
-                                            <svg class="w-4 h-4 text-[#168BD2] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                            <span class="truncate">{{ $feature->title }}</span>
-                                        </div>
-                                    @endforeach
+                            <div class="p-6">
+                                <!-- Name & Logo -->
+                                <div class="flex items-start gap-3 mb-2.5">
+                                    <div class="shrink-0 mt-0.5">
+                                        @if($product->logo_url)
+                                            <img src="{{ $product->logo_url }}" alt="{{ $product->name }}" class="w-9 h-9 rounded-xl object-contain border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs">
+                                        @else
+                                            <x-product-icon :slug="$product->slug" size="sm" />
+                                        @endif
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-[#172B3A] dark:text-white group-hover:text-[#168BD2] transition-colors leading-snug">
+                                            <a href="{{ route('products.show', $product->slug) }}">
+                                                {{ $product->trans('name') }}
+                                            </a>
+                                        </h3>
+                                        <p class="text-xs font-semibold text-[#168BD2] mt-0.5 line-clamp-1">
+                                            {{ $product->trans('tagline') }}
+                                        </p>
+                                    </div>
                                 </div>
-                            @endif
+
+                                <p class="text-xs text-[#718096] dark:text-[#94A3B8] line-clamp-2 leading-relaxed mb-4">
+                                    {{ $product->trans('description') }}
+                                </p>
+
+                                <!-- Key Features Pills -->
+                                @if($product->features->count() > 0)
+                                    <div class="space-y-2 pt-3 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                        @foreach($product->features->take(3) as $feature)
+                                            <div class="flex items-start gap-2 text-xs text-[#172B3A] dark:text-[#E2E8F0]">
+                                                <div class="w-4 h-4 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                                </div>
+                                                <span class="truncate font-medium">{{ $feature->title }}</span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
                         </div>
 
                         <!-- Card Action Buttons -->
-                        <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-3">
-                            <a href="{{ route('products.show', $product->slug) }}" class="lush-btn-primary flex-1 !text-xs !py-2.5">
-                                <span>{{ __('View Details') }}</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </a>
-                            <a href="{{ route('contact', ['product' => $product->slug]) }}" data-open-trial="{{ $product->name }}" class="lush-btn-secondary !text-xs !py-2.5" title="Đăng ký trải nghiệm">
-                                {{ __('Try Now') }}
-                            </a>
+                        <div class="p-6 pt-0">
+                            <div class="pt-4 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-2.5">
+                                <a href="{{ route('products.show', $product->slug) }}" class="lush-btn-primary flex-1 !text-xs !py-2.5 !justify-center shadow-md shadow-[#168BD2]/20">
+                                    <span>{{ __('View Details') }}</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                                <a href="{{ route('contact', ['product' => $product->slug]) }}" data-open-trial="{{ $product->name }}" class="lush-btn-secondary !text-xs !py-2.5 !px-3" title="Đăng ký trải nghiệm">
+                                    <svg class="w-4 h-4 text-[#168BD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    <span>{{ __('Try Now') }}</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 @endforeach

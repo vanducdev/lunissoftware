@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDF4"/>
+      <stop offset="100%" stop-color="#DCFCE7"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+    <linearGradient id="boxFront3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <filter id="shadow3" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#059669" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg3)" rx="24"/>
+  
+  <g stroke="#059669" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <circle cx="400" cy="250" r="180" fill="#059669" opacity="0.12" filter="blur(60px)"/>
+
+  <g filter="url(#shadow3)" transform="translate(100, 60)">
+    <rect width="600" height="380" rx="18" fill="url(#boxFront3)" stroke="#FFFFFF" stroke-width="2"/>
+    
+    <rect width="600" height="46" rx="18" fill="#FFFFFF"/>
+    <path d="M0 32 h600 v14 H0 z" fill="#FFFFFF"/>
+    <line x1="0" y1="46" x2="600" y2="46" stroke="#E8EDF2" stroke-width="1"/>
+    
+    <circle cx="28" cy="23" r="5" fill="#EF4444"/>
+    <circle cx="44" cy="23" r="5" fill="#F59E0B"/>
+    <circle cx="60" cy="23" r="5" fill="#10B981"/>
+
+    <text x="300" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#718096" text-anchor="middle">Lush CRM Enterprise – Sales Pipeline & Deals v2.4</text>
+
+    <!-- Sidebar -->
+    <rect x="0" y="47" width="140" height="333" fill="#F8FAFC"/>
+    <line x1="140" y1="47" x2="140" y2="380" stroke="#E8EDF2" stroke-width="1"/>
+    
+    <rect x="14" y="65" width="112" height="28" rx="8" fill="#059669" opacity="0.1"/>
+    <rect x="22" y="75" width="8" height="8" rx="2" fill="#059669"/>
+    <text x="36" y="83" font-family="sans-serif" font-size="11" font-weight="700" fill="#059669">Phễu Bán Hàng</text>
+
+    <text x="36" y="120" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Khách hàng mới</text>
+    <text x="36" y="152" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Chia Lead Sales</text>
+    <text x="36" y="184" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Báo cáo doanh số</text>
+    <text x="36" y="216" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Chăm sóc tự động</text>
+
+    <!-- KPIs -->
+    <g transform="translate(160, 65)">
+      <rect width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="12" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Tổng Doanh Số</text>
+      <text x="12" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#172B3A">1.84 Tỷ ₫</text>
+      <text x="12" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">↑ +24.6% tháng này</text>
+
+      <rect x="145" y="0" width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="157" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Lead Chuyển Đổi</text>
+      <text x="157" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#059669">3,892 Lead</text>
+      <text x="157" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">Tỷ lệ chốt 32.8%</text>
+
+      <rect x="290" y="0" width="130" height="70" rx="10" fill="url(#emeraldGrad)"/>
+      <text x="302" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.9">Nhân Sự Bán Hàng</text>
+      <text x="302" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">36 Tư Vấn</text>
+      <text x="302" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#D1FAE5">Chia số tròn xoay tự động</text>
+    </g>
+
+    <!-- Pipeline Kanban Simulation -->
+    <g transform="translate(160, 150)">
+      <rect width="420" height="205" rx="12" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="18" y="28" font-family="sans-serif" font-size="13" font-weight="800" fill="#172B3A">Phễu Chăm Sóc Khách Hàng Doanh Nghiệp</text>
+      
+      <g transform="translate(18, 45)">
+        <rect width="122" height="135" rx="8" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
+        <text x="12" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#172B3A">Lead Mới (84)</text>
+        <rect x="8" y="32" width="106" height="42" rx="6" fill="#FFFFFF" stroke="#E8EDF2"/>
+        <text x="14" y="48" font-family="sans-serif" font-size="10" font-weight="700" fill="#172B3A">Cty BĐS Đất Vàng</text>
+        <text x="14" y="64" font-family="sans-serif" font-size="9" fill="#059669">Gói Enterprise</text>
+
+        <rect x="140" y="0" width="122" height="135" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.5"/>
+        <text x="152" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#172B3A">Đang Đàm Phán (28)</text>
+        <rect x="148" y="32" width="106" height="42" rx="6" fill="#FFFFFF" stroke="#059669" stroke-opacity="0.3"/>
+        <text x="154" y="48" font-family="sans-serif" font-size="10" font-weight="700" fill="#172B3A">Nha Khoa Smile</text>
+        <text x="154" y="64" font-family="sans-serif" font-size="9" fill="#059669">Hợp đồng 65tr</text>
+
+        <rect x="272" y="0" width="122" height="135" rx="8" fill="#F8FAFC" stroke="#E8EDF2" stroke-width="1"/>
+        <text x="284" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#172B3A">Đã Ký Hợp Đồng (14)</text>
+        <rect x="280" y="32" width="106" height="42" rx="6" fill="#ECFDF5" stroke="#10B981"/>
+        <text x="286" y="48" font-family="sans-serif" font-size="10" font-weight="700" fill="#065F46">Chuỗi Thời Trang</text>
+        <text x="286" y="64" font-family="sans-serif" font-size="9" font-weight="700" fill="#059669">✓ Đã kích hoạt</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 410)" filter="url(#shadow3)">
+    <rect width="180" height="48" rx="24" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1.5"/>
+    <circle cx="24" cy="24" r="14" fill="url(#emeraldGrad)"/>
+    <path d="M19 18 H29 V30 H19 Z M22 22 H26 V26 H22 Z" fill="#FFFFFF" transform="translate(0, -1)"/>
+    <text x="46" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#172B3A">Lush CRM Enterprise</text>
+    <text x="46" y="38" font-family="sans-serif" font-size="10" font-weight="700" fill="#059669">QUẢN TRỊ BÁN HÀNG</text>
+  </g>
+</svg>

@@ -50,8 +50,14 @@
 
             <!-- Hero Illustration/Graphic -->
             <div class="lg:col-span-5" data-aos="fade-left">
-                <div class="bg-white dark:bg-[#131D27] p-8 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl relative text-center">
-                    <x-product-icon :slug="$product->slug" size="xl" class="mx-auto mb-6" />
+                <div class="bg-white dark:bg-[#131D27] p-6 sm:p-8 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl relative text-center">
+                    @if($product->banner_url)
+                        <div class="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-tr from-[#F8FAFC] to-[#EDF6FC] dark:from-[#0D151F] dark:to-[#182330] p-4 flex items-center justify-center mb-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-inner">
+                            <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="w-full h-full object-contain drop-shadow-md">
+                        </div>
+                    @else
+                        <x-product-icon :slug="$product->slug" size="xl" class="mx-auto mb-6" />
+                    @endif
                     <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-2">{{ $product->name }}</h3>
                     <p class="text-xs text-[#718096] mb-6">Đã tối ưu hóa cho Windows 10/11 & macOS & Web App</p>
 
@@ -85,6 +91,36 @@
                     </div>
                     <h3 class="text-base font-bold text-[#172B3A] dark:text-white mb-2">{{ $feature->title }}</h3>
                     <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">{{ $feature->description }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
+@if($product->images->count() > 0)
+<!-- Screenshot & Interface Gallery -->
+<section class="py-20 bg-[#F8FAFC] dark:bg-[#101923] border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="badge-lush mb-3">GIAO DIỆN PHẦN MỀM</span>
+            <h2 class="text-3xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
+                Hình Ảnh Giao Diện Thực Tế Của {{ $product->name }}
+            </h2>
+            <p class="text-[#718096] dark:text-[#94A3B8] mt-3 text-sm">
+                Trực quan, dễ sử dụng, thiết kế hiện đại hỗ trợ tối đa hiệu suất làm việc.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach($product->images as $img)
+                <div class="lush-card overflow-hidden group hover:shadow-xl transition-all p-3" data-aos="fade-up">
+                    <div class="rounded-xl overflow-hidden bg-white dark:bg-[#0B1118] border border-[#E8EDF2] dark:border-[#1E2D3D] aspect-video flex items-center justify-center">
+                        <img src="{{ $img->url }}" alt="{{ $img->caption }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    @if($img->caption)
+                        <p class="text-xs font-semibold text-[#172B3A] dark:text-white mt-3 px-1">{{ $img->caption }}</p>
+                    @endif
                 </div>
             @endforeach
         </div>

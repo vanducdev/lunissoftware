@@ -41,6 +41,36 @@ class Product extends Model
         ];
     }
 
+    public function getBannerUrlAttribute(): ?string
+    {
+        if (! $this->banner_image) {
+            return null;
+        }
+        if (str_starts_with($this->banner_image, 'http://') || str_starts_with($this->banner_image, 'https://')) {
+            return $this->banner_image;
+        }
+        if (str_starts_with($this->banner_image, 'images/')) {
+            return asset($this->banner_image);
+        }
+
+        return asset('storage/'.$this->banner_image);
+    }
+
+    public function getLogoUrlAttribute(): ?string
+    {
+        if (! $this->logo) {
+            return null;
+        }
+        if (str_starts_with($this->logo, 'http://') || str_starts_with($this->logo, 'https://')) {
+            return $this->logo;
+        }
+        if (str_starts_with($this->logo, 'images/')) {
+            return asset($this->logo);
+        }
+
+        return asset('storage/'.$this->logo);
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(ProductCategory::class, 'category_id');

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FFEDD5"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="boxFront6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <filter id="shadow6" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#EA580C" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg6)" rx="24"/>
+  
+  <g stroke="#EA580C" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <circle cx="400" cy="250" r="180" fill="#EA580C" opacity="0.12" filter="blur(60px)"/>
+
+  <g filter="url(#shadow6)" transform="translate(100, 60)">
+    <rect width="600" height="380" rx="18" fill="url(#boxFront6)" stroke="#FFFFFF" stroke-width="2"/>
+    
+    <rect width="600" height="46" rx="18" fill="#FFFFFF"/>
+    <path d="M0 32 h600 v14 H0 z" fill="#FFFFFF"/>
+    <line x1="0" y1="46" x2="600" y2="46" stroke="#E8EDF2" stroke-width="1"/>
+    
+    <circle cx="28" cy="23" r="5" fill="#EF4444"/>
+    <circle cx="44" cy="23" r="5" fill="#F59E0B"/>
+    <circle cx="60" cy="23" r="5" fill="#10B981"/>
+
+    <text x="300" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#718096" text-anchor="middle">Lush Traffic Booster – Viral Video & Cross-Platform SEO v2.4</text>
+
+    <!-- Sidebar -->
+    <rect x="0" y="47" width="140" height="333" fill="#F8FAFC"/>
+    <line x1="140" y1="47" x2="140" y2="380" stroke="#E8EDF2" stroke-width="1"/>
+    
+    <rect x="14" y="65" width="112" height="28" rx="8" fill="#EA580C" opacity="0.1"/>
+    <rect x="22" y="75" width="8" height="8" rx="2" fill="#EA580C"/>
+    <text x="36" y="83" font-family="sans-serif" font-size="11" font-weight="700" fill="#EA580C">Đẩy Traffic Viral</text>
+
+    <text x="36" y="120" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Tải video TikTok</text>
+    <text x="36" y="152" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Tự động Edit & Lách</text>
+    <text x="36" y="184" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Re-up Đa Kênh</text>
+    <text x="36" y="216" font-family="sans-serif" font-size="11" font-weight="600" fill="#718096">Kéo View & Sub</text>
+
+    <!-- KPIs -->
+    <g transform="translate(160, 65)">
+      <rect width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="12" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Lượt Xem Tạo Ra</text>
+      <text x="12" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#172B3A">18.5 Triệu</text>
+      <text x="12" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">↑ +86% organic view</text>
+
+      <rect x="145" y="0" width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="157" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#718096">Video Đã Biên Tập</text>
+      <text x="157" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#EA580C">6,420 Clip</text>
+      <text x="157" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#10B981">Lách bản quyền 100%</text>
+
+      <rect x="290" y="0" width="130" height="70" rx="10" fill="url(#amberGrad)"/>
+      <text x="302" y="24" font-family="sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.9">Kênh Đồng Bộ</text>
+      <text x="302" y="48" font-family="sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">120 Kênh</text>
+      <text x="302" y="62" font-family="sans-serif" font-size="9" font-weight="700" fill="#FEF3C7">Reel · Shorts · TikTok</text>
+    </g>
+
+    <!-- Trending Chart Simulation -->
+    <g transform="translate(160, 150)">
+      <rect width="420" height="205" rx="12" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1"/>
+      <text x="18" y="28" font-family="sans-serif" font-size="13" font-weight="800" fill="#172B3A">Tăng Trưởng Lưu Lượng Truy Cập Đột Phá</text>
+
+      <g transform="translate(18, 48)">
+        <path d="M 0 120 Q 80 110, 140 85 T 260 40 T 384 10" fill="none" stroke="#EA580C" stroke-width="3"/>
+        <path d="M 0 120 Q 80 110, 140 85 T 260 40 T 384 10 L 384 140 L 0 140 Z" fill="url(#amberGrad)" fill-opacity="0.1"/>
+        <circle cx="384" cy="10" r="5" fill="#EA580C"/>
+        <text x="320" y="26" font-family="sans-serif" font-size="11" font-weight="800" fill="#EA580C">+340% Viral</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 410)" filter="url(#shadow6)">
+    <rect width="180" height="48" rx="24" fill="#FFFFFF" stroke="#E8EDF2" stroke-width="1.5"/>
+    <circle cx="24" cy="24" r="14" fill="url(#amberGrad)"/>
+    <path d="M21 27 L27 21 M27 21 H22 M27 21 V26" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    <text x="46" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#172B3A">Lush Traffic Booster</text>
+    <text x="46" y="38" font-family="sans-serif" font-size="10" font-weight="700" fill="#EA580C">TĂNG TRƯỞNG VIRAL</text>
+  </g>
+</svg>

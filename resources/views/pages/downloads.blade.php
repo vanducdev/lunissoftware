@@ -26,8 +26,18 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <!-- Left: Info -->
                         <div class="lg:col-span-7 space-y-3">
-                            <div class="flex items-center gap-3">
-                                <x-product-icon :slug="$p->slug" />
+                            <div class="flex items-center gap-3.5">
+                                @if($p->banner_url)
+                                    <div class="w-16 h-12 rounded-xl overflow-hidden bg-white dark:bg-[#0B1118] border border-[#E8EDF2] dark:border-[#1E2D3D] shrink-0 p-1 shadow-2xs">
+                                        <img src="{{ $p->banner_url }}" alt="{{ $p->name }}" class="w-full h-full object-contain">
+                                    </div>
+                                @elseif($p->logo_url)
+                                    <div class="w-12 h-12 rounded-xl overflow-hidden bg-white dark:bg-[#0B1118] border border-[#E8EDF2] dark:border-[#1E2D3D] shrink-0 p-1 shadow-2xs">
+                                        <img src="{{ $p->logo_url }}" alt="{{ $p->name }}" class="w-full h-full object-contain">
+                                    </div>
+                                @else
+                                    <x-product-icon :slug="$p->slug" />
+                                @endif
                                 <div>
                                     <h2 class="text-xl font-bold text-[#172B3A] dark:text-white">
                                         <a href="{{ route('products.show', $p->slug) }}" class="hover:text-[#168BD2]">{{ $p->name }}</a>

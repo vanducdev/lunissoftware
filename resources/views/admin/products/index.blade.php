@@ -60,12 +60,23 @@
                         <tr class="hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors">
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                                    </div>
+                                    @if($p->banner_url)
+                                        <div class="w-12 h-9 rounded-lg overflow-hidden bg-white dark:bg-[#0B1118] border border-[#E8EDF2] dark:border-[#1E2D3D] shrink-0 p-0.5 shadow-2xs">
+                                            <img src="{{ $p->banner_url }}" alt="{{ $p->name }}" class="w-full h-full object-contain">
+                                        </div>
+                                    @elseif($p->logo_url)
+                                        <div class="w-9 h-9 rounded-lg overflow-hidden bg-white dark:bg-[#0B1118] border border-[#E8EDF2] dark:border-[#1E2D3D] shrink-0 p-1 shadow-2xs">
+                                            <img src="{{ $p->logo_url }}" alt="{{ $p->name }}" class="w-full h-full object-contain">
+                                        </div>
+                                    @else
+                                        <x-product-icon :slug="$p->slug" size="sm" />
+                                    @endif
                                     <div>
-                                        <a href="{{ route('products.show', $p->slug) }}" target="_blank" class="font-bold text-[#172B3A] dark:text-white hover:text-[#168BD2] text-sm">
-                                            {{ $p->name }}
+                                        <a href="{{ route('products.show', $p->slug) }}" target="_blank" class="font-bold text-[#172B3A] dark:text-white hover:text-[#168BD2] text-sm flex items-center gap-1.5">
+                                            <span>{{ $p->name }}</span>
+                                            @if($p->is_featured)
+                                                <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 border border-amber-500/20">HOT</span>
+                                            @endif
                                         </a>
                                         <p class="text-[11px] text-[#718096] line-clamp-1">{{ $p->tagline }}</p>
                                     </div>

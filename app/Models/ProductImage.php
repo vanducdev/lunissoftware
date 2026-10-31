@@ -24,6 +24,18 @@ class ProductImage extends Model
         ];
     }
 
+    public function getUrlAttribute(): string
+    {
+        if (str_starts_with($this->image_path, 'http://') || str_starts_with($this->image_path, 'https://')) {
+            return $this->image_path;
+        }
+        if (str_starts_with($this->image_path, 'images/')) {
+            return asset($this->image_path);
+        }
+
+        return asset('storage/'.$this->image_path);
+    }
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
