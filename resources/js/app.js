@@ -57,71 +57,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Enhanced Dark/Light Mode with View Transitions API (Circular Ripple Wave)
-    window.switchTheme = function(targetTheme, event) {
+    // Smooth, Bulletproof Dark/Light Mode Switcher
+    window.switchTheme = function(targetTheme) {
         const isCurrentlyDark = document.documentElement.classList.contains('dark');
         const makeDark = targetTheme ? targetTheme === 'dark' : !isCurrentlyDark;
 
         if (targetTheme && makeDark === isCurrentlyDark) return;
 
-        const applyTheme = () => {
-            if (makeDark) {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('lush_theme', 'dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('lush_theme', 'light');
-            }
-            updateThemeUI(makeDark);
-        };
+        // Add smooth transition class for 250ms
+        document.documentElement.classList.add('theme-transition');
 
-        // If View Transitions API is supported and user doesn't prefer reduced motion
-        if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            const x = event && event.clientX !== undefined ? event.clientX : window.innerWidth / 2;
-            const y = event && event.clientY !== undefined ? event.clientY : 40;
-            const endRadius = Math.hypot(
-                Math.max(x, window.innerWidth - x),
-                Math.max(y, window.innerHeight - y)
-            );
-
-            const transition = document.startViewTransition(() => {
-                applyTheme();
-            });
-
-            transition.ready.then(() => {
-                const clipPath = [
-                    `circle(0px at ${x}px ${y}px)`,
-                    `circle(${endRadius}px at ${x}px ${y}px)`
-                ];
-                document.documentElement.animate(
-                    {
-                        clipPath: makeDark ? clipPath : [...clipPath].reverse()
-                    },
-                    {
-                        duration: 420,
-                        easing: 'ease-in-out',
-                        pseudoElement: makeDark ? '::view-transition-new(root)' : '::view-transition-old(root)'
-                    }
-                );
-            });
+        if (makeDark) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('lush_theme', 'dark');
         } else {
-            applyTheme();
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('lush_theme', 'light');
         }
+
+        updateThemeUI(makeDark);
+
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transition');
+        }, 250);
     };
 
     function updateThemeUI(isDark) {
-        // Update Desktop Thumb
-        const thumbDesktop = document.getElementById('theme-thumb-desktop');
-        if (thumbDesktop) {
-            if (isDark) {
-                thumbDesktop.classList.remove('translate-x-0');
-                thumbDesktop.classList.add('translate-x-6');
-            } else {
-                thumbDesktop.classList.remove('translate-x-6');
-                thumbDesktop.classList.add('translate-x-0');
-            }
-        }
-
         // Update Mobile buttons
         const btnLight = document.getElementById('theme-btn-light');
         const btnDark = document.getElementById('theme-btn-dark');
@@ -129,12 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (btnLight && btnDark) {
             if (isDark) {
-                btnDark.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold border transition-all border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 ring-1 ring-[#168BD2]/30';
-                btnLight.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8]';
+                btnDark.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold border transition-all border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 ring-1 ring-[#168BD2]/30 cursor-pointer';
+                btnLight.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] cursor-pointer';
                 if (label) label.textContent = 'Chế độ Tối';
             } else {
-                btnLight.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold border transition-all border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 ring-1 ring-[#168BD2]/30';
-                btnDark.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8]';
+                btnLight.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold border transition-all border-[#168BD2] text-[#168BD2] bg-[#168BD2]/10 ring-1 ring-[#168BD2]/30 cursor-pointer';
+                btnDark.className = 'theme-mobile-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all border-[#E8EDF2] dark:border-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] cursor-pointer';
                 if (label) label.textContent = 'Chế độ Sáng';
             }
         }
@@ -144,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
     themeToggleBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            window.switchTheme(null, e);
+            e.preventDefault();
+            window.switchTheme(null);
         });
     });
 
