@@ -54,6 +54,18 @@
             </div>
         </div>
 
+        <!-- Company Brand Banner Showcase -->
+        <div class="mb-24 rounded-3xl overflow-hidden border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl relative group" data-aos="fade-up">
+            <img src="{{ asset('images/banner.png') }}" alt="LushSoftware Platform" class="w-full h-auto max-h-[480px] object-cover group-hover:scale-101 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent flex items-end p-6 sm:p-10">
+                <div class="text-white space-y-2">
+                    <span class="px-3 py-1 rounded-full bg-[#168BD2] text-xs font-bold uppercase tracking-wider inline-block">Hạ Tầng Điện Toán Đám Mây</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold">Hệ Sinh Thái LushSoftware Toàn Diện</h3>
+                    <p class="text-sm text-gray-200 max-w-xl">Được tin dùng bởi hơn 15,000+ doanh nghiệp trên khắp cả nước và quốc tế.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Milestones / Timeline -->
         <div class="max-w-4xl mx-auto border-t border-[#E8EDF2] dark:border-[#1E2D3D] pt-20" data-aos="fade-up">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-[#172B3A] dark:text-white text-center mb-12">

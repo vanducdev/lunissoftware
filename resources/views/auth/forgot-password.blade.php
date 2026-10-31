@@ -7,6 +7,11 @@
     <div class="max-w-md w-full mx-auto px-4" data-aos="fade-up">
         <div class="lush-card p-8 sm:p-10 shadow-xl">
             <div class="text-center mb-8">
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-2 mb-4">
+                    <div class="w-12 h-12 rounded-2xl overflow-hidden bg-white dark:bg-[#101923] shadow-md shadow-[#168BD2]/20 ring-1 ring-[#E8EDF2] dark:ring-[#1E2D3D]">
+                        <img src="{{ asset('images/logo.png') }}" alt="LushSoftware" class="w-full h-full object-cover">
+                    </div>
+                </a>
                 <h1 class="text-2xl font-bold text-[#172B3A] dark:text-white">Đặt Lại Mật Khẩu</h1>
                 <p class="text-xs text-[#718096] mt-1">Nhập email đăng ký tài khoản để nhận đường dẫn đặt lại mật khẩu</p>
             </div>

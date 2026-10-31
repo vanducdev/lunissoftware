@@ -17,11 +17,18 @@
     <link rel="alternate" hreflang="ko" href="{{ url()->current() }}?lang=ko">
     <link rel="alternate" hreflang="x-default" href="{{ url()->current() }}">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Favicon & Touch Icon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
+
+    <!-- Open Graph / Facebook / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('title', 'LushSoftware – Nền tảng phần mềm SaaS')">
     <meta property="og:description" content="@yield('meta_description', 'Tự động hóa tiếp thị, quản trị quan hệ khách hàng và mở rộng kinh doanh.')">
+    <meta property="og:image" content="{{ asset('images/banner.png') }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ asset('images/banner.png') }}">
 
     <!-- Schema.org JSON-LD Structured Data for Google -->
     <script type="application/ld+json">
@@ -30,7 +37,7 @@
       "@@type": "Organization",
       "name": "LushSoftware",
       "url": "{{ url('/') }}",
-      "logo": "{{ asset('favicon.ico') }}",
+      "logo": "{{ asset('images/logo.png') }}",
       "description": "Nền tảng phần mềm SaaS & Tự động hóa tiếp thị doanh nghiệp.",
       "telephone": "{{ \App\Models\WebsiteSetting::get('contact_hotline', '1900 886 996') }}",
       "email": "{{ \App\Models\WebsiteSetting::get('contact_email', 'contact@lushsoftware.vn') }}",
@@ -82,10 +89,8 @@
 
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0">
-                <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#168BD2] via-[#2094DB] to-[#0878BD] text-white shadow-md shadow-[#168BD2]/30 ring-1 ring-white/60 dark:ring-white/20 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#168BD2]/40 transition-all duration-300">
-                    <svg class="w-5 h-5 text-white drop-shadow-xs" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
+                <div class="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden bg-white dark:bg-[#101923] shadow-md shadow-[#168BD2]/20 ring-1 ring-[#E8EDF2] dark:ring-[#1E2D3D] group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#168BD2]/30 transition-all duration-300">
+                    <img src="{{ asset('images/logo.png') }}" alt="LushSoftware" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-[17px] font-black tracking-tight text-[#172B3A] dark:text-white flex items-center gap-0.5 leading-none">
@@ -511,9 +516,9 @@
     <div id="drawer-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 hidden transition-opacity"></div>
     <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-white dark:bg-[#0B1118] border-l border-[#E8EDF2] dark:border-[#1E2D3D] z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
         <div class="p-5 flex items-center justify-between border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
-            <a href="{{ route('home') }}" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-[#168BD2] flex items-center justify-center text-white font-bold">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <a href="{{ route('home') }}" class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg overflow-hidden bg-white dark:bg-[#101923] ring-1 ring-[#E8EDF2] dark:ring-[#1E2D3D] shadow-2xs">
+                    <img src="{{ asset('images/logo.png') }}" alt="LushSoftware" class="w-full h-full object-cover">
                 </div>
                 <span class="font-bold text-[#172B3A] dark:text-white">LushSoftware</span>
             </a>
@@ -594,8 +599,8 @@
                 <!-- Column 1: Brand Info -->
                 <div class="lg:col-span-2 space-y-4">
                     <a href="{{ route('home') }}" class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-bold text-xl shadow-md shadow-[#168BD2]/20">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <div class="w-10 h-10 rounded-xl overflow-hidden bg-white dark:bg-[#101923] shadow-md shadow-[#168BD2]/20 ring-1 ring-[#E8EDF2] dark:ring-[#1E2D3D]">
+                            <img src="{{ asset('images/logo.png') }}" alt="LushSoftware" class="w-full h-full object-cover">
                         </div>
                         <span class="text-xl font-bold tracking-tight text-[#172B3A] dark:text-white">
                             Lush<span class="text-[#168BD2]">Software</span>

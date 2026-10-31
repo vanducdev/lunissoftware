@@ -55,8 +55,8 @@ class LushDatabaseSeeder extends Seeder
         $settings = [
             'site_name' => 'LushSoftware',
             'site_tagline' => 'Nền tảng phần mềm & giải pháp tự động hóa tăng trưởng doanh nghiệp',
-            'site_logo' => null,
-            'site_favicon' => null,
+            'site_logo' => 'images/logo.png',
+            'site_favicon' => 'images/logo.png',
             'contact_email' => 'contact@lushsoftware.vn',
             'contact_hotline' => '1900 886 996',
             'contact_phone' => '+84 988 123 456',
@@ -87,7 +87,7 @@ class LushDatabaseSeeder extends Seeder
             [
                 'badge' => 'CÔNG NGHỆ BỨT PHÁ 2026',
                 'subtitle' => 'Tự động hóa tiếp thị, quản trị quan hệ khách hàng và mở rộng quy mô kinh doanh không giới hạn với công nghệ thuần điện toán đám mây.',
-                'image' => null,
+                'image' => 'images/banner.png',
                 'link_url' => '/products',
                 'link_text' => 'Khám phá sản phẩm',
                 'secondary_link_url' => '/contact',

@@ -6,6 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'Admin Dashboard') – LushSoftware Management</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
 
     <script>
         (function() {
@@ -32,8 +34,8 @@
             <!-- Brand -->
             <div class="h-20 flex items-center px-6 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white font-bold text-lg shadow-sm">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="w-9 h-9 rounded-xl overflow-hidden bg-white dark:bg-[#101923] shadow-sm ring-1 ring-[#E8EDF2] dark:ring-[#1E2D3D]">
+                        <img src="{{ asset('images/logo.png') }}" alt="LushAdmin" class="w-full h-full object-cover">
                     </div>
                     <div>
                         <span class="font-bold text-base tracking-tight text-[#172B3A] dark:text-white flex items-center gap-1">

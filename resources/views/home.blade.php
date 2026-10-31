@@ -58,75 +58,51 @@
                     </div>
                 </div>
 
-                <!-- Hero Right: SaaS Ecosystem Mockup Illustration -->
+                <!-- Hero Right: SaaS Ecosystem Banner Showcase -->
                 <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-delay="150">
                     <div class="relative mx-auto max-w-lg lg:max-w-none">
                         <!-- Clean white frame with soft shadow & ocean blue border -->
-                        <div class="bg-white dark:bg-[#131D27] rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl shadow-[#168BD2]/10 p-6 relative overflow-hidden">
+                        <div class="bg-white dark:bg-[#131D27] rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl shadow-[#168BD2]/15 p-2 sm:p-3 relative overflow-hidden group">
                             <!-- Window Chrome bar -->
-                            <div class="flex items-center justify-between pb-4 mb-4 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span>
-                                    <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
-                                    <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+                            <div class="flex items-center justify-between pb-2.5 mb-2 px-3 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
                                 </div>
-                                <span class="text-[11px] font-semibold text-[#718096] bg-[#F8FAFC] dark:bg-[#0B1118] px-3 py-1 rounded-md border border-[#E8EDF2] dark:border-[#1E2D3D]">
+                                <span class="text-[11px] font-semibold text-[#718096] bg-[#F8FAFC] dark:bg-[#0B1118] px-3 py-0.5 rounded-md border border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-1.5">
+                                    <svg class="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
                                     app.lushsoftware.vn
                                 </span>
                                 <div class="w-6"></div>
                             </div>
 
-                            <!-- Interactive Dashboard Preview Mockup -->
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <p class="text-xs text-[#718096]">Hiệu suất chiến dịch tự động</p>
-                                        <p class="text-xl font-bold text-[#172B3A] dark:text-white">428,950 <span class="text-xs font-semibold text-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">+34.8%</span></p>
-                                    </div>
-                                    <div class="p-2.5 rounded-xl bg-[#168BD2]/10 text-[#168BD2]">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                                    </div>
-                                </div>
-
-                                <!-- Mini Bar chart simulation -->
-                                <div class="h-28 flex items-end gap-2 pt-2 px-1 border-b border-[#E8EDF2] dark:border-[#1E2D3D] pb-3">
-                                    <div class="flex-1 bg-[#168BD2]/20 hover:bg-[#168BD2] rounded-t-sm h-[45%] transition-colors duration-200"></div>
-                                    <div class="flex-1 bg-[#168BD2]/20 hover:bg-[#168BD2] rounded-t-sm h-[65%] transition-colors duration-200"></div>
-                                    <div class="flex-1 bg-[#168BD2]/20 hover:bg-[#168BD2] rounded-t-sm h-[40%] transition-colors duration-200"></div>
-                                    <div class="flex-1 bg-[#168BD2]/20 hover:bg-[#168BD2] rounded-t-sm h-[85%] transition-colors duration-200"></div>
-                                    <div class="flex-1 bg-[#168BD2]/30 hover:bg-[#168BD2] rounded-t-sm h-[70%] transition-colors duration-200"></div>
-                                    <div class="flex-1 bg-[#168BD2]/25 hover:bg-[#168BD2] rounded-t-sm h-[90%] transition-colors duration-200"></div>
-                                    <div class="flex-1 bg-[#168BD2] rounded-t-sm h-[100%] transition-colors duration-200 shadow-sm shadow-[#168BD2]/40"></div>
-                                </div>
-
-                                <!-- Feature status pills -->
-                                <div class="grid grid-cols-2 gap-2.5 pt-1">
-                                    <div class="p-2.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#0B1118]/60 flex items-center gap-2.5">
-                                        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                                        <div class="truncate">
-                                            <p class="text-[11px] font-bold text-[#172B3A] dark:text-white truncate">Lush Marketing Pro</p>
-                                            <p class="text-[10px] text-[#718096]">Đang hoạt động</p>
-                                        </div>
-                                    </div>
-                                    <div class="p-2.5 rounded-lg border border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#0B1118]/60 flex items-center gap-2.5">
-                                        <div class="w-2.5 h-2.5 rounded-full bg-[#168BD2]"></div>
-                                        <div class="truncate">
-                                            <p class="text-[11px] font-bold text-[#172B3A] dark:text-white truncate">Lush CRM Hub</p>
-                                            <p class="text-[10px] text-[#718096]">Đồng bộ Realtime</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <!-- Real High-Res Banner Showcase Image -->
+                            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-[#F8FAFC] dark:bg-[#0B1118]">
+                                <img src="{{ asset('images/banner.png') }}" alt="{{ $heroBanner->title ?? 'LushSoftware Ecosystem' }}" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"></div>
                             </div>
                         </div>
 
                         <!-- Floating Stat Badge Top Right -->
-                        <div class="absolute -top-4 -right-4 bg-white dark:bg-[#131D27] p-3 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-lg flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 flex items-center justify-center font-bold">
+                        <div class="absolute -top-4 -right-4 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 flex items-center justify-center font-bold">
                                 99%
                             </div>
                             <div>
                                 <p class="text-[11px] font-bold text-[#172B3A] dark:text-white">Uptime Cam Kết</p>
                                 <p class="text-[10px] text-[#718096]">SLA Doanh Nghiệp</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge Bottom Left -->
+                        <div class="absolute -bottom-4 -left-4 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold">
+                                ⚡
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-[#172B3A] dark:text-white">Hệ Sinh Thái 2026</p>
+                                <p class="text-[10px] text-[#718096]">12+ Công Cụ Tự Động</p>
                             </div>
                         </div>
                     </div>
