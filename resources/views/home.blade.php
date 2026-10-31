@@ -281,25 +281,109 @@
         </div>
     </section>
 
-    <!-- 5.6. Statistics Bar -->
-    <section class="py-12 bg-white dark:bg-[#0B1118] border-y border-[#E8EDF2] dark:border-[#1E2D3D]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-[#E8EDF2] dark:divide-[#1E2D3D]">
-                <div class="pt-4 md:pt-0" data-aos="fade-up" data-aos-delay="50">
-                    <p class="text-3xl sm:text-4xl font-extrabold text-[#168BD2]">{{ $stats['clients'] }}</p>
-                    <p class="text-xs sm:text-sm text-[#718096] dark:text-[#94A3B8] font-medium mt-1">Doanh Nghiệp Tin Dùng</p>
+    <!-- 5.6. High-Impact Statistics Bento Showcase -->
+    <section class="relative py-14 lg:py-18 bg-[#F8FAFC]/80 dark:bg-[#0B1118] border-y border-[#E8EDF2] dark:border-[#1E2D3D] overflow-hidden">
+        <!-- Ambient radial glow behind stats -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(22,139,210,0.06),transparent)] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+                <!-- Stat Card 1: Doanh Nghiệp -->
+                <div class="group relative bg-white dark:bg-[#111A24] rounded-3xl p-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs hover:shadow-xl hover:shadow-[#168BD2]/12 hover:border-[#168BD2]/40 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center group-hover:bg-[#168BD2] group-hover:text-white transition-all duration-300 shadow-xs">
+                            <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Top 1 VN
+                        </span>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight group-hover:text-[#168BD2] transition-colors">
+                            {{ $stats['clients'] }}
+                        </p>
+                        <p class="text-sm font-bold text-[#172B3A] dark:text-[#E2E8F0]">
+                            Doanh Nghiệp Tin Dùng
+                        </p>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed pt-1">
+                            Quy mô từ cá nhân kinh doanh đến doanh nghiệp lớn toàn quốc.
+                        </p>
+                    </div>
+                    <div class="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-[#168BD2] to-[#48B4E5] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div class="pt-4 md:pt-0" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-3xl sm:text-4xl font-extrabold text-[#168BD2]">{{ $stats['products'] }}</p>
-                    <p class="text-xs sm:text-sm text-[#718096] dark:text-[#94A3B8] font-medium mt-1">Giải Pháp Chuyên Biệt</p>
+
+                <!-- Stat Card 2: Giải Pháp -->
+                <div class="group relative bg-white dark:bg-[#111A24] rounded-3xl p-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs hover:shadow-xl hover:shadow-[#168BD2]/12 hover:border-[#168BD2]/40 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#6366F1]/10 text-[#6366F1] flex items-center justify-center group-hover:bg-[#6366F1] group-hover:text-white transition-all duration-300 shadow-xs">
+                            <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-[#168BD2] dark:text-[#48B4E5] bg-[#168BD2]/10 border border-[#168BD2]/20 px-2.5 py-1 rounded-full">
+                            All-in-One
+                        </span>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight group-hover:text-[#6366F1] transition-colors">
+                            {{ $stats['products'] }}
+                        </p>
+                        <p class="text-sm font-bold text-[#172B3A] dark:text-[#E2E8F0]">
+                            Giải Pháp Chuyên Biệt
+                        </p>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed pt-1">
+                            Tự động hóa tiếp thị, nuôi nick, bảo mật trình duyệt &amp; CRM.
+                        </p>
+                    </div>
+                    <div class="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-[#6366F1] to-[#168BD2] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div class="pt-4 md:pt-0" data-aos="fade-up" data-aos-delay="150">
-                    <p class="text-3xl sm:text-4xl font-extrabold text-[#168BD2]">{{ $stats['users'] }}</p>
-                    <p class="text-xs sm:text-sm text-[#718096] dark:text-[#94A3B8] font-medium mt-1">Người Dùng Hoạt Động</p>
+
+                <!-- Stat Card 3: Người Dùng -->
+                <div class="group relative bg-white dark:bg-[#111A24] rounded-3xl p-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs hover:shadow-xl hover:shadow-[#168BD2]/12 hover:border-[#168BD2]/40 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-xs">
+                            <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Hoạt Động 24/7
+                        </span>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight group-hover:text-emerald-600 transition-colors">
+                            {{ $stats['users'] }}
+                        </p>
+                        <p class="text-sm font-bold text-[#172B3A] dark:text-[#E2E8F0]">
+                            Người Dùng Hoạt Động
+                        </p>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed pt-1">
+                            Hàng triệu lượt tương tác &amp; chiến dịch chạy ổn định mỗi ngày.
+                        </p>
+                    </div>
+                    <div class="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div class="pt-4 md:pt-0" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-3xl sm:text-4xl font-extrabold text-[#168BD2]">{{ $stats['years'] }}</p>
-                    <p class="text-xs sm:text-sm text-[#718096] dark:text-[#94A3B8] font-medium mt-1">Năm Phát Triển & Đồng Hành</p>
+
+                <!-- Stat Card 4: Năm Phát Triển -->
+                <div class="group relative bg-white dark:bg-[#111A24] rounded-3xl p-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs hover:shadow-xl hover:shadow-[#168BD2]/12 hover:border-[#168BD2]/40 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-xs">
+                            <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">
+                            Kinh Nghiệm
+                        </span>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight group-hover:text-amber-600 transition-colors">
+                            {{ $stats['years'] }}
+                        </p>
+                        <p class="text-sm font-bold text-[#172B3A] dark:text-[#E2E8F0]">
+                            Năm Phát Triển &amp; Đồng Hành
+                        </p>
+                        <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed pt-1">
+                            Tiên phong kiến tạo công cụ số tối ưu hiệu quả doanh số.
+                        </p>
+                    </div>
+                    <div class="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-amber-500 to-orange-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
             </div>
         </div>
