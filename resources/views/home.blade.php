@@ -58,50 +58,118 @@
                     </div>
                 </div>
 
-                <!-- Hero Right: SaaS Ecosystem Banner Showcase -->
+                <!-- Hero Right: Interactive Live SaaS Console Mockup (Apple / Linear Design) -->
                 <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-delay="150">
                     <div class="relative mx-auto max-w-lg lg:max-w-none">
                         <!-- Clean white frame with soft shadow & ocean blue border -->
-                        <div class="bg-white dark:bg-[#131D27] rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl shadow-[#168BD2]/15 p-2 sm:p-3 relative overflow-hidden group">
+                        <div class="bg-white dark:bg-[#111A24] rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-[0_25px_60px_-15px_rgba(22,139,210,0.18)] p-5 sm:p-6 relative overflow-hidden">
                             <!-- Window Chrome bar -->
-                            <div class="flex items-center justify-between pb-2.5 mb-2 px-3 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
+                            <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
                                 </div>
-                                <span class="text-[11px] font-semibold text-[#718096] bg-[#F8FAFC] dark:bg-[#0B1118] px-3 py-0.5 rounded-md border border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-1.5">
-                                    <svg class="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-                                    app.lushsoftware.vn
+                                <span class="text-[11px] font-mono font-semibold text-[#5A6E85] dark:text-[#94A3B8] bg-[#F8FAFC] dark:bg-[#0B1118] px-3 py-1 rounded-full border border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    app.lushsoftware.vn/console
                                 </span>
-                                <div class="w-6"></div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#168BD2] bg-[#168BD2]/10 px-2 py-0.5 rounded-full">v2.4 Live</span>
                             </div>
 
-                            <!-- Real High-Res Banner Showcase Image -->
-                            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-[#F8FAFC] dark:bg-[#0B1118]">
-                                <img src="{{ asset('images/banner.png') }}" alt="{{ $heroBanner->title ?? 'LushSoftware Ecosystem' }}" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"></div>
+                            <!-- Live Dashboard Header Metric -->
+                            <div class="bg-gradient-to-br from-[#F8FAFC] to-[#F1F7FB] dark:from-[#152332] dark:to-[#1B2C3F] p-4 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] mb-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase tracking-wider text-[#718096] dark:text-[#94A3B8] block">Lưu lượng tự động hóa tháng này</span>
+                                        <p class="text-2xl sm:text-3xl font-black text-[#172B3A] dark:text-white mt-0.5 tracking-tight">1,248,950 <span class="text-xs font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">+42.8%</span></p>
+                                    </div>
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white flex items-center justify-center shadow-md shadow-[#168BD2]/30">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic Live Sparkline Bars -->
+                                <div class="h-16 flex items-end gap-1.5 pt-3">
+                                    <div class="flex-1 bg-[#168BD2]/20 hover:bg-[#168BD2] rounded-t-sm h-[35%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2]/25 hover:bg-[#168BD2] rounded-t-sm h-[50%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2]/30 hover:bg-[#168BD2] rounded-t-sm h-[40%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2]/40 hover:bg-[#168BD2] rounded-t-sm h-[70%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2]/45 hover:bg-[#168BD2] rounded-t-sm h-[60%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2]/60 hover:bg-[#168BD2] rounded-t-sm h-[85%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2]/75 hover:bg-[#168BD2] rounded-t-sm h-[75%] transition-all"></div>
+                                    <div class="flex-1 bg-[#168BD2] rounded-t-sm h-[100%] transition-all shadow-sm shadow-[#168BD2]/50"></div>
+                                </div>
+                            </div>
+
+                            <!-- Live Active Modules Feed -->
+                            <div class="space-y-2.5">
+                                <div class="p-3 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/40 transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#168BD2] to-[#2094DB] text-white flex items-center justify-center shrink-0 shadow-xs">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-[#172B3A] dark:text-white">Lush Marketing Pro</p>
+                                            <p class="text-[10px] text-[#718096]">Chiến dịch đa luồng đang chạy: 45,000 sent</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                                        100% OK
+                                    </span>
+                                </div>
+
+                                <div class="p-3 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/40 transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4F46E5] to-[#168BD2] text-white flex items-center justify-center shrink-0 shadow-xs">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-[#172B3A] dark:text-white">Lush Social Hub</p>
+                                            <p class="text-[10px] text-[#718096]">Quản trị 120 nick: Kháng checkpoint tự động</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-[#168BD2] bg-[#168BD2]/10 px-2 py-0.5 rounded-full">
+                                        Safe Mode
+                                    </span>
+                                </div>
+
+                                <div class="p-3 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] flex items-center justify-between shadow-2xs hover:border-[#168BD2]/40 transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#059669] to-[#0D9488] text-white flex items-center justify-center shrink-0 shadow-xs">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-[#172B3A] dark:text-white">Lush CRM Enterprise</p>
+                                            <p class="text-[10px] text-[#718096]">Chuyển đổi phễu: +85 khách hàng chốt deal</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-amber-600 bg-amber-500/10 px-2 py-0.5 rounded-full">
+                                        +285M ₫
+                                    </span>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Floating Stat Badge Top Right -->
-                        <div class="absolute -top-4 -right-4 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 flex items-center justify-center font-bold">
-                                99%
+                        <div class="absolute -top-4 -right-4 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3.5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center font-bold shadow-sm shadow-emerald-500/30">
+                                99.9%
                             </div>
                             <div>
-                                <p class="text-[11px] font-bold text-[#172B3A] dark:text-white">Uptime Cam Kết</p>
-                                <p class="text-[10px] text-[#718096]">SLA Doanh Nghiệp</p>
+                                <p class="text-[11px] font-black text-[#172B3A] dark:text-white">Uptime SLA</p>
+                                <p class="text-[10px] text-[#718096]">Cloud Phân Tán</p>
                             </div>
                         </div>
 
                         <!-- Floating Stat Badge Bottom Left -->
-                        <div class="absolute -bottom-4 -left-4 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold">
+                        <div class="absolute -bottom-4 -left-4 bg-white/95 dark:bg-[#131D27]/95 backdrop-blur-md p-3.5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#2094DB] text-white flex items-center justify-center font-bold shadow-sm shadow-[#168BD2]/30">
                                 ⚡
                             </div>
                             <div>
-                                <p class="text-[11px] font-bold text-[#172B3A] dark:text-white">Hệ Sinh Thái 2026</p>
+                                <p class="text-[11px] font-black text-[#172B3A] dark:text-white">AI Core 2.4</p>
                                 <p class="text-[10px] text-[#718096]">12+ Công Cụ Tự Động</p>
                             </div>
                         </div>
@@ -155,9 +223,7 @@
                         <div>
                             <!-- Header: Icon & Category -->
                             <div class="flex items-center justify-between mb-5">
-                                <div class="w-12 h-12 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-lg">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                                </div>
+                                <x-product-icon :slug="$product->slug" />
                                 <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#F8FAFC] dark:bg-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#2D3F52]">
                                     {{ $product->category->name ?? 'SaaS' }}
                                 </span>
@@ -227,8 +293,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Solution 1 -->
                 <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="50">
-                    <div class="w-11 h-11 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#168BD2] to-[#0878BD] text-white shadow-lg shadow-[#168BD2]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
                     </div>
                     <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Tự Động Hóa Tiếp Thị</h3>
                     <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Tiếp cận đúng khách hàng tiềm năng qua Email, SMS và Zalo với kịch bản cá nhân hóa tự động.</p>
@@ -236,8 +302,8 @@
 
                 <!-- Solution 2 -->
                 <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-11 h-11 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#059669] to-[#0D9488] text-white shadow-lg shadow-[#059669]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                     </div>
                     <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Quản Trị Bán Hàng CRM</h3>
                     <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Theo dõi chi tiết phễu khách hàng, tự động chia lead và kiểm soát doanh thu từng nhân sự theo thời gian thực.</p>
@@ -245,8 +311,8 @@
 
                 <!-- Solution 3 -->
                 <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="150">
-                    <div class="w-11 h-11 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] text-white shadow-lg shadow-[#8B5CF6]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     </div>
                     <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Hội Tụ Đa Kênh Chat</h3>
                     <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Gom toàn bộ tin nhắn từ Fanpage, TikTok và Website về một màn hình duy nhất, trả lời tức thì.</p>
@@ -254,8 +320,8 @@
 
                 <!-- Solution 4 -->
                 <div class="lush-card p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-11 h-11 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0284C7] to-[#0369A1] text-white shadow-lg shadow-[#0284C7]/25 ring-1 ring-white/20 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                     </div>
                     <h3 class="text-lg font-bold text-[#172B3A] dark:text-white mb-2">Dữ Liệu & Insight Thị Trường</h3>
                     <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">Thu thập và phân tích dữ liệu ngành, đối thủ để đưa ra các quyết định kinh doanh chuẩn xác.</p>
@@ -285,33 +351,33 @@
                 </div>
 
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
-                    <div class="p-5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27]">
-                        <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#168BD2]/30 transition-all duration-300">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#168BD2] to-[#48B4E5] text-white shadow-md shadow-[#168BD2]/25 flex items-center justify-center font-bold mb-3">
+                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Tốc Độ Xử Lý Tối Ưu</h4>
                         <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Cấu trúc hạ tầng điện toán đám mây phân tán cho độ trễ dưới 50ms ở mọi tác vụ.</p>
                     </div>
 
-                    <div class="p-5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27]">
-                        <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#059669]/30 transition-all duration-300">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#059669] to-[#10B981] text-white shadow-md shadow-[#059669]/25 flex items-center justify-center font-bold mb-3">
+                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Bảo Mật Tiêu Chuẩn Cao</h4>
                         <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Mã hóa đa tầng và sao lưu dữ liệu tự động hàng ngày đảm bảo dữ liệu luôn an toàn.</p>
                     </div>
 
-                    <div class="p-5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27]">
-                        <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#6366F1]/30 transition-all duration-300">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] text-white shadow-md shadow-[#6366F1]/25 flex items-center justify-center font-bold mb-3">
+                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                         </div>
                         <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Cập Nhật Liên Tục</h4>
                         <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Luôn nâng cấp và thích ứng theo các thay đổi thuật toán của Facebook, TikTok, Google.</p>
                     </div>
 
-                    <div class="p-5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27]">
-                        <div class="w-9 h-9 rounded-lg bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold mb-3">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <div class="p-5 rounded-2xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#131D27] hover:shadow-lg hover:border-[#EA580C]/30 transition-all duration-300">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#EA580C] to-[#F59E0B] text-white shadow-md shadow-[#EA580C]/25 flex items-center justify-center font-bold mb-3">
+                            <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                         </div>
                         <h4 class="font-bold text-[#172B3A] dark:text-white mb-1.5">Chăm Sóc Tận Tâm 24/7</h4>
                         <p class="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">Đội ngũ kỹ sư và chuyên viên tư vấn hỗ trợ từ xa qua Ultraview, Zalo và Hotline.</p>

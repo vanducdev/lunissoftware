@@ -51,9 +51,7 @@
             <!-- Hero Illustration/Graphic -->
             <div class="lg:col-span-5" data-aos="fade-left">
                 <div class="bg-white dark:bg-[#131D27] p-8 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl relative text-center">
-                    <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-[#168BD2] to-[#48B4E5] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#168BD2]/30">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
+                    <x-product-icon :slug="$product->slug" size="xl" class="mx-auto mb-6" />
                     <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-2">{{ $product->name }}</h3>
                     <p class="text-xs text-[#718096] mb-6">Đã tối ưu hóa cho Windows 10/11 & macOS & Web App</p>
 

@@ -27,9 +27,7 @@
                         <!-- Left: Info -->
                         <div class="lg:col-span-7 space-y-3">
                             <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xl">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                                </div>
+                                <x-product-icon :slug="$p->slug" />
                                 <div>
                                     <h2 class="text-xl font-bold text-[#172B3A] dark:text-white">
                                         <a href="{{ route('products.show', $p->slug) }}" class="hover:text-[#168BD2]">{{ $p->name }}</a>

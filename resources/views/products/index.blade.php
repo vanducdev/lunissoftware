@@ -58,9 +58,7 @@
                     <div class="lush-card p-6 flex flex-col justify-between" data-aos="fade-up">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-lg">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                                </div>
+                                <x-product-icon :slug="$product->slug" />
                                 <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#F8FAFC] dark:bg-[#1E2D3D] text-[#718096] dark:text-[#94A3B8] border border-[#E8EDF2] dark:border-[#2D3F52]">
                                     {{ $product->category->name ?? 'SaaS' }}
                                 </span>

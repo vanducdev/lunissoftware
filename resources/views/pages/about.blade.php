@@ -21,48 +21,43 @@
         <!-- Vision, Mission, Core Values (5.2 in Master Prompt) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             <!-- Tầm nhìn -->
-            <div class="lush-card p-8" data-aos="fade-up" data-aos-delay="50">
-                <div class="w-12 h-12 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xl mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <div class="lush-card p-8 group hover:border-[#168BD2]/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#168BD2] via-[#2094DB] to-[#0878BD] text-white flex items-center justify-center font-bold text-xl mb-6 shadow-md shadow-[#168BD2]/25 group-hover:scale-105 transition-transform duration-300">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-3">Tầm Nhìn Chiến Lược</h3>
+                <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-3 group-hover:text-[#168BD2] transition-colors">Tầm Nhìn Chiến Lược</h3>
                 <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">
                     Trở thành hệ sinh thái SaaS hàng đầu Đông Nam Á vào năm 2030, trao quyền cho hàng trăm ngàn doanh nghiệp vừa và nhỏ chuyển đổi số thành công với chi phí tối ưu.
                 </p>
             </div>
 
             <!-- Sứ mệnh -->
-            <div class="lush-card p-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xl mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <div class="lush-card p-8 group hover:border-[#168BD2]/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#48B4E5] via-[#168BD2] to-[#0878BD] text-white flex items-center justify-center font-bold text-xl mb-6 shadow-md shadow-[#168BD2]/25 group-hover:scale-105 transition-transform duration-300">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-3">Sứ Mệnh Phát Triển</h3>
+                <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-3 group-hover:text-[#168BD2] transition-colors">Sứ Mệnh Phát Triển</h3>
                 <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">
                     Đơn giản hóa những công nghệ phức tạp thành các phần mềm dễ sử dụng, hiệu suất cao và vận hành bền bỉ, giúp khách hàng tiết kiệm thời gian và bứt phá doanh thu.
                 </p>
             </div>
 
             <!-- Giá trị cốt lõi -->
-            <div class="lush-card p-8" data-aos="fade-up" data-aos-delay="150">
-                <div class="w-12 h-12 rounded-xl bg-[#168BD2]/10 text-[#168BD2] flex items-center justify-center font-bold text-xl mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <div class="lush-card p-8 group hover:border-[#168BD2]/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#10B981] via-[#059669] to-[#047857] text-white flex items-center justify-center font-bold text-xl mb-6 shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform duration-300">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-3">Giá Trị Cốt Lõi</h3>
+                <h3 class="text-xl font-bold text-[#172B3A] dark:text-white mb-3 group-hover:text-emerald-600 transition-colors">Giá Trị Cốt Lõi</h3>
                 <p class="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">
                     <strong>Chất lượng – Tận tâm – Đổi mới – Bảo mật.</strong> Chúng tôi không bao giờ thỏa hiệp với sự cẩu thả và luôn đặt bảo vệ dữ liệu khách hàng lên hàng đầu.
                 </p>
-            </div>
-        </div>
-
-        <!-- Company Brand Banner Showcase -->
-        <div class="mb-24 rounded-3xl overflow-hidden border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl relative group" data-aos="fade-up">
-            <img src="{{ asset('images/banner.png') }}" alt="LushSoftware Platform" class="w-full h-auto max-h-[480px] object-cover group-hover:scale-101 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent flex items-end p-6 sm:p-10">
-                <div class="text-white space-y-2">
-                    <span class="px-3 py-1 rounded-full bg-[#168BD2] text-xs font-bold uppercase tracking-wider inline-block">Hạ Tầng Điện Toán Đám Mây</span>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold">Hệ Sinh Thái LushSoftware Toàn Diện</h3>
-                    <p class="text-sm text-gray-200 max-w-xl">Được tin dùng bởi hơn 15,000+ doanh nghiệp trên khắp cả nước và quốc tế.</p>
-                </div>
             </div>
         </div>
 

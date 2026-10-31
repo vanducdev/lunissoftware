@@ -22,9 +22,12 @@
                 @if($prod->pricings->count() > 0)
                     <div class="border-b border-[#E8EDF2] dark:border-[#1E2D3D] pb-16 last:border-b-0" data-aos="fade-up">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-                            <div>
-                                <h2 class="text-2xl font-bold text-[#172B3A] dark:text-white">{{ $prod->name }}</h2>
-                                <p class="text-xs text-[#718096] mt-1">{{ $prod->tagline }}</p>
+                            <div class="flex items-center gap-3.5">
+                                <x-product-icon :slug="$prod->slug" size="sm" />
+                                <div>
+                                    <h2 class="text-2xl font-bold text-[#172B3A] dark:text-white">{{ $prod->name }}</h2>
+                                    <p class="text-xs text-[#718096] mt-1">{{ $prod->tagline }}</p>
+                                </div>
                             </div>
                             <a href="{{ route('products.show', $prod->slug) }}" class="text-xs font-bold text-[#168BD2] hover:underline">
                                 Xem tính năng đầy đủ &rarr;
