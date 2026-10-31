@@ -153,87 +153,87 @@
                             <div class="grid grid-cols-12 gap-5">
                                 <!-- Left Column: 6 Flagship Software Cards (8 Cols) -->
                                 <div class="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <!-- 1. Lush Marketing Pro -->
+                                    <!-- 1. LushCare -->
                                     <a href="{{ route('products.show', 'lush-marketing-pro') }}" class="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-all group/item border border-transparent hover:border-[#168BD2]/25 hover:shadow-xs">
                                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#168BD2]/15 to-[#48B4E5]/15 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-all shadow-2xs group-hover/item:scale-105">
                                             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">Lush Marketing Pro</h4>
+                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">LushCare</h4>
                                                 <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-rose-500/10 text-rose-600 border border-rose-200 dark:border-rose-900/50">HOT</span>
                                             </div>
-                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Tự động hóa tiếp thị đa kênh, gửi tin nhắn & chăm sóc khách hàng 24/7.</p>
+                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Phần mềm nuôi nick & chăm sóc tài khoản mạng xã hội tự động.</p>
                                         </div>
                                     </a>
 
-                                    <!-- 2. Lush Social Hub -->
+                                    <!-- 2. LushLogin -->
                                     <a href="{{ route('products.show', 'lush-social-hub') }}" class="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-all group/item border border-transparent hover:border-[#168BD2]/25 hover:shadow-xs">
                                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#168BD2]/15 to-[#48B4E5]/15 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-all shadow-2xs group-hover/item:scale-105">
                                             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">Lush Social Hub</h4>
+                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">LushLogin</h4>
                                                 <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-[#168BD2]/10 text-[#168BD2] border border-[#168BD2]/20">PRO</span>
                                             </div>
-                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Quản lý nuôi dàn nick mạng xã hội tự động, chống checkpoint hiệu quả.</p>
+                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Quản trị hàng nghìn tài khoản & profile Chrome an toàn, kháng checkpoint.</p>
                                         </div>
                                     </a>
 
-                                    <!-- 3. Lush CRM Enterprise -->
+                                    <!-- 3. LushCRM -->
                                     <a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-all group/item border border-transparent hover:border-[#168BD2]/25 hover:shadow-xs">
                                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#168BD2]/15 to-[#48B4E5]/15 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-all shadow-2xs group-hover/item:scale-105">
                                             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">Lush CRM Enterprise</h4>
+                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">LushCRM</h4>
                                                 <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-amber-500/10 text-amber-600 border border-amber-300 dark:border-amber-900/50">SUITE</span>
                                             </div>
-                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Quản trị toàn diện phễu khách hàng, phân chia số & tối ưu doanh số sales.</p>
+                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Quản trị toàn diện phễu khách hàng & tối ưu doanh số sales chuyên sâu.</p>
                                         </div>
                                     </a>
 
-                                    <!-- 4. Lush Data Scraper -->
+                                    <!-- 4. LushZalo -->
                                     <a href="{{ route('products.show', 'lush-data-scraper') }}" class="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-all group/item border border-transparent hover:border-[#168BD2]/25 hover:shadow-xs">
                                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#168BD2]/15 to-[#48B4E5]/15 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-all shadow-2xs group-hover/item:scale-105">
                                             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">Lush Data Scraper</h4>
+                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">LushZalo</h4>
                                                 <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:border-emerald-900/50">AI</span>
                                             </div>
-                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Khai phá, trích xuất dữ liệu khách hàng tiềm năng chuẩn xác và nhanh chóng.</p>
+                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Tiếp thị tự động, gửi tin nhắn & kéo nhóm cộng đồng Zalo thần tốc.</p>
                                         </div>
                                     </a>
 
-                                    <!-- 5. Lush Chatbot AI -->
+                                    <!-- 5. LushChat -->
                                     <a href="{{ route('products.show', 'lush-chatbot-ai') }}" class="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-all group/item border border-transparent hover:border-[#168BD2]/25 hover:shadow-xs">
                                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#168BD2]/15 to-[#48B4E5]/15 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-all shadow-2xs group-hover/item:scale-105">
                                             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">Lush Chatbot AI</h4>
+                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">LushChat</h4>
                                                 <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-indigo-500/10 text-indigo-600 border border-indigo-200 dark:border-indigo-900/50">BOT</span>
                                             </div>
-                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Trợ lý AI tự động phản hồi tin nhắn và chốt đơn thông minh đa nền tảng.</p>
+                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Hội tụ tin nhắn đa kênh & Trợ lý AI tự động phản hồi chốt đơn 24/7.</p>
                                         </div>
                                     </a>
 
-                                    <!-- 6. Lush Traffic Booster -->
+                                    <!-- 6. LushShopee -->
                                     <a href="{{ route('products.show', 'lush-traffic-booster') }}" class="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-all group/item border border-transparent hover:border-[#168BD2]/25 hover:shadow-xs">
                                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#168BD2]/15 to-[#48B4E5]/15 text-[#168BD2] flex items-center justify-center shrink-0 group-hover/item:bg-[#168BD2] group-hover/item:text-white transition-all shadow-2xs group-hover/item:scale-105">
                                             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">Lush Traffic Booster</h4>
-                                                <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-cyan-500/10 text-cyan-700 border border-cyan-200 dark:border-cyan-900/50">TRAFFIC</span>
+                                                <h4 class="text-[13.5px] font-bold text-[#172B3A] dark:text-white group-hover/item:text-[#168BD2] transition-colors leading-tight">LushShopee</h4>
+                                                <span class="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-cyan-500/10 text-cyan-700 border border-cyan-200 dark:border-cyan-900/50">VIRAL</span>
                                             </div>
-                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Kéo traffic tự nhiên chuẩn SEO, tăng thứ hạng từ khóa và tương tác web.</p>
+                                            <p class="text-[11.5px] text-[#718096] dark:text-[#94A3B8] leading-snug mt-1 line-clamp-2">Tự động hóa bán hàng & bứt phá lưu lượng, đơn hàng Shopee bùng nổ.</p>
                                         </div>
                                     </a>
                                 </div>
@@ -633,11 +633,12 @@
                 <div>
                     <h4 class="text-sm font-bold text-[#172B3A] dark:text-white uppercase tracking-wider mb-4">{{ __('Products') }}</h4>
                     <ul class="space-y-2.5 text-sm text-[#718096] dark:text-[#94A3B8]">
-                        <li><a href="{{ route('products.show', 'lush-marketing-pro') }}" class="hover:text-[#168BD2] transition-colors">Lush Marketing Pro</a></li>
-                        <li><a href="{{ route('products.show', 'lush-social-hub') }}" class="hover:text-[#168BD2] transition-colors">Lush Social Hub</a></li>
-                        <li><a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="hover:text-[#168BD2] transition-colors">Lush CRM Enterprise</a></li>
-                        <li><a href="{{ route('products.show', 'lush-data-scraper') }}" class="hover:text-[#168BD2] transition-colors">Lush Data Scraper</a></li>
-                        <li><a href="{{ route('products.show', 'lush-chatbot-ai') }}" class="hover:text-[#168BD2] transition-colors">Lush Chatbot AI</a></li>
+                        <li><a href="{{ route('products.show', 'lush-marketing-pro') }}" class="hover:text-[#168BD2] transition-colors">LushCare</a></li>
+                        <li><a href="{{ route('products.show', 'lush-social-hub') }}" class="hover:text-[#168BD2] transition-colors">LushLogin</a></li>
+                        <li><a href="{{ route('products.show', 'lush-crm-enterprise') }}" class="hover:text-[#168BD2] transition-colors">LushCRM</a></li>
+                        <li><a href="{{ route('products.show', 'lush-data-scraper') }}" class="hover:text-[#168BD2] transition-colors">LushZalo</a></li>
+                        <li><a href="{{ route('products.show', 'lush-chatbot-ai') }}" class="hover:text-[#168BD2] transition-colors">LushChat</a></li>
+                        <li><a href="{{ route('products.show', 'lush-traffic-booster') }}" class="hover:text-[#168BD2] transition-colors">LushShopee</a></li>
                         <li><a href="{{ route('products.index') }}" class="text-[#168BD2] font-medium hover:underline">{{ __('All Products') }} &rarr;</a></li>
                     </ul>
                 </div>

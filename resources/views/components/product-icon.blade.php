@@ -16,7 +16,8 @@
     };
 @endphp
 
-@switch($slug)
+@switch(strtolower($slug))
+    @case('lushcare')
     @case('lush-marketing-pro')
         <div class="relative flex items-center justify-center shrink-0 {{ $sizeClasses }} bg-gradient-to-br from-[#168BD2] via-[#0284C7] to-[#0878BD] text-white shadow-lg shadow-[#168BD2]/30 ring-1 ring-white/20 {{ $class }}">
             <svg class="{{ $svgSizes }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,6 +26,7 @@
         </div>
         @break
 
+    @case('lushlogin')
     @case('lush-social-hub')
         <div class="relative flex items-center justify-center shrink-0 {{ $sizeClasses }} bg-gradient-to-br from-[#6366F1] via-[#4F46E5] to-[#4338CA] text-white shadow-lg shadow-[#6366F1]/30 ring-1 ring-white/20 {{ $class }}">
             <svg class="{{ $svgSizes }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,6 +35,7 @@
         </div>
         @break
 
+    @case('lushcrm')
     @case('lush-crm-enterprise')
         <div class="relative flex items-center justify-center shrink-0 {{ $sizeClasses }} bg-gradient-to-br from-[#059669] via-[#10B981] to-[#0D9488] text-white shadow-lg shadow-[#059669]/30 ring-1 ring-white/20 {{ $class }}">
             <svg class="{{ $svgSizes }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,6 +44,7 @@
         </div>
         @break
 
+    @case('lushzalo')
     @case('lush-data-scraper')
         <div class="relative flex items-center justify-center shrink-0 {{ $sizeClasses }} bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#075985] text-white shadow-lg shadow-[#0284C7]/30 ring-1 ring-white/20 {{ $class }}">
             <svg class="{{ $svgSizes }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,6 +53,7 @@
         </div>
         @break
 
+    @case('lushchat')
     @case('lush-chatbot-ai')
         <div class="relative flex items-center justify-center shrink-0 {{ $sizeClasses }} bg-gradient-to-br from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9] text-white shadow-lg shadow-[#8B5CF6]/30 ring-1 ring-white/20 {{ $class }}">
             <svg class="{{ $svgSizes }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,6 +62,7 @@
         </div>
         @break
 
+    @case('lushshopee')
     @case('lush-traffic-booster')
         <div class="relative flex items-center justify-center shrink-0 {{ $sizeClasses }} bg-gradient-to-br from-[#EA580C] via-[#F59E0B] to-[#D97706] text-white shadow-lg shadow-[#EA580C]/30 ring-1 ring-white/20 {{ $class }}">
             <svg class="{{ $svgSizes }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">

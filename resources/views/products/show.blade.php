@@ -52,8 +52,8 @@
             <div class="lg:col-span-5" data-aos="fade-left">
                 <div class="bg-white dark:bg-[#131D27] p-6 sm:p-8 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl relative text-center">
                     @if($product->banner_url)
-                        <div class="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-tr from-[#F8FAFC] to-[#EDF6FC] dark:from-[#0D151F] dark:to-[#182330] p-4 flex items-center justify-center mb-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-inner">
-                            <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="w-full h-full object-contain drop-shadow-md">
+                        <div class="w-full h-80 sm:h-96 rounded-2xl overflow-hidden bg-gradient-to-tr from-[#F8FAFC] to-[#EDF6FC] dark:from-[#0D151F] dark:to-[#182330] p-6 flex items-center justify-center mb-6 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-inner">
+                            <img src="{{ $product->banner_url }}" alt="{{ $product->name }}" class="max-h-full max-w-full object-contain drop-shadow-2xl">
                         </div>
                     @else
                         <x-product-icon :slug="$product->slug" size="xl" class="mx-auto mb-6" />
