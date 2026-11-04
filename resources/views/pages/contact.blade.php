@@ -5,11 +5,11 @@
 @section('canonical_url', route('contact'))
 
 @section('content')
-<div class="pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118]">
+<div class="pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <x-breadcrumb :items="[['label' => __('Contact')]]" />
 
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <span class="badge-lush mb-3">{{ __('Contact') }}</span>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-[#172B3A] dark:text-white tracking-tight">
                 Liên Hệ Tư Vấn & Hỗ Trợ Kỹ Thuật

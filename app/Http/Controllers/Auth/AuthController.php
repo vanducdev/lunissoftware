@@ -4,27 +4,32 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
+    /**
+     * Hiển thị trang đăng nhập Quản trị viên (/lush-admin).
+     */
     public function showLoginForm(): View|RedirectResponse
     {
         if (Auth::check()) {
-            return Auth::user()->isAdmin()
-                ? redirect()->route('admin.dashboard')
-                : redirect()->route('profile');
+            if (Auth::user()->canAccessAdmin()) {
+                return redirect()->route('admin.dashboard');
+            }
+
+            Auth::logout();
         }
 
         return view('auth.login');
     }
 
+    /**
+     * Xử lý xác thực đăng nhập Quản trị viên.
+     */
     public function login(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
@@ -41,69 +46,59 @@ class AuthController extends Controller
                 Auth::logout();
 
                 return back()->withErrors([
-                    'email' => 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ hỗ trợ.',
-                ]);
+                    'email' => 'Tài khoản Quản trị viên của bạn đã bị khóa. Vui lòng liên hệ hỗ trợ.',
+                ])->onlyInput('email');
+            }
+
+            if (! $user->canAccessAdmin()) {
+                Auth::logout();
+
+                return back()->withErrors([
+                    'email' => 'Tài khoản này không có quyền truy cập khu vực Quản trị viên.',
+                ])->onlyInput('email');
             }
 
             $request->session()->regenerate();
-            ActivityLog::log('user_login', 'Đăng nhập thành công vào hệ thống.', $user);
+            ActivityLog::log('admin_login', 'Quản trị viên đăng nhập thành công vào hệ thống LushAdmin.', $user);
 
-            if ($user->isAdmin()) {
-                return redirect()->intended(route('admin.dashboard'));
-            }
-
-            return redirect()->intended(route('profile'));
+            return redirect()->intended(route('admin.dashboard'));
         }
 
         return back()->withErrors([
-            'email' => 'Thông tin đăng nhập không chính xác hoặc không tồn tại.',
+            'email' => 'Thông tin đăng nhập Quản trị viên không chính xác.',
         ])->onlyInput('email');
     }
 
-    public function showRegisterForm(): View|RedirectResponse
-    {
-        if (Auth::check()) {
-            return redirect()->route('profile');
-        }
-
-        return view('auth.register');
-    }
-
-    public function register(Request $request): RedirectResponse
-    {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['nullable', 'string', 'max:30'],
-            'password' => ['required', 'confirmed', Password::min(6)],
-        ]);
-
-        $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'phone' => $validated['phone'] ?? null,
-            'password' => Hash::make($validated['password']),
-            'role' => 'user',
-            'status' => 'active',
-        ]);
-
-        Auth::login($user);
-        ActivityLog::log('user_register', 'Người dùng đăng ký tài khoản mới thành công.', $user);
-
-        return redirect()->route('profile')->with('success', 'Chào mừng bạn đến với LushSoftware! Đăng ký tài khoản thành công.');
-    }
-
+    /**
+     * Đăng xuất khỏi hệ thống Quản trị và quay lại /lush-admin.
+     */
     public function logout(Request $request): RedirectResponse
     {
         if (Auth::check()) {
-            ActivityLog::log('user_logout', 'Đăng xuất khỏi hệ thống.', Auth::user());
+            ActivityLog::log('admin_logout', 'Quản trị viên đã đăng xuất khỏi hệ thống.', Auth::user());
         }
 
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home')->with('success', 'Bạn đã đăng xuất an toàn.');
+        return redirect()->route('admin.login')->with('success', 'Bạn đã đăng xuất an toàn khỏi hệ thống quản trị.');
+    }
+
+    /**
+     * Vô hiệu hóa trang đăng ký công khai -> chuyển hướng về trang chủ.
+     */
+    public function showRegisterForm(): RedirectResponse
+    {
+        return redirect()->route('home');
+    }
+
+    /**
+     * Vô hiệu hóa hành động đăng ký công khai -> chuyển hướng về trang chủ.
+     */
+    public function register(Request $request): RedirectResponse
+    {
+        return redirect()->route('home');
     }
 
     public function showForgotForm(): View

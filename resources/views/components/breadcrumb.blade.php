@@ -1,7 +1,7 @@
 @props(['items' => []])
 
 @if(!empty($items))
-<nav aria-label="Breadcrumb" class="py-3 text-xs">
+<nav aria-label="Breadcrumb" class="py-1 text-xs">
     <ol class="flex items-center flex-wrap gap-2 text-[#718096] dark:text-[#94A3B8]" itemscope itemtype="https://schema.org/BreadcrumbList">
         <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <a href="{{ route('home') }}" class="hover:text-[#168BD2] transition-colors flex items-center gap-1" itemprop="item">

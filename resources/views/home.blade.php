@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- 5.1. Hero Section -->
-    <section class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-24 overflow-hidden bg-white dark:bg-[#0B1118]">
+    <section class="relative pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 overflow-hidden bg-white dark:bg-[#0B1118]">
         <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(22,139,210,0.18),rgba(255,255,255,0))] pointer-events-none"></div>
         <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] dark:opacity-[0.14] pointer-events-none"></div>
@@ -398,7 +398,7 @@
         <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-[#48B4E5]/6 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#168BD2]/10 border border-[#168BD2]/20 text-[#168BD2] text-xs font-bold tracking-wide uppercase mb-3">
                     <span class="w-2 h-2 rounded-full bg-[#168BD2] animate-ping"></span>
                     HỆ SINH THÁI BẢN QUYỀN 2026
@@ -528,7 +528,7 @@
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(22,139,210,0.06),transparent)] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
                 <span class="badge-lush mb-3">{{ __('Our Technology Solutions') }}</span>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
                     Giải Pháp Công Nghệ Cho <br class="hidden sm:inline" />
@@ -735,7 +735,7 @@
     <!-- 5.7. Đánh giá khách hàng & Đối tác (Interactive Slider) -->
     <section class="py-20 lg:py-28 bg-[#F8FAFC]/90 dark:bg-[#0B1118] border-t border-[#E8EDF2] dark:border-[#1E2D3D] relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
                 <span class="badge-lush mb-3">{{ __('Customer Testimonials') }}</span>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#172B3A] dark:text-white tracking-tight">
                     Khách Hàng Nói Gì Về <span class="bg-gradient-to-r from-[#168BD2] to-[#48B4E5] bg-clip-text text-transparent">LushSoftware</span>
@@ -783,21 +783,204 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+        </div>
+    </section>
 
-            <!-- Partners Logo Row (Enterprise Badges) -->
-            <div class="pt-14 border-t border-[#E8EDF2] dark:border-[#1E2D3D]" data-aos="fade-up">
-                <p class="text-center text-xs uppercase font-black text-[#718096] dark:text-[#94A3B8] tracking-widest mb-8">
-                    ĐỒNG HÀNH CÙNG HƠN 15,000+ DOANH NGHIỆP TRÊN TOÀN QUỐC
-                </p>
-                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-                    @foreach($partners as $partner)
-                        <div class="px-5 py-2.5 rounded-2xl bg-white dark:bg-[#111A24] border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xs flex items-center gap-2.5 font-bold text-sm text-[#172B3A] dark:text-[#E2E8F0] hover:border-[#168BD2]/40 hover:shadow-md transition-all">
-                            <span class="w-2 h-2 rounded-full bg-[#168BD2]"></span>
-                            <span>{{ $partner->name }}</span>
-                        </div>
-                    @endforeach
-                </div>
+    <!-- Partners Logo Ribbon (100% Full-Width Bleed Across Screen) -->
+    <section class="w-full py-10 sm:py-12 bg-white dark:bg-[#070C12] border-y border-[#E8EDF2] dark:border-white/10 overflow-hidden relative" data-aos="fade-up">
+        <!-- Section Title -->
+        <p class="text-center text-xs sm:text-[13px] font-bold tracking-[0.2em] uppercase text-[#64748B] dark:text-[#94A3B8] mb-6 sm:mb-8">
+            ĐỒNG HÀNH CÙNG HƠN <span class="text-[#168BD2] dark:text-[#38BDF8] font-black">15,000+</span> DOANH NGHIỆP TRÊN TOÀN QUỐC
+        </p>
+
+        <!-- Edge-to-Edge 100% Screen Width Infinite Marquee with Gradient Fade Edges -->
+        <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] py-2">
+            <div class="animate-marquee flex items-center gap-4 sm:gap-6">
+                @php
+                    $fullPartners = [
+                        ['type' => 'vnpay', 'url' => 'https://vnpay.vn'],
+                        ['type' => 'fpt', 'url' => 'https://fptcloud.com'],
+                        ['type' => 'zalo', 'url' => 'https://oa.zalo.me'],
+                        ['type' => 'viettel', 'url' => 'https://vietteltelecom.vn'],
+                        ['type' => 'vnpt', 'url' => 'https://vnpt.com.vn'],
+                        ['type' => 'momo', 'url' => 'https://momo.vn'],
+                        ['type' => 'techcombank', 'url' => 'https://techcombank.com'],
+                        ['type' => 'shopee', 'url' => 'https://shopee.vn'],
+                        ['type' => 'tiktok', 'url' => 'https://seller-vn.tiktok.com'],
+                        ['type' => 'mbbank', 'url' => 'https://mbbank.com.vn'],
+                    ];
+                @endphp
+
+                {{-- Loop 1 of authentic brand logo lockups --}}
+                @foreach($fullPartners as $b)
+                    <a href="{{ $b['url'] }}" target="_blank" rel="noopener noreferrer" class="h-14 sm:h-16 px-6 sm:px-8 rounded-2xl bg-[#F8FAFC] dark:bg-[#111A24] border border-[#CBD5E1]/70 dark:border-white/10 shadow-2xs hover:shadow-lg hover:border-[#168BD2] hover:bg-white dark:hover:bg-[#162230] hover:scale-105 transition-all duration-300 flex items-center justify-center shrink-0 group select-none">
+                        @if($b['type'] === 'vnpay')
+                            <!-- Official VNPAY Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 135 34" fill="none">
+                                <path d="M17 2L31 17L17 32L3 17L17 2Z" fill="#005BAA" fill-opacity="0.12"/>
+                                <path d="M17 4L28 17L17 30L6 17L17 4Z" stroke="#005BAA" stroke-width="2.5" stroke-linejoin="round"/>
+                                <path d="M12.5 12.5L17 22L21.5 12.5" stroke="#ED1C24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <text x="38" y="24" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#005BAA" letter-spacing="-0.5">VN<tspan fill="#ED1C24">PAY</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'fpt')
+                            <!-- Official FPT Cloud Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 145 34" fill="none">
+                                <rect x="2" y="6" width="6.5" height="22" rx="3" transform="skewX(-18)" fill="#F37021"/>
+                                <rect x="13.5" y="6" width="6.5" height="22" rx="3" transform="skewX(-18)" fill="#005F9E"/>
+                                <rect x="25" y="6" width="6.5" height="22" rx="3" transform="skewX(-18)" fill="#5BB343"/>
+                                <text x="38" y="24" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#0F172A" class="dark:fill-white" letter-spacing="-0.5">FPT <tspan fill="#168BD2" font-weight="700">Cloud</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'zalo')
+                            <!-- Official Zalo Business Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 155 34" fill="none">
+                                <rect x="1" y="2" width="30" height="30" rx="9" fill="#0068FF"/>
+                                <text x="4.5" y="22.5" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="white" letter-spacing="-0.5">Zalo</text>
+                                <text x="40" y="23.5" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="#0068FF">Zalo <tspan fill="#64748B" font-size="14" font-weight="700">Business</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'viettel')
+                            <!-- Official Viettel Telecom Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 135 34" fill="none">
+                                <circle cx="17" cy="17" r="15" fill="#EE0033"/>
+                                <path d="M10 13c2-2 4 1 7 3 1-2 3-5 5-3M10 21c2-2 4 1 7 3 1-2 3-5 5-3" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#EE0033" letter-spacing="-0.5">viettel</text>
+                            </svg>
+                        @elseif($b['type'] === 'vnpt')
+                            <!-- Official VNPT Enterprise Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 130 34" fill="none">
+                                <circle cx="17" cy="17" r="15" fill="#0066CC"/>
+                                <circle cx="17" cy="17" r="6" fill="white"/>
+                                <path d="M7 17c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="2.5 2.5"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" font-style="italic" fill="#0066CC" letter-spacing="-0.5">VNPT</text>
+                            </svg>
+                        @elseif($b['type'] === 'momo')
+                            <!-- Official MoMo Pay Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 130 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="9" fill="#A50064"/>
+                                <circle cx="12" cy="17" r="4" fill="white"/>
+                                <circle cx="22" cy="17" r="4" fill="white"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#A50064">MoMo<tspan fill="#64748B" font-size="13" font-weight="700">Pay</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'techcombank')
+                            <!-- Official Techcombank Vector Logo -->
+                            <svg class="h-6.5 sm:h-7.5 w-auto" viewBox="0 0 175 34" fill="none">
+                                <rect x="3" y="7" width="10" height="10" rx="2" fill="#E01A22"/>
+                                <rect x="16" y="17" width="10" height="10" rx="2" fill="#E01A22"/>
+                                <text x="33" y="23" font-family="system-ui, sans-serif" font-size="15" font-weight="900" fill="#E01A22" letter-spacing="-0.3">TECHCOMBANK</text>
+                            </svg>
+                        @elseif($b['type'] === 'shopee')
+                            <!-- Official Shopee Partner Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 135 34" fill="none">
+                                <rect x="3" y="5" width="24" height="26" rx="5" fill="#EE4D2D"/>
+                                <path d="M10 7V5a5 5 0 0110 0v2" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                                <text x="11.5" y="22.5" font-family="system-ui, sans-serif" font-size="15" font-weight="900" fill="white">S</text>
+                                <text x="35" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#EE4D2D">Shopee</text>
+                            </svg>
+                        @elseif($b['type'] === 'tiktok')
+                            <!-- Official TikTok Shop Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 150 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="9" fill="#000000"/>
+                                <path d="M21 8.5c.8.8 1.8 1.3 2.8 1.4v2.7c-1-.03-2-.3-2.8-.7V18.5a4.5 4.5 0 11-4.5-4.5c.3 0 .6 0 .9.1v2.7a2 2 0 101.8 2V8.5h1.8z" fill="#00F2FE"/>
+                                <path d="M20.5 8c.8.8 1.8 1.3 2.8 1.4v2.7c-1-.03-2-.3-2.8-.7V18a4.5 4.5 0 11-4.5-4.5c.3 0 .6 0 .9.1v2.7a2 2 0 101.8 2V8h1.8z" fill="#FE2C55"/>
+                                <path d="M20.7 8.2c.8.8 1.8 1.3 2.8 1.4v2.7c-1-.03-2-.3-2.8-.7V18.2a4.5 4.5 0 11-4.5-4.5c.3 0 .6 0 .9.1v2.7a2 2 0 101.8 2V8.2h1.8z" fill="white"/>
+                                <text x="40" y="23.5" font-family="system-ui, sans-serif" font-size="17" font-weight="900" fill="#0F172A" class="dark:fill-white">TikTok <tspan fill="#FE2C55" font-weight="700">Shop</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'mbbank')
+                            <!-- Official MB Bank Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 130 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="9" fill="#002B66"/>
+                                <path d="M17 7l3 7.5h8l-6.5 5 2.5 8-7-5.5-7 5.5 2.5-8-6.5-5h8z" fill="#EE0033"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#002B66" class="dark:fill-[#38BDF8]">MB<tspan fill="#EE0033" font-size="15" font-weight="700">Bank</tspan></text>
+                            </svg>
+                        @endif
+                    </a>
+                @endforeach
+
+                {{-- Loop 2 for seamless infinite marquee loop --}}
+                @foreach($fullPartners as $b)
+                    <a href="{{ $b['url'] }}" target="_blank" rel="noopener noreferrer" class="h-14 sm:h-16 px-6 sm:px-8 rounded-2xl bg-[#F8FAFC] dark:bg-[#111A24] border border-[#CBD5E1]/70 dark:border-white/10 shadow-2xs hover:shadow-lg hover:border-[#168BD2] hover:bg-white dark:hover:bg-[#162230] hover:scale-105 transition-all duration-300 flex items-center justify-center shrink-0 group select-none">
+                        @if($b['type'] === 'vnpay')
+                            <!-- Official VNPAY Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 135 34" fill="none">
+                                <path d="M17 2L31 17L17 32L3 17L17 2Z" fill="#005BAA" fill-opacity="0.12"/>
+                                <path d="M17 4L28 17L17 30L6 17L17 4Z" stroke="#005BAA" stroke-width="2.5" stroke-linejoin="round"/>
+                                <path d="M12.5 12.5L17 22L21.5 12.5" stroke="#ED1C24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <text x="38" y="24" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#005BAA" letter-spacing="-0.5">VN<tspan fill="#ED1C24">PAY</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'fpt')
+                            <!-- Official FPT Cloud Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 145 34" fill="none">
+                                <rect x="2" y="6" width="6.5" height="22" rx="3" transform="skewX(-18)" fill="#F37021"/>
+                                <rect x="13.5" y="6" width="6.5" height="22" rx="3" transform="skewX(-18)" fill="#005F9E"/>
+                                <rect x="25" y="6" width="6.5" height="22" rx="3" transform="skewX(-18)" fill="#5BB343"/>
+                                <text x="38" y="24" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#0F172A" class="dark:fill-white" letter-spacing="-0.5">FPT <tspan fill="#168BD2" font-weight="700">Cloud</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'zalo')
+                            <!-- Official Zalo Business Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 155 34" fill="none">
+                                <rect x="1" y="2" width="30" height="30" rx="9" fill="#0068FF"/>
+                                <text x="4.5" y="22.5" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="white" letter-spacing="-0.5">Zalo</text>
+                                <text x="40" y="23.5" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="#0068FF">Zalo <tspan fill="#64748B" font-size="14" font-weight="700">Business</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'viettel')
+                            <!-- Official Viettel Telecom Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 135 34" fill="none">
+                                <circle cx="17" cy="17" r="15" fill="#EE0033"/>
+                                <path d="M10 13c2-2 4 1 7 3 1-2 3-5 5-3M10 21c2-2 4 1 7 3 1-2 3-5 5-3" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#EE0033" letter-spacing="-0.5">viettel</text>
+                            </svg>
+                        @elseif($b['type'] === 'vnpt')
+                            <!-- Official VNPT Enterprise Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 130 34" fill="none">
+                                <circle cx="17" cy="17" r="15" fill="#0066CC"/>
+                                <circle cx="17" cy="17" r="6" fill="white"/>
+                                <path d="M7 17c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="2.5 2.5"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" font-style="italic" fill="#0066CC" letter-spacing="-0.5">VNPT</text>
+                            </svg>
+                        @elseif($b['type'] === 'momo')
+                            <!-- Official MoMo Pay Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 130 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="9" fill="#A50064"/>
+                                <circle cx="12" cy="17" r="4" fill="white"/>
+                                <circle cx="22" cy="17" r="4" fill="white"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#A50064">MoMo<tspan fill="#64748B" font-size="13" font-weight="700">Pay</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'techcombank')
+                            <!-- Official Techcombank Vector Logo -->
+                            <svg class="h-6.5 sm:h-7.5 w-auto" viewBox="0 0 175 34" fill="none">
+                                <rect x="3" y="7" width="10" height="10" rx="2" fill="#E01A22"/>
+                                <rect x="16" y="17" width="10" height="10" rx="2" fill="#E01A22"/>
+                                <text x="33" y="23" font-family="system-ui, sans-serif" font-size="15" font-weight="900" fill="#E01A22" letter-spacing="-0.3">TECHCOMBANK</text>
+                            </svg>
+                        @elseif($b['type'] === 'shopee')
+                            <!-- Official Shopee Partner Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 135 34" fill="none">
+                                <rect x="3" y="5" width="24" height="26" rx="5" fill="#EE4D2D"/>
+                                <path d="M10 7V5a5 5 0 0110 0v2" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                                <text x="11.5" y="22.5" font-family="system-ui, sans-serif" font-size="15" font-weight="900" fill="white">S</text>
+                                <text x="35" y="24" font-family="system-ui, sans-serif" font-size="19" font-weight="900" fill="#EE4D2D">Shopee</text>
+                            </svg>
+                        @elseif($b['type'] === 'tiktok')
+                            <!-- Official TikTok Shop Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 150 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="9" fill="#000000"/>
+                                <path d="M21 8.5c.8.8 1.8 1.3 2.8 1.4v2.7c-1-.03-2-.3-2.8-.7V18.5a4.5 4.5 0 11-4.5-4.5c.3 0 .6 0 .9.1v2.7a2 2 0 101.8 2V8.5h1.8z" fill="#00F2FE"/>
+                                <path d="M20.5 8c.8.8 1.8 1.3 2.8 1.4v2.7c-1-.03-2-.3-2.8-.7V18a4.5 4.5 0 11-4.5-4.5c.3 0 .6 0 .9.1v2.7a2 2 0 101.8 2V8h1.8z" fill="#FE2C55"/>
+                                <path d="M20.7 8.2c.8.8 1.8 1.3 2.8 1.4v2.7c-1-.03-2-.3-2.8-.7V18.2a4.5 4.5 0 11-4.5-4.5c.3 0 .6 0 .9.1v2.7a2 2 0 101.8 2V8.2h1.8z" fill="white"/>
+                                <text x="40" y="23.5" font-family="system-ui, sans-serif" font-size="17" font-weight="900" fill="#0F172A" class="dark:fill-white">TikTok <tspan fill="#FE2C55" font-weight="700">Shop</tspan></text>
+                            </svg>
+                        @elseif($b['type'] === 'mbbank')
+                            <!-- Official MB Bank Vector Logo -->
+                            <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 130 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="9" fill="#002B66"/>
+                                <path d="M17 7l3 7.5h8l-6.5 5 2.5 8-7-5.5-7 5.5 2.5-8-6.5-5h8z" fill="#EE0033"/>
+                                <text x="40" y="24" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#002B66" class="dark:fill-[#38BDF8]">MB<tspan fill="#EE0033" font-size="15" font-weight="700">Bank</tspan></text>
+                            </svg>
+                        @endif
+                    </a>
+                @endforeach
             </div>
+        </div>
+    </section>
         </div>
     </section>
 

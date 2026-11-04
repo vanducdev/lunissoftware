@@ -100,6 +100,19 @@
                     <span>Khách hàng & User</span>
                 </a>
 
+                <a href="{{ route('admin.orders.index') }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors {{ request()->routeIs('admin.orders.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#718096] dark:text-[#94A3B8] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] hover:text-[#172B3A] dark:hover:text-white' }}">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        <span>Đơn hàng & Key</span>
+                    </div>
+                    @php $pendingOrders = \App\Models\Order::where('payment_status', 'pending')->count(); @endphp
+                    @if($pendingOrders > 0)
+                        <span class="px-1.5 py-0.5 rounded-full text-[10px] font-black bg-amber-500 text-white animate-pulse">
+                            {{ $pendingOrders }}
+                        </span>
+                    @endif
+                </a>
+
                 <a href="{{ route('admin.contacts.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-colors {{ request()->routeIs('admin.contacts.*') ? 'bg-[#168BD2]/10 text-[#168BD2] font-semibold' : 'text-[#718096] dark:text-[#94A3B8] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] hover:text-[#172B3A] dark:hover:text-white' }}">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     <span>Yêu cầu Tư vấn</span>

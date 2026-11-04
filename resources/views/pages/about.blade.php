@@ -5,7 +5,7 @@
 @section('canonical_url', route('about'))
 
 @section('content')
-<div class="pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118]">
+<div class="pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <x-breadcrumb :items="[['label' => __('About Us')]]" />
 

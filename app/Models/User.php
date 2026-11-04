@@ -84,6 +84,11 @@ class User extends Authenticatable
         return $this->hasMany(Article::class, 'author_id');
     }
 
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class)->orderByDesc('created_at');
+    }
+
     public function getAvatarUrlAttribute(): string
     {
         if ($this->avatar) {

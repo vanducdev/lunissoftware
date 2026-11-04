@@ -5,7 +5,7 @@
 @section('canonical_url', route('articles.index'))
 
 @section('content')
-<div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
+<div class="relative pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -14,14 +14,14 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Breadcrumbs -->
-        <div class="mb-4">
+        <div class="mb-2 sm:mb-2.5">
             <x-breadcrumb :items="[['label' => __('News')]]" />
         </div>
 
         <!-- Header & Title Banner -->
-        <div class="text-center max-w-4xl mx-auto mb-10 lg:mb-12" data-aos="fade-up">
+        <div class="text-center max-w-4xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <!-- High-tech VIP Announcement Pill -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-4 backdrop-blur-md">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-2.5 backdrop-blur-md">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#168BD2] opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-[#168BD2]"></span>
@@ -30,19 +30,19 @@
                 <span class="text-xs text-[#718096] dark:text-[#94A3B8] hidden sm:inline">• Tech Insights & Playbooks</span>
             </div>
 
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#172B3A] dark:text-white tracking-tight leading-[1.12]">
-                Kiến Thức Công Nghệ & <br />
+            <h1 class="text-2xl sm:text-4xl lg:text-[2.65rem] font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                Kiến Thức Công Nghệ & 
                 <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent drop-shadow-xs">
                     Chiến Lược Tăng Trưởng
                 </span>
             </h1>
 
-            <p class="text-[#5A6E85] dark:text-[#94A3B8] mt-4 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+            <p class="text-[#5A6E85] dark:text-[#94A3B8] mt-2.5 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
                 Cập nhật liên tục những xu hướng tự động hóa tiếp thị, bí quyết quản trị dàn tài khoản đa kênh, tối ưu phễu chuyển đổi và kinh nghiệm thực chiến từ chuyên gia LushSoftware.
             </p>
 
             <!-- 4 Topic Pills with Crisp Bespoke SVG Icons -->
-            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-7 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0]">
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-4 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0]">
                 <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-[#131D27]/80 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs backdrop-blur-sm">
                     <svg class="w-4 h-4 text-[#168BD2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     <span>Tự Động Hóa Tiếp Thị</span>

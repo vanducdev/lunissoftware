@@ -14,7 +14,7 @@ class EnsureUserIsAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (! auth()->check()) {
-            return redirect()->guest(route('login'))->with('error', 'Vui lòng đăng nhập để truy cập trang quản trị.');
+            return redirect()->guest(route('admin.login'))->with('error', 'Vui lòng đăng nhập quyền Quản trị viên để truy cập.');
         }
 
         if (! auth()->user()->canAccessAdmin()) {
@@ -24,7 +24,7 @@ class EnsureUserIsAdmin
         if (! auth()->user()->isActive()) {
             auth()->logout();
 
-            return redirect()->route('login')->with('error', 'Tài khoản của bạn đã bị khóa.');
+            return redirect()->route('admin.login')->with('error', 'Tài khoản của bạn đã bị khóa.');
         }
 
         return $next($request);

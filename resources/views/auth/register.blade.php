@@ -3,7 +3,7 @@
 @section('title', __('Sign Up') . ' – LushSoftware')
 
 @section('content')
-<div class="pt-6 pb-16 sm:pt-8 lg:pt-10 lg:pb-20 bg-white dark:bg-[#0B1118] flex items-center justify-center">
+<div class="pt-3 pb-12 sm:pt-4 lg:pt-6 lg:pb-16 bg-white dark:bg-[#0B1118] flex items-center justify-center">
     <div class="max-w-md w-full mx-auto px-4" data-aos="fade-up">
         <div class="lush-card p-8 sm:p-10 shadow-xl">
             <!-- Header -->

@@ -11,7 +11,8 @@ Nền tảng **LushSoftware** được thiết kế chuẩn hóa quan hệ (3NF)
    │
    ├──< [ activity_logs ]
    ├──< [ articles ]
-   └──< [ media_files ]
+   ├──< [ media_files ]
+   └──< [ orders ] (Đơn hàng & Giấy phép bản quyền)
 
 [ product_categories ]
    │
@@ -20,12 +21,14 @@ Nền tảng **LushSoftware** được thiết kế chuẩn hóa quan hệ (3NF)
            ├──< [ product_features ]
            ├──< [ product_images ]
            ├──< [ product_pricings ]
-           └──< [ product_faqs ]
+           ├──< [ product_faqs ]
+           └──< [ orders ]
 
 [ article_categories ]
    │
    └──< [ articles ]
 
+[ orders ]           (Giao dịch VietQR & License Key)
 [ contact_messages ] (Đơn liên hệ & Dùng thử)
 [ website_settings ] (Cấu hình hệ thống Key-Value)
 [ banners ]          (Banner Hero & Quảng bá)
@@ -105,6 +108,32 @@ Nền tảng **LushSoftware** được thiết kế chuẩn hóa quan hệ (3NF)
 | `product_interest`| `VARCHAR(255)`| `NULLABLE` | Phần mềm khách hàng quan tâm |
 | `status` | `VARCHAR(20)` | `DEFAULT 'pending', INDEX` | `pending`, `processing`, `completed` |
 | `admin_notes` | `TEXT` | `NULLABLE` | Ghi chú nội bộ của nhân viên tư vấn |
+
+### 2.6. Bảng `orders` (Giao dịch Đơn hàng & Quản lý License Key)
+| Cột | Kiểu | Ràng buộc | Mô tả |
+| :--- | :--- | :--- | :--- |
+| `id` | `BIGINT UNSIGNED` | `PRIMARY KEY, AUTO_INCREMENT` | Khóa chính |
+| `order_code` | `VARCHAR(50)` | `UNIQUE, INDEX, NOT NULL` | Mã đơn hàng (VD: LUSH-95821) |
+| `user_id` | `BIGINT UNSIGNED` | `FOREIGN KEY (users.id) NULL_ON_DELETE` | Khách hàng đăng nhập |
+| `customer_name` | `VARCHAR(255)` | `NOT NULL` | Họ tên người mua |
+| `customer_email` | `VARCHAR(255)` | `NOT NULL, INDEX` | Email nhận key & hóa đơn |
+| `customer_phone` | `VARCHAR(30)` | `NOT NULL, INDEX` | Số điện thoại / Zalo nhận key |
+| `product_id` | `BIGINT UNSIGNED` | `FOREIGN KEY (products.id) NULL_ON_DELETE` | Sản phẩm đăng ký |
+| `product_name` | `VARCHAR(255)` | `NOT NULL` | Tên phần mềm |
+| `plan_name` | `VARCHAR(255)` | `NOT NULL` | Tên gói bản quyền |
+| `billing_cycle` | `VARCHAR(50)` | `DEFAULT 'yearly'` | Chu kỳ thanh toán |
+| `amount` | `DECIMAL(12, 2)` | `NOT NULL` | Số tiền thanh toán (VNĐ) |
+| `currency` | `VARCHAR(10)` | `DEFAULT 'VND'` | Đơn vị tiền tệ |
+| `payment_method` | `VARCHAR(50)` | `DEFAULT 'vietqr'` | Phương thức thanh toán |
+| `payment_status` | `VARCHAR(30)` | `DEFAULT 'pending', INDEX` | `pending`, `paid`, `cancelled`, `refunded` |
+| `license_key` | `VARCHAR(100)` | `UNIQUE, INDEX, NULLABLE` | Mã giấy phép (LUSH-XXXX-YYYY-ZZZZ) |
+| `license_duration_days` | `INT` | `DEFAULT 365` | Số ngày hiệu lực |
+| `license_expires_at` | `DATETIME` | `NULLABLE` | Thời điểm hết hạn bản quyền |
+| `device_count_allowed` | `INT` | `DEFAULT 1` | Số lượng máy tính cho phép |
+| `device_count_used` | `INT` | `DEFAULT 0` | Số lượng máy tính đang kích hoạt |
+| `activated_at` | `DATETIME` | `NULLABLE` | Thời điểm kích hoạt lần đầu |
+| `admin_notes` | `TEXT` | `NULLABLE` | Ghi chú quản trị & đối soát VietQR |
+| `ip_address` | `VARCHAR(45)` | `NULLABLE` | Địa chỉ IP tạo đơn |
 
 ---
 

@@ -20,6 +20,8 @@ return Application::configure(basePath: dirname(__DIR__))
             SecurityHeadersMiddleware::class,
         ]);
 
+        $middleware->redirectGuestsTo(fn () => route('admin.login'));
+
         $middleware->alias([
             'admin' => EnsureUserIsAdmin::class,
         ]);

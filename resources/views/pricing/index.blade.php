@@ -47,7 +47,7 @@
 @endpush
 
 @section('content')
-<div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
+<div class="relative pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -56,14 +56,14 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Breadcrumbs -->
-        <div class="mb-4">
+        <div class="mb-2 sm:mb-2.5">
             <x-breadcrumb :items="[['label' => __('Pricing')]]" />
         </div>
 
         <!-- Header & Title Banner -->
-        <div class="text-center max-w-4xl mx-auto mb-10 lg:mb-12" data-aos="fade-up">
+        <div class="text-center max-w-4xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <!-- High-tech VIP Announcement Pill -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-4 backdrop-blur-md">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-2.5 backdrop-blur-md">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#168BD2] opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-[#168BD2]"></span>
@@ -72,19 +72,19 @@
                 <span class="text-xs text-[#718096] dark:text-[#94A3B8] hidden sm:inline">• Không Chi Phí Ẩn</span>
             </div>
 
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#172B3A] dark:text-white tracking-tight leading-[1.12]">
-                Đầu Tư Thông Minh Cho <br />
+            <h1 class="text-2xl sm:text-4xl lg:text-[2.65rem] font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                Đầu Tư Thông Minh Cho 
                 <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent drop-shadow-xs">
                     Tăng Trưởng Bứt Phá
                 </span>
             </h1>
 
-            <p class="text-[#5A6E85] dark:text-[#94A3B8] mt-4 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+            <p class="text-[#5A6E85] dark:text-[#94A3B8] mt-2.5 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
                 Lựa chọn gói bản quyền tối ưu cho cá nhân hoặc doanh nghiệp. Mọi gói đều đi kèm hỗ trợ kỹ thuật Ultraview 1-1, tự động cập nhật thuật toán 2026 và cam kết hoàn tiền 100% trong 7 ngày.
             </p>
 
             <!-- 4 Security & Guarantee Seals with Crisp Bespoke SVG Icons -->
-            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-7 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0]">
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-4 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0]">
                 <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-[#131D27]/80 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs backdrop-blur-sm">
                     <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     <span>Kích hoạt tự động tức thì</span>
@@ -216,11 +216,20 @@
                                     </div>
 
                                     <!-- Action Button -->
-                                    <div class="pt-8">
-                                        <a href="{{ $pricing->cta_link ?: route('contact', ['product' => $prod->slug, 'plan' => $pricing->plan_name]) }}" class="{{ $pricing->is_popular ? 'lush-btn-primary lush-btn-vip shadow-xl shadow-[#168BD2]/30' : 'lush-btn-secondary' }} w-full !justify-center !text-sm !py-3 font-bold">
-                                            {{ $pricing->cta_text ?: 'Đăng Ký Bản Quyền' }}
-                                        </a>
-                                        <p class="text-[10px] text-center text-[#718096] dark:text-[#94A3B8] mt-2">Kích hoạt & hỗ trợ cài đặt 1-1 ngay</p>
+                                    <div class="pt-8 space-y-2">
+                                        <button type="button"
+                                            data-checkout-plan="{{ $pricing->plan_name }}"
+                                            data-checkout-product="{{ $prod->name }}"
+                                            data-checkout-price="{{ number_format($pricing->price, 0, ',', '.') }}"
+                                            data-checkout-raw-price="{{ (int)$pricing->price }}"
+                                            data-checkout-cycle="{{ $pricing->billing_cycle === 'monthly' ? __('Monthly') : ($pricing->billing_cycle === 'yearly' ? __('Yearly') : __('Lifetime')) }}"
+                                            class="{{ $pricing->is_popular ? 'lush-btn-primary lush-btn-vip shadow-xl shadow-[#168BD2]/30' : 'lush-btn-secondary' }} w-full !justify-center !text-sm !py-3 font-bold cursor-pointer">
+                                            <span class="flex items-center gap-1.5">
+                                                <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                                <span>{{ $pricing->cta_text ?: 'Đăng Ký Bản Quyền' }}</span>
+                                            </span>
+                                        </button>
+                                        <p class="text-[10px] text-center text-[#718096] dark:text-[#94A3B8]">Kích hoạt tức thì qua VietQR • Hỗ trợ Ultraview 1-1</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -230,9 +239,187 @@
             @endforeach
         </div>
 
+        
+        <!-- Interactive ROI & Savings Calculator Section -->
+        <div class="mt-28 lg:mt-36" data-aos="fade-up" x-data="{
+            accounts: 50,
+            get hoursSaved() {
+                return Math.round(this.accounts * 4.2);
+            },
+            get moneySaved() {
+                return (this.accounts * 165000).toLocaleString('vi-VN');
+            },
+            get efficiencyGain() {
+                return Math.min(850, 150 + this.accounts * 3);
+            }
+        }">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] animate-ping"></span>
+                    CÔNG CỤ TÍNH HIỆU QUẢ ĐẦU TƯ
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight">
+                    Tính Toán Khả Năng Sinh Lời (ROI) & Tiết Kiệm Chi Phí
+                </h2>
+                <p class="text-sm text-[#5A6E85] dark:text-[#94A3B8] mt-3">
+                    Kéo thanh trượt số lượng tài khoản/profile của bạn để xem thời gian & ngân sách vận hành LushSoftware giúp bạn tối ưu mỗi tháng.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto rounded-3xl bg-gradient-to-br from-white to-[#F8FAFC] dark:from-[#111A24] dark:to-[#0D151F] border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xl p-6 sm:p-10">
+                <!-- Slider Control -->
+                <div class="mb-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <label class="text-xs sm:text-sm font-bold text-[#172B3A] dark:text-white">
+                            Số lượng tài khoản / profiles cần quản lý:
+                        </label>
+                        <div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#168BD2]/10 border border-[#168BD2]/25">
+                            <span class="text-lg font-black text-[#168BD2]" x-text="accounts">50</span>
+                            <span class="text-xs font-bold text-[#168BD2]">tài khoản</span>
+                        </div>
+                    </div>
+                    <input type="range" min="10" max="300" step="5" x-model.number="accounts" class="w-full h-2.5 bg-[#E8EDF2] dark:bg-[#1E2D3D] rounded-lg appearance-none cursor-pointer accent-[#168BD2]">
+                    <div class="flex justify-between text-[11px] text-[#718096] dark:text-[#94A3B8] mt-2 font-mono">
+                        <span>10 tài khoản (Cá nhân)</span>
+                        <span>100 tài khoản (Team)</span>
+                        <span>300+ tài khoản (Doanh nghiệp)</span>
+                    </div>
+                </div>
+
+                <!-- Calculated Metrics Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                    <!-- Metric 1: Hours Saved -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-sm text-center">
+                        <div class="w-10 h-10 rounded-xl bg-[#168BD2]/10 text-[#168BD2] mx-auto flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <span class="text-xs text-[#718096] dark:text-[#94A3B8] font-bold block mb-1">Thời gian tiết kiệm</span>
+                        <div class="flex items-baseline justify-center gap-1">
+                            <span class="text-2xl sm:text-3xl font-black text-[#168BD2]" x-text="hoursSaved">210</span>
+                            <span class="text-xs font-bold text-[#172B3A] dark:text-white">giờ/tháng</span>
+                        </div>
+                        <p class="text-[10px] text-[#718096] mt-2">Tương đương ~1.5 nhân sự fulltime</p>
+                    </div>
+
+                    <!-- Metric 2: Money Saved -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-sm text-center">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <span class="text-xs text-[#718096] dark:text-[#94A3B8] font-bold block mb-1">Tiết kiệm ngân sách</span>
+                        <div class="flex items-baseline justify-center gap-1">
+                            <span class="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400" x-text="moneySaved">8.250.000</span>
+                            <span class="text-xs font-bold text-[#172B3A] dark:text-white">VNĐ/tháng</span>
+                        </div>
+                        <p class="text-[10px] text-[#718096] mt-2">Cắt giảm chi phí nhân sự & tool rời</p>
+                    </div>
+
+                    <!-- Metric 3: Growth Boost -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-[#1A2634] border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-sm text-center">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 mx-auto flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <span class="text-xs text-[#718096] dark:text-[#94A3B8] font-bold block mb-1">Tăng trưởng hiệu suất</span>
+                        <div class="flex items-baseline justify-center gap-1">
+                            <span class="text-2xl sm:text-3xl font-black text-amber-500" x-text="'+' + efficiencyGain + '%'">+300%</span>
+                        </div>
+                        <p class="text-[10px] text-[#718096] mt-2">Chuyển đổi dữ liệu và tương tác tự động</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-[#E8EDF2] dark:border-[#1E2D3D] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 text-xs text-[#718096] dark:text-[#94A3B8]">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span>Hoàn vốn đầu tư chỉ sau <strong>3 - 7 ngày</strong> triển khai thực tế.</span>
+                    </div>
+                    <button type="button" data-checkout-plan="Gói Khuyên Dùng Pro" data-checkout-product="Hệ Sinh Thái LushSoftware" data-checkout-price="2.450.000" data-checkout-raw-price="2450000" data-checkout-cycle="1 Năm" class="lush-btn-primary !py-2.5 !px-6 text-xs font-bold shadow-md shadow-[#168BD2]/20">
+                        Đăng Ký Nhận Ưu Đãi Ngay &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Software Feature Comparison Matrix Section -->
+        <div class="mt-28 lg:mt-36" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
+                    SO SÁNH MINH BẠCH
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-[#172B3A] dark:text-white tracking-tight">
+                    Bảng So Sánh Chi Tiết Quyền Lợi & Tính Năng
+                </h2>
+                <p class="text-sm text-[#5A6E85] dark:text-[#94A3B8] mt-3">
+                    Xem chi tiết sự khác biệt giữa các gói để đưa ra quyết định phù hợp nhất với mô hình của bạn.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-xl bg-white dark:bg-[#111A24]">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="border-b border-[#E8EDF2] dark:border-[#1E2D3D] bg-[#F8FAFC] dark:bg-[#1A2634]">
+                            <th class="p-5 font-black text-[#172B3A] dark:text-white uppercase tracking-wider text-xs w-2/5">Tính Năng / Đặc Quyền</th>
+                            <th class="p-5 font-black text-[#172B3A] dark:text-white text-center w-1/5">Gói Tiêu Chuẩn (Starter)</th>
+                            <th class="p-5 font-black text-[#168BD2] text-center w-1/5 bg-[#168BD2]/5 border-x border-[#168BD2]/20">Gói Pro (Phổ Biến) ★</th>
+                            <th class="p-5 font-black text-[#172B3A] dark:text-white text-center w-1/5">Gói Doanh Nghiệp (VIP)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#E8EDF2] dark:divide-[#1E2D3D] text-[#172B3A] dark:text-[#E2E8F0]">
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Số luồng hoạt động song song</td>
+                            <td class="p-4 text-center font-mono">10 - 20 Threads</td>
+                            <td class="p-4 text-center font-mono font-bold text-[#168BD2] bg-[#168BD2]/5 border-x border-[#168BD2]/20">50 - 100 Threads</td>
+                            <td class="p-4 text-center font-mono font-bold text-emerald-600">Không giới hạn Threads</td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Thuật toán kháng Checkpoint 2026</td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Tiêu chuẩn</span></td>
+                            <td class="p-4 text-center bg-[#168BD2]/5 border-x border-[#168BD2]/20"><span class="text-emerald-500 font-black">✓ AI Nâng Cao</span></td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-black">✓ Bypass Tối Thượng</span></td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Tích hợp Proxy (IPv4 / IPv6 / Dcom)</td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Có</span></td>
+                            <td class="p-4 text-center bg-[#168BD2]/5 border-x border-[#168BD2]/20"><span class="text-emerald-500 font-bold">✓ Có + Auto Rotate</span></td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Tặng kèm Cloud Proxy</span></td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Trình duyệt Canvas Antidetect</td>
+                            <td class="p-4 text-center">Tối đa 50 profiles</td>
+                            <td class="p-4 text-center font-bold text-[#168BD2] bg-[#168BD2]/5 border-x border-[#168BD2]/20">500 profiles độc lập</td>
+                            <td class="p-4 text-center font-bold text-emerald-600">Không giới hạn profiles</td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Hỗ trợ kỹ thuật Ultraview 1-1</td>
+                            <td class="p-4 text-center">Giờ hành chính</td>
+                            <td class="p-4 text-center font-bold text-[#168BD2] bg-[#168BD2]/5 border-x border-[#168BD2]/20">24/7 Ưu tiên trong 5p</td>
+                            <td class="p-4 text-center font-bold text-emerald-600">Kỹ sư trưởng phục vụ 24/7</td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Tự động cập nhật thuật toán mới</td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Miễn phí</span></td>
+                            <td class="p-4 text-center bg-[#168BD2]/5 border-x border-[#168BD2]/20"><span class="text-emerald-500 font-bold">✓ Miễn phí</span></td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Miễn phí trọn đời</span></td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">API Webhook & Kết nối bên thứ 3</td>
+                            <td class="p-4 text-center text-[#718096]">—</td>
+                            <td class="p-4 text-center bg-[#168BD2]/5 border-x border-[#168BD2]/20"><span class="text-emerald-500 font-bold">✓ Webhook API</span></td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Full SDK / Custom API</span></td>
+                        </tr>
+                        <tr class="hover:bg-[#F8FAFC]/50 dark:hover:bg-[#1A2634]/50">
+                            <td class="p-4 font-bold">Cam kết hoàn tiền 100% trong 7 ngày</td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Có</span></td>
+                            <td class="p-4 text-center bg-[#168BD2]/5 border-x border-[#168BD2]/20"><span class="text-emerald-500 font-bold">✓ Có</span></td>
+                            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">✓ Có</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <!-- Universal Guarantees (Bento 4-Card Showcase) -->
         <div class="mt-28 lg:mt-36">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
                     CAM KẾT DỊCH VỤ
                 </span>

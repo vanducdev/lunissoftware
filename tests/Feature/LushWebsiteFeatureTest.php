@@ -103,35 +103,31 @@ class LushWebsiteFeatureTest extends TestCase
         $responseKo->assertSessionHas('locale', 'ko');
     }
 
-    public function test_user_can_register_and_login(): void
+    public function test_admin_can_login_via_lush_admin(): void
     {
-        $registerPayload = [
-            'name' => 'Khách Hàng Mới',
-            'email' => 'newuser@lush.vn',
-            'phone' => '0911223344',
-            'password' => 'Secret123!',
-            'password_confirmation' => 'Secret123!',
-        ];
+        $admin = User::where('role', 'admin')->first();
 
-        $response = $this->post(route('register'), $registerPayload);
-        $response->assertRedirect(route('profile'));
-        $this->assertAuthenticated();
+        // Guest cannot access admin dashboard -> redirected to /lush-admin
+        $response = $this->get(route('admin.dashboard'));
+        $response->assertRedirect(route('admin.login'));
 
-        $this->post(route('logout'))->assertRedirect(route('home'));
-        $this->assertGuest();
-
-        $loginResponse = $this->post(route('login'), [
-            'email' => 'newuser@lush.vn',
-            'password' => 'Secret123!',
+        // Admin login via /lush-admin
+        $loginResponse = $this->post(route('admin.login'), [
+            'email' => $admin->email,
+            'password' => 'Lush@Admin2026!',
         ]);
-        $loginResponse->assertRedirect(route('profile'));
-        $this->assertAuthenticated();
+        $loginResponse->assertRedirect(route('admin.dashboard'));
+        $this->assertAuthenticatedAs($admin);
+
+        // Admin logout redirects to /lush-admin
+        $this->post(route('logout'))->assertRedirect(route('admin.login'));
+        $this->assertGuest();
     }
 
     public function test_guest_cannot_access_admin_dashboard(): void
     {
         $response = $this->get(route('admin.dashboard'));
-        $response->assertRedirect(route('login'));
+        $response->assertRedirect(route('admin.login'));
     }
 
     public function test_regular_user_cannot_access_admin_dashboard(): void

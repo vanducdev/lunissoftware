@@ -13,6 +13,14 @@
     <meta name="robots" content="@yield('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')">
     <meta name="googlebot" content="@yield('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')">
 
+    <!-- Google Search Console & Bing Webmaster Verification -->
+    @if($gsc = \App\Models\WebsiteSetting::get('google_search_console_code'))
+        <meta name="google-site-verification" content="{{ str_replace('google-site-verification=', '', $gsc) }}">
+    @endif
+    @if($bing = \App\Models\WebsiteSetting::get('bing_webmaster_code'))
+        <meta name="msvalidate.01" content="{{ $bing }}">
+    @endif
+
     <!-- Canonical & Alternate Hreflang for SEO -->
     <link rel="canonical" href="@yield('canonical_url', url()->current())">
     <link rel="alternate" hreflang="vi" href="{{ url()->current() }}?lang=vi">
@@ -121,37 +129,37 @@
     <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none *:pointer-events-auto"></div>
 
     <!-- Main Floating Island Header (Luxury SaaS & Glassmorphism Design) -->
-    <header id="main-header" class="sticky top-2.5 sm:top-3.5 z-40 w-full transition-all duration-300 px-3 sm:px-5 lg:px-7">
-        <div id="nav-capsule" class="w-full max-w-[1420px] mx-auto bg-white/90 dark:bg-[#0B1118]/90 backdrop-blur-2xl rounded-2xl lg:rounded-full border border-white/80 dark:border-white/10 ring-1 ring-black/[0.04] dark:ring-white/[0.05] shadow-[0_16px_40px_-10px_rgba(22,139,210,0.12),0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.7)] px-3 sm:px-4 lg:px-5 xl:px-6 h-[66px] flex items-center justify-between gap-1.5 sm:gap-2.5 lg:gap-3 transition-all duration-300 relative">
+    <header id="main-header" class="sticky top-2 sm:top-2.5 z-40 w-full transition-all duration-300 px-3 sm:px-5 lg:px-6">
+        <div id="nav-capsule" class="w-full max-w-[1420px] mx-auto bg-white/95 dark:bg-[#0B1118]/95 backdrop-blur-2xl rounded-2xl border border-white/80 dark:border-white/10 ring-1 ring-black/[0.04] dark:ring-white/[0.05] shadow-[0_12px_32px_-8px_rgba(22,139,210,0.12),0_2px_6px_rgba(0,0,0,0.03)] dark:shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] px-3.5 sm:px-4 lg:px-5 xl:px-6 h-[58px] sm:h-[62px] flex items-center justify-between gap-1.5 sm:gap-2 lg:gap-2.5 transition-all duration-300 relative">
             <!-- Ambient Top Specular Hairline Highlight -->
-            <div class="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#168BD2]/40 dark:via-[#38BDF8]/30 to-transparent pointer-events-none rounded-t-full"></div>
+            <div class="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#168BD2]/40 dark:via-[#38BDF8]/30 to-transparent pointer-events-none rounded-t-2xl"></div>
             <!-- Ambient Bottom Soft Glow -->
             <div class="absolute inset-x-12 -bottom-2 h-4 bg-gradient-to-r from-transparent via-[#168BD2]/10 to-transparent blur-md pointer-events-none -z-10"></div>
 
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-                <div class="relative flex items-center justify-center w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-2xl overflow-hidden bg-gradient-to-br from-white to-[#F0F8FF] dark:from-[#131D27] dark:to-[#0B1118] shadow-[0_4px_12px_rgba(22,139,210,0.18)] border border-[#E8EDF2] dark:border-white/10 group-hover:scale-105 group-hover:border-[#168BD2]/40 group-hover:shadow-[0_6px_20px_rgba(22,139,210,0.3)] transition-all duration-300">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+                <div class="relative flex items-center justify-center w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-xl overflow-hidden bg-gradient-to-br from-white to-[#F0F8FF] dark:from-[#131D27] dark:to-[#0B1118] shadow-[0_3px_10px_rgba(22,139,210,0.18)] border border-[#E8EDF2] dark:border-white/10 group-hover:scale-105 group-hover:border-[#168BD2]/40 transition-all duration-300">
                     <img src="{{ asset('images/logo.png') }}" alt="LushSoftware" class="w-full h-full object-cover">
                     <!-- Subtle Gloss Sheen Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-white/50 dark:via-white/5 dark:to-white/10 pointer-events-none"></div>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-[16px] sm:text-[17px] font-black tracking-tight text-[#0F172A] dark:text-white flex items-center gap-0.5 leading-none">
+                    <span class="text-[15px] sm:text-[16px] font-black tracking-tight text-[#0F172A] dark:text-white flex items-center gap-0.5 leading-none">
                         Lush<span class="bg-gradient-to-r from-[#168BD2] via-[#2094DB] to-[#48B4E5] bg-clip-text text-transparent">Software</span>
                     </span>
                     <div class="flex items-center gap-1.5 mt-1">
-                        <span class="relative flex h-2 w-2">
+                        <span class="relative flex h-1.5 w-1.5">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_6px_#10B981]"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_5px_#10B981]"></span>
                         </span>
-                        <span class="text-[9px] sm:text-[9.5px] font-black tracking-[0.18em] uppercase text-[#718096] dark:text-[#94A3B8]">ECOSYSTEM</span>
+                        <span class="text-[8.5px] sm:text-[9px] font-black tracking-[0.16em] uppercase text-[#718096] dark:text-[#94A3B8]">ECOSYSTEM</span>
                     </div>
                 </div>
             </a>
 
             <!-- Desktop Navigation Dock (High-End Segmented Glass Dock) -->
-            <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 backdrop-blur-md p-1 rounded-full border border-[#E2E8F0]/80 dark:border-white/10 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)] text-[12.5px] xl:text-[13px] font-semibold">
-                <a href="{{ route('home') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('home') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+            <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 backdrop-blur-md p-1 rounded-xl border border-[#E2E8F0]/80 dark:border-white/10 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)] text-[12px] xl:text-[12.5px] font-semibold">
+                <a href="{{ route('home') }}" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('home') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('home'))
                         <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
@@ -160,7 +168,7 @@
 
                 <!-- Products Mega Menu Dropdown with Smooth Hover Bridge -->
                 <div class="relative group">
-                    <a href="{{ route('products.index') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('products.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+                    <a href="{{ route('products.index') }}" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('products.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                         @if(request()->routeIs('products.*'))
                             <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                         @endif
@@ -338,21 +346,21 @@
                     </div>
                 </div>
 
-                <a href="{{ route('solutions.index') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('solutions.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+                <a href="{{ route('solutions.index') }}" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('solutions.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('solutions.*'))
                         <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Solutions') }}</span>
                 </a>
 
-                <a href="{{ route('pricing.index') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('pricing.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+                <a href="{{ route('pricing.index') }}" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('pricing.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('pricing.*'))
                         <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
                     <span>{{ __('Pricing') }}</span>
                 </a>
 
-                <a href="{{ route('downloads.index') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('downloads.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+                <a href="{{ route('downloads.index') }}" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('downloads.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('downloads.*'))
                         <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
@@ -360,7 +368,7 @@
                 </a>
 
                 <!-- News Link -->
-                <a href="{{ route('articles.index') }}" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('articles.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
+                <a href="{{ route('articles.index') }}" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 {{ request()->routeIs('articles.*') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] font-bold border border-[#E2E8F0]/70 dark:border-white/10' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }}">
                     @if(request()->routeIs('articles.*'))
                         <span class="w-1.5 h-1.5 rounded-full bg-[#168BD2] dark:bg-[#38BDF8] shadow-[0_0_6px_#168BD2]"></span>
                     @endif
@@ -369,7 +377,7 @@
 
                 <!-- More Dropdown (About & Contact) -->
                 <div class="relative group">
-                    <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 flex items-center gap-1 {{ request()->routeIs('about') || request()->routeIs('contact') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06)] font-bold' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }} cursor-pointer text-xs font-semibold">
+                    <button type="button" class="px-2 xl:px-2.5 py-1 rounded-lg whitespace-nowrap transition-all duration-200 flex items-center gap-1 {{ request()->routeIs('about') || request()->routeIs('contact') ? 'bg-white dark:bg-[#1E293B] text-[#168BD2] dark:text-[#38BDF8] shadow-[0_2px_8px_rgba(0,0,0,0.06)] font-bold' : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/5' }} cursor-pointer text-xs font-semibold">
                         <span>{{ __('More') }}</span>
                         <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
@@ -388,19 +396,19 @@
                 </div>
             </nav>
 
-            <!-- Header Right Controls (Precision Aligned h-9 Dock) -->
+            <!-- Header Right Controls (Precision Aligned Dock) -->
             <div class="flex items-center gap-1 sm:gap-1.5 xl:gap-2 shrink-0">
-                <!-- Global Spotlight Search Trigger (Command Palette Pill) -->
-                <button type="button" id="spotlight-search-btn" class="h-9 px-2.5 sm:px-3 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 hover:shadow-[0_0_15px_rgba(22,139,210,0.12)] text-[#64748B] dark:text-[#94A3B8] transition-all flex items-center gap-1.5 group cursor-pointer shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
+                <!-- Global Spotlight Search Trigger -->
+                <button type="button" id="spotlight-search-btn" class="h-8 sm:h-8.5 px-2 xl:px-2.5 rounded-xl border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 hover:shadow-[0_0_15px_rgba(22,139,210,0.12)] text-[#64748B] dark:text-[#94A3B8] transition-all flex items-center gap-1.5 group cursor-pointer shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0" title="Tìm kiếm phần mềm & tin tức (Ctrl+K)">
                     <svg class="w-3.5 h-3.5 text-[#168BD2] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-bold text-[#64748B] dark:text-[#94A3B8] bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-white/10 rounded-md shadow-2xs group-hover:border-[#168BD2]/40">Ctrl K</kbd>
+                    <kbd class="hidden xl:inline-flex items-center px-1.5 py-0.5 text-[9.5px] font-mono font-bold text-[#64748B] dark:text-[#94A3B8] bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-white/10 rounded-md shadow-2xs group-hover:border-[#168BD2]/40">Ctrl K</kbd>
                 </button>
 
                 <!-- Language Selector Dropdown -->
                 <div class="relative group" x-data="{ open: false }">
-                    <button type="button" class="h-9 px-2 sm:px-2.5 xl:px-3 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] text-xs font-bold text-[#172B3A] dark:text-white hover:border-[#168BD2]/50 transition-all flex items-center gap-1.5 sm:gap-2 shadow-2xs cursor-pointer focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0" title="{{ __('Language') }}">
-                        <x-flag :country="app()->getLocale()" class="w-5 h-3.5" />
-                        <span class="uppercase tracking-wider text-[11px] font-black text-[#172B3A] dark:text-white">{{ app()->getLocale() }}</span>
+                    <button type="button" class="h-8 sm:h-8.5 px-2 xl:px-2.5 rounded-xl border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] text-xs font-bold text-[#172B3A] dark:text-white hover:border-[#168BD2]/50 transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0" title="{{ __('Language') }}">
+                        <x-flag :country="app()->getLocale()" class="w-4.5 h-3" />
+                        <span class="hidden xl:inline uppercase tracking-wider text-[11px] font-black text-[#172B3A] dark:text-white">{{ app()->getLocale() }}</span>
                         <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Dropdown Menu -->
@@ -478,103 +486,46 @@
                     </div>
                 </div>
 
-                <!-- Luxury Mechanical Theme Toggle Switch (Desktop) -->
+                <!-- Luxury Theme Toggle Switch (Desktop) -->
                 <div class="relative flex items-center shrink-0">
-                    <button type="button" id="theme-toggle-desktop" class="theme-toggle-btn w-[54px] sm:w-[58px] h-8 p-[3px] rounded-full bg-[#E2E8F0] hover:bg-[#CBD5E1] dark:bg-[#1E293B] dark:hover:bg-[#28384D] border border-[#CBD5E1]/80 dark:border-white/10 transition-all duration-300 focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none cursor-pointer relative shrink-0 flex items-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)]" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}" aria-label="Đổi giao diện Sáng / Tối">
+                    <button type="button" id="theme-toggle-desktop" class="theme-toggle-btn w-[50px] sm:w-[54px] h-7 sm:h-7.5 p-[2px] rounded-full bg-[#E2E8F0] hover:bg-[#CBD5E1] dark:bg-[#1E293B] dark:hover:bg-[#28384D] border border-[#CBD5E1]/80 dark:border-white/10 transition-all duration-300 focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none cursor-pointer relative shrink-0 flex items-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)]" title="{{ __('Light Mode') }} / {{ __('Dark Mode') }}" aria-label="Đổi giao diện Sáng / Tối">
                         <!-- Background Track Sub-Icons -->
-                        <div class="absolute inset-x-2 flex items-center justify-between pointer-events-none text-[#718096] dark:text-[#64748B]">
+                        <div class="absolute inset-x-1.5 flex items-center justify-between pointer-events-none text-[#718096] dark:text-[#64748B]">
                             <!-- Ambient Sun in Track -->
-                            <svg class="w-3.5 h-3.5 text-amber-500/70" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 text-amber-500/70" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
                             </svg>
                             <!-- Ambient Moon in Track -->
-                            <svg class="w-3 h-3 text-[#38BDF8]/70" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-2.5 h-2.5 text-[#38BDF8]/70" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
                             </svg>
                         </div>
 
                         <!-- Sliding Thumb Capsule with Micro-Glow Icon -->
-                        <span class="w-[26px] h-[26px] rounded-full bg-white dark:bg-[#0B1118] shadow-[0_2px_6px_rgba(0,0,0,0.18),0_1px_2px_rgba(0,0,0,0.08)] border border-black/[0.04] dark:border-white/10 flex items-center justify-center transition-transform duration-300 ease-out transform translate-x-0 dark:translate-x-[22px] sm:dark:translate-x-[26px] pointer-events-none relative z-10">
+                        <span class="w-[22px] h-[22px] sm:w-[24px] sm:h-[24px] rounded-full bg-white dark:bg-[#0B1118] shadow-[0_2px_6px_rgba(0,0,0,0.18),0_1px_2px_rgba(0,0,0,0.08)] border border-black/[0.04] dark:border-white/10 flex items-center justify-center transition-transform duration-300 ease-out transform translate-x-0 dark:translate-x-[22px] sm:dark:translate-x-[24px] pointer-events-none relative z-10">
                             <!-- Active Sun Icon (Light Mode) -->
-                            <svg class="w-3.5 h-3.5 block dark:hidden text-amber-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 block dark:hidden text-amber-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
                             </svg>
                             <!-- Active Moon Icon (Dark Mode) -->
-                            <svg class="w-3.5 h-3.5 hidden dark:block text-[#38BDF8] drop-shadow-[0_0_6px_rgba(56,189,248,0.7)]" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 hidden dark:block text-[#38BDF8] drop-shadow-[0_0_6px_rgba(56,189,248,0.7)]" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
                             </svg>
                         </span>
                     </button>
                 </div>
 
-                <!-- Subtle Vertical Hairline Divider -->
-                <div class="hidden sm:block h-5 w-px bg-gradient-to-b from-transparent via-[#E2E8F0] dark:via-white/10 to-transparent mx-0.5 shrink-0"></div>
-
-                <!-- Auth Buttons / User Profile (Desktop) -->
-                <div class="hidden sm:flex items-center gap-1.5 shrink-0">
-                    @auth
-                        <div class="relative group">
-                            <button type="button" class="h-9 pl-1.5 pr-2.5 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 hover:bg-white dark:hover:bg-[#15202B] hover:border-[#168BD2]/50 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs group focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none shrink-0">
-                                <div class="relative">
-                                    <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-6.5 h-6.5 rounded-full object-cover ring-2 ring-[#168BD2]/30">
-                                    <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white dark:ring-[#101923] shadow-[0_0_4px_#10B981]"></span>
-                                </div>
-                                <span class="hidden md:inline-block max-w-[80px] lg:max-w-[90px] truncate text-xs font-bold text-[#172B3A] dark:text-white">{{ auth()->user()->name }}</span>
-                                <svg class="w-3 h-3 text-[#718096] group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </button>
-                            <!-- User Dropdown Menu -->
-                            <div class="absolute right-0 top-full pt-2 w-56 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-                                <div class="py-2 bg-white/98 dark:bg-[#131D27]/98 backdrop-blur-2xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-[#E8EDF2] dark:border-[#1E2D3D]">
-                                    <div class="px-4 py-2.5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] flex items-center justify-between">
-                                        <div class="min-w-0 pr-2">
-                                            <p class="text-xs font-bold text-[#172B3A] dark:text-white truncate">{{ auth()->user()->name }}</p>
-                                            <p class="text-[10px] text-[#718096] truncate mt-0.5">{{ auth()->user()->email }}</p>
-                                        </div>
-                                        @if(auth()->user()->canAccessAdmin())
-                                            <span class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#168BD2]/10 dark:bg-[#168BD2]/20 text-[#168BD2] dark:text-[#38BDF8] border border-[#168BD2]/20 shrink-0">ADMIN</span>
-                                        @endif
-                                    </div>
-                                    @if(auth()->user()->canAccessAdmin())
-                                        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-bold text-[#168BD2] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors">
-                                            <div class="w-6 h-6 rounded-lg bg-[#168BD2]/10 flex items-center justify-center text-[#168BD2]">
-                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-                                            </div>
-                                            <span>{{ __('Dashboard Quản Trị') }}</span>
-                                        </a>
-                                    @endif
-                                    <a href="{{ route('profile') }}" class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#1A2634] transition-colors">
-                                        <div class="w-6 h-6 rounded-lg bg-[#F8FAFC] dark:bg-[#1E2D3D] flex items-center justify-center text-[#718096]">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                                        </div>
-                                        <span>{{ __('Profile') }}</span>
-                                    </a>
-                                    <div class="border-t border-[#E8EDF2] dark:border-[#1E2D3D] my-1.5"></div>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit" class="w-full text-left flex items-center gap-2.5 px-4 py-2 text-xs text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 font-semibold transition-colors">
-                                            <div class="w-6 h-6 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-500">
-                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-                                            </div>
-                                            <span>{{ __('Sign Out') }}</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    @else
-                        <a href="{{ route('login') }}" class="h-9 px-3.5 text-xs font-bold text-[#475569] dark:text-[#E2E8F0] hover:text-[#168BD2] transition-colors flex items-center whitespace-nowrap">
-                            {{ __('Sign In') }}
-                        </a>
-                        <a href="{{ route('register') }}" class="h-9 px-4 rounded-full bg-gradient-to-r from-[#168BD2] via-[#2094DB] to-[#0878BD] hover:from-[#0878BD] hover:to-[#066199] text-white text-xs font-bold shadow-md shadow-[#168BD2]/30 hover:shadow-lg hover:shadow-[#168BD2]/40 flex items-center gap-1.5 transition-all hover:scale-[1.02] cursor-pointer whitespace-nowrap">
-                            <span>{{ __('Sign Up') }}</span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                    @endauth
-                </div>
+                @if(auth()->check() && auth()->user()->canAccessAdmin())
+                    <!-- Admin Shortcut (Only shown when admin is logged in) -->
+                    <a href="{{ route('admin.dashboard') }}" class="hidden sm:inline-flex items-center gap-1.5 h-8 sm:h-8.5 px-3 rounded-xl bg-gradient-to-r from-[#168BD2] to-[#0878BD] text-white text-xs font-bold shadow-md shadow-[#168BD2]/25 hover:brightness-110 transition-all shrink-0">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>Quản Trị</span>
+                    </a>
+                @endif
 
                 <!-- Mobile Hamburger Button -->
-                <button type="button" id="mobile-drawer-open" class="lg:hidden h-9 w-9 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 text-[#172B3A] dark:text-[#E2E8F0] flex items-center justify-center hover:border-[#168BD2] hover:text-[#168BD2] transition-all shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button type="button" id="mobile-drawer-open" class="lg:hidden h-8 sm:h-8.5 w-8 sm:w-8.5 rounded-xl border border-[#E2E8F0] dark:border-white/10 bg-[#F8FAFC]/85 dark:bg-[#101923]/85 text-[#172B3A] dark:text-[#E2E8F0] flex items-center justify-center hover:border-[#168BD2] hover:text-[#168BD2] transition-all shadow-2xs focus:outline-none focus-visible:outline-none focus:ring-0 active:outline-none">
+                    <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
@@ -648,29 +599,24 @@
             </div>
         </div>
 
-        <div class="p-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
-            @auth
+        @if(auth()->check() && auth()->user()->canAccessAdmin())
+            <div class="p-5 border-t border-[#E8EDF2] dark:border-[#1E2D3D]">
                 <div class="flex items-center gap-3 mb-3">
-                    <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-9 h-9 rounded-full object-cover">
+                    <img src="{{ auth()->user()->avatar_url }}" alt="{{ auth()->user()->name }}" class="w-9 h-9 rounded-full object-cover ring-2 ring-[#168BD2]/30">
                     <div>
                         <p class="text-sm font-bold text-[#172B3A] dark:text-white">{{ auth()->user()->name }}</p>
-                        <p class="text-xs text-[#718096]">{{ auth()->user()->email }}</p>
+                        <p class="text-xs text-emerald-600 font-semibold">Administrator</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="{{ route('profile') }}" class="lush-btn-secondary !py-2 !text-xs !justify-center">{{ __('Profile') }}</a>
+                    <a href="{{ route('admin.dashboard') }}" class="lush-btn-primary !py-2 !text-xs !justify-center">Quản Trị</a>
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <button type="submit" class="w-full py-2 px-3 text-xs font-semibold text-rose-500 border border-rose-200 dark:border-rose-900/50 rounded-lg text-center hover:bg-rose-50">{{ __('Sign Out') }}</button>
                     </form>
                 </div>
-            @else
-                <div class="flex flex-col gap-2">
-                    <a href="{{ route('login') }}" class="lush-btn-secondary !justify-center !text-sm">{{ __('Sign In') }}</a>
-                    <a href="{{ route('register') }}" class="lush-btn-primary !justify-center !text-sm">{{ __('Sign Up') }}</a>
-                </div>
-            @endauth
-        </div>
+            </div>
+        @endif
     </div>
 
     <!-- Main Content -->
@@ -735,6 +681,7 @@
                     <ul class="space-y-2.5 text-sm text-[#718096] dark:text-[#94A3B8]">
                         <li><a href="{{ route('solutions.index') }}" class="hover:text-[#168BD2] transition-colors">{{ __('Solutions') }}</a></li>
                         <li><a href="{{ route('pricing.index') }}" class="hover:text-[#168BD2] transition-colors">{{ __('Pricing') }}</a></li>
+                        <li><a href="{{ route('license.check') }}" class="hover:text-[#168BD2] transition-colors font-semibold text-[#168BD2]">Tra cứu bản quyền</a></li>
                         <li><a href="{{ route('articles.index') }}" class="hover:text-[#168BD2] transition-colors">{{ __('News') }}</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-[#168BD2] transition-colors">{{ __('About Us') }}</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-[#168BD2] transition-colors">{{ __('Contact') }}</a></li>
@@ -1146,6 +1093,12 @@
             }
         });
     </script>
+
+    <!-- Global Floating Contact & Support Hub -->
+    <x-floating-contact-widget />
+
+    <!-- Global VietQR Checkout Modal -->
+    <x-checkout-modal />
 
     @stack('scripts')
 </body>

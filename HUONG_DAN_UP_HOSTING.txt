@@ -1,0 +1,107 @@
+================================================================================
+HƯỚNG DẪN TRIỂN KHAI WEBSITE LUSHSOFTWARE LÊN HOSTING / CPANEL / AAPANEL / VPS
+================================================================================
+
+Bộ mã nguồn này đã được tối ưu hoàn chỉnh, đóng gói sẵn:
+- Toàn bộ source code Laravel 11 + PHP 8.3 + Tailwind v4 + Vite assets đã biên dịch.
+- Đầy đủ thư viện vendor (không cần chạy composer install trên hosting nếu không có SSH).
+- Thư mục dowload/ chứa sẵn bộ cài đặt LushCare_v26.02_Setup.exe và tự động nhận diện file mới.
+- Cơ sở dữ liệu: Có sẵn file "database.sql" (chuẩn MySQL/MariaDB để import phpMyAdmin) VÀ file SQLite "database/database.sqlite".
+- Cấu hình Nginx tối ưu hóa cao độ (nginx.conf).
+
+--------------------------------------------------------------------------------
+HƯỚNG DẪN IMPORT CƠ SỞ DỮ LIỆU MYSQL / PHPMYADMIN (NẾU DÙNG MYSQL TRÊN HOSTING)
+--------------------------------------------------------------------------------
+Trong bộ mã nguồn có sẵn 2 file SQL cho bạn:
+1. "database.sql" (hoặc "lush_software_database.sql") -> Dành cho MySQL / MariaDB / phpMyAdmin.
+2. "database/database.sqlite" -> Dành cho trường hợp chạy trực tiếp SQLite không cần tạo database.
+
+Nếu bạn dùng MySQL / MariaDB trên cPanel hoặc aaPanel:
+Bước 1: Vào phpMyAdmin -> Chọn Database vừa tạo (hoặc tạo Database mới).
+Bước 2: Bấm vào tab "Import" (Nhập) -> Bấm "Choose File" -> Chọn file "database.sql".
+Bước 3: Bấm nút "Go" (Thực hiện). Toàn bộ bảng, dữ liệu 9 bài viết SEO, 8 sản phẩm, tài khoản admin sẽ được import 100% đầy đủ.
+Bước 4: Mở file .env trên hosting, sửa cấu hình kết nối:
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=tên_database_của_bạn
+        DB_USERNAME=user_database_của_bạn
+        DB_PASSWORD=mật_khẩu_database_của_bạn
+
+--------------------------------------------------------------------------------
+CÁCH 1: TRIỂN KHAI TRÊN CPANEL / DIRECTADMIN (HOSTING CHIA SẺ)
+--------------------------------------------------------------------------------
+1. Đăng nhập cPanel -> File Manager (Quản lý tệp).
+2. Tải file "website_lush_production.zip" lên thư mục gốc của website (thường là public_html hoặc thư mục domain).
+3. Chuột phải vào file zip -> Bấm "Extract" (Giải nén).
+4. Quan trọng nhất: Cấu hình thư mục chạy chính (Document Root)
+   - Trong cPanel: Vào mục "Domains" -> Chọn tên miền của bạn -> Sửa "Document Root" trỏ vào:
+     public_html/public   (hoặc tên_thư_mục_domain/public)
+   - Laravel bắt buộc phải trỏ Document Root vào thư mục /public để web hoạt động và bảo mật.
+5. Cấu hình file .env:
+   - Đổi tên file ".env.production" thành ".env".
+   - Mở file .env sửa dòng:
+     APP_URL=https://tenmiencuaban.com
+6. Phân quyền thư mục (Permissions):
+   - Đảm bảo thư mục "storage", "bootstrap/cache" và file "database/database.sqlite" có quyền ghi:
+     Chmod: 775 hoặc 777.
+
+--------------------------------------------------------------------------------
+CÁCH 2: TRIỂN KHAI TRÊN AAPANEL / CYBERPANEL (VPS GIAO DIỆN WEB)
+--------------------------------------------------------------------------------
+1. Vào mục "Website" -> "Add Site" -> Nhập tên miền (ví dụ: lushsoftware.vn).
+   - Chọn phiên bản PHP: PHP 8.3 (Khuyến nghị).
+2. Vào File Manager của website: /www/wwwroot/tenmiencuaban.com
+3. Upload file "website_lush_production.zip" lên và giải nén (Unzip).
+4. Cài đặt Site Directory trên aaPanel:
+   - Bấm vào tên website -> mục "Site Directory".
+   - Running directory (Thư mục chạy): Chọn "/public" -> Bấm Save.
+5. Cài đặt Nginx Rewrite trên aaPanel:
+   - Trong bảng cấu hình website -> mục "URL rewrite" -> Chọn template "laravel5" (hoặc paste nội dung:
+     location / {
+         try_files $uri $uri/ /index.php?$query_string;
+     }
+   - Bấm Save.
+6. Cấu hình file .env:
+   - Đổi tên ".env.production" thành ".env".
+   - Sửa "APP_URL=https://tenmiencuaban.com".
+7. Phân quyền người dùng www:
+   - Trong tab Terminal chạy:
+     chown -R www:www /www/wwwroot/tenmiencuaban.com
+     chmod -R 775 /www/wwwroot/tenmiencuaban.com/storage
+     chmod -R 775 /www/wwwroot/tenmiencuaban.com/bootstrap/cache
+     chmod 664 /www/wwwroot/tenmiencuaban.com/database/database.sqlite
+8. Bật SSL miễn phí:
+   - Vào mục "SSL" -> chọn "Let's Encrypt" -> Chọn tên miền -> Apply -> Bật "Force HTTPS".
+
+--------------------------------------------------------------------------------
+CÁCH 3: TRIỂN KHAI TRÊN VPS NGINX NGUYÊN BẢN (UBUNTU / DEBIAN)
+--------------------------------------------------------------------------------
+1. Copy mã nguồn vào /var/www/website_lush.
+2. Cài đặt PHP 8.3-FPM, SQLite3 và Nginx:
+   sudo apt update && sudo apt install nginx php8.3-fpm php8.3-sqlite3 php8.3-mbstring php8.3-xml php8.3-curl -y
+3. Copy file "nginx.conf" vào:
+   sudo cp /var/www/website_lush/nginx.conf /etc/nginx/sites-available/lushsoftware
+   sudo ln -s /etc/nginx/sites-available/lushsoftware /etc/nginx/sites-enabled/
+   sudo nginx -t && sudo systemctl reload nginx
+4. Phân quyền www-data:
+   sudo chown -R www-data:www-data /var/www/website_lush
+   sudo chmod -R 775 /var/www/website_lush/storage /var/www/website_lush/bootstrap/cache
+
+--------------------------------------------------------------------------------
+HƯỚNG DẪN QUẢN TRỊ & UPLOAD THÊM FILE TẢI VỀ (.EXE / .ZIP)
+--------------------------------------------------------------------------------
+1. Bạn chỉ cần upload bất kỳ file .exe, .zip, .rar, .msi nào vào thư mục "dowload/" trên hosting.
+2. Trang http://tenmien.com/downloads sẽ TỰ ĐỘNG nhận diện file:
+   - Tự động lấy tên file, dung lượng thực tế (MB), ngày cập nhật.
+   - Tự động tạo nút bấm tải trực tiếp 1-click tốc độ cao.
+   - Khách hàng bấm tải là file sẽ tải về ngay lập tức trên máy tính.
+
+--------------------------------------------------------------------------------
+THÔNG TIN TÀI KHOẢN ADMIN CMS QUẢN TRỊ
+--------------------------------------------------------------------------------
+- Đường dẫn đăng nhập: https://tenmiencuaban.com/admin
+- Email quản trị: admin@lushsoftware.vn
+- Mật khẩu: Lush@Admin2026!
+================================================================================
+

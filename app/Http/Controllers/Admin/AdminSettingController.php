@@ -42,6 +42,12 @@ class AdminSettingController extends Controller
             'stat_years',
             'stat_satisfaction',
             'default_locale',
+            'google_search_console_code',
+            'bing_webmaster_code',
+            'google_analytics_id',
+            'google_tag_manager_id',
+            'facebook_pixel_id',
+            'zalo_oa_id',
         ];
 
         foreach ($fields as $field) {

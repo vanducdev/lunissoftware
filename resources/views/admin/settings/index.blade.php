@@ -121,12 +121,22 @@
             </div>
         </div>
 
-        <!-- 5. Default SEO Meta -->
-        <div class="lush-card p-6 sm:p-8 space-y-4">
-            <h3 class="text-sm font-bold text-[#172B3A] dark:text-white border-b border-[#E8EDF2] dark:border-[#1E2D3D] pb-3">5. Cấu Hình SEO Mặc Định</h3>
+        <!-- 5. Default SEO & Webmaster Suite -->
+        <div class="lush-card p-6 sm:p-8 space-y-5 border border-[#168BD2]/30">
+            <div class="flex items-center justify-between border-b border-[#E8EDF2] dark:border-[#1E2D3D] pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h3 class="text-sm font-bold text-[#172B3A] dark:text-white uppercase tracking-wider">5. Cấu Hình SEO & Bộ Công Cụ Webmaster Google / Bing</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="{{ url('/sitemap.xml') }}" target="_blank" class="text-[11px] font-bold text-[#168BD2] hover:underline">Sitemap XML &rarr;</a>
+                    <span class="text-[#CBD5E1]">|</span>
+                    <a href="{{ url('/robots.txt') }}" target="_blank" class="text-[11px] font-bold text-[#718096] hover:underline">Robots.txt &rarr;</a>
+                </div>
+            </div>
 
             <div>
-                <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Meta Title Mặc Định</label>
+                <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Meta Title Mặc Định (Toàn trang)</label>
                 <input type="text" name="meta_title" value="{{ old('meta_title', $settings['meta_title'] ?? '') }}" class="w-full px-4 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-sm focus:outline-none focus:border-[#168BD2]">
             </div>
 
@@ -138,6 +148,37 @@
             <div>
                 <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Meta Keywords Mặc Định</label>
                 <input type="text" name="meta_keywords" value="{{ old('meta_keywords', $settings['meta_keywords'] ?? '') }}" class="w-full px-4 py-2.5 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-sm focus:outline-none focus:border-[#168BD2]">
+            </div>
+
+            <!-- Webmaster & Analytics Keys Grid -->
+            <div class="pt-3 border-t border-[#E8EDF2] dark:border-[#1E2D3D] space-y-4">
+                <span class="text-xs font-bold text-[#168BD2] block">Mã Xác Minh Webmaster & Đo Lường Tiếp Thị:</span>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Google Search Console Verification Tag</label>
+                        <input type="text" name="google_search_console_code" value="{{ old('google_search_console_code', $settings['google_search_console_code'] ?? '') }}" placeholder="google-site-verification=xxxx..." class="w-full px-4 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs font-mono focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Bing Webmaster Tools Code</label>
+                        <input type="text" name="bing_webmaster_code" value="{{ old('bing_webmaster_code', $settings['bing_webmaster_code'] ?? '') }}" placeholder="Mã định danh Bing Webmaster..." class="w-full px-4 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs font-mono focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Google Analytics 4 (GA4 ID)</label>
+                        <input type="text" name="google_analytics_id" value="{{ old('google_analytics_id', $settings['google_analytics_id'] ?? '') }}" placeholder="G-XXXXXXXXXX" class="w-full px-4 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs font-mono focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Google Tag Manager (GTM ID)</label>
+                        <input type="text" name="google_tag_manager_id" value="{{ old('google_tag_manager_id', $settings['google_tag_manager_id'] ?? '') }}" placeholder="GTM-XXXXXXX" class="w-full px-4 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs font-mono focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#172B3A] dark:text-[#E2E8F0] mb-1.5">Facebook Pixel ID</label>
+                        <input type="text" name="facebook_pixel_id" value="{{ old('facebook_pixel_id', $settings['facebook_pixel_id'] ?? '') }}" placeholder="1234567890..." class="w-full px-4 py-2 rounded-xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#0B1118] text-xs font-mono focus:outline-none focus:border-[#168BD2]">
+                    </div>
+                </div>
             </div>
         </div>
 

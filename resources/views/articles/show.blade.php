@@ -51,7 +51,7 @@
 @endpush
 
 @section('content')
-<article class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
+<article class="relative pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -156,7 +156,7 @@
         </div>
 
         <!-- Author Bio Box -->
-        <div class="p-6 sm:p-8 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#111A24] flex flex-col sm:flex-row items-center justify-between gap-6 mb-16 shadow-xs" data-aos="fade-up">
+        <div class="p-6 sm:p-8 rounded-3xl border border-[#E8EDF2] dark:border-[#1E2D3D] bg-white dark:bg-[#111A24] flex flex-col sm:flex-row items-center justify-between gap-6 mb-6 lg:mb-8 shadow-xs" data-aos="fade-up">
             <div class="flex items-center gap-4">
                 <img src="{{ $article->author ? $article->author->avatar_url : asset('images/avatars/avatar-1.jpg') }}" alt="Author" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-[#168BD2]/30 shrink-0">
                 <div>
@@ -177,7 +177,7 @@
 
         <!-- Related Articles Grid -->
         @if($relatedArticles->count() > 0)
-            <div class="border-t border-[#E8EDF2] dark:border-[#1E2D3D] pt-14 mb-16">
+            <div class="border-t border-[#E8EDF2] dark:border-[#1E2D3D] pt-14 mb-6 lg:mb-8">
                 <div class="flex items-center justify-between mb-8">
                     <div>
                         <span class="text-xs font-black uppercase tracking-wider text-[#168BD2] block mb-1">CÙNG CHUYÊN MỤC</span>

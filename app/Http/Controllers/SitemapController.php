@@ -11,7 +11,7 @@ class SitemapController extends Controller
 {
     public function index(): Response
     {
-        $products = Product::where('status', 'active')->orderByDesc('updated_at')->get();
+        $products = Product::published()->orderByDesc('updated_at')->get();
         $articles = Article::published()->orderByDesc('updated_at')->get();
         $categories = ArticleCategory::where('is_active', true)->orderBy('order')->get();
 
@@ -24,6 +24,7 @@ class SitemapController extends Controller
             route('about'),
             route('contact'),
             route('downloads.index'),
+            route('license.check'),
             route('terms'),
             route('privacy'),
         ];

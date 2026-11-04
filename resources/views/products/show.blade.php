@@ -46,7 +46,7 @@
 
 @section('content')
 <!-- 1. Product Hero Section (Masterpiece SaaS Presentation) -->
-<section class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] border-b border-[#E8EDF2] dark:border-[#1E2D3D] overflow-hidden">
+<section class="relative pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118] border-b border-[#E8EDF2] dark:border-[#1E2D3D] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -220,7 +220,7 @@
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(22,139,210,0.06),transparent)] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
                 <span class="w-2 h-2 rounded-full bg-[#168BD2] animate-ping"></span>
                 TÍNH NĂNG VƯỢT TRỘI
@@ -266,7 +266,7 @@
 @if($product->images->count() > 0)
 <section class="py-20 lg:py-24 bg-white dark:bg-[#0B1118] border-b border-[#E8EDF2] dark:border-[#1E2D3D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
                 TRẢI NGHIỆM GIAO DIỆN THỰC TẾ
             </span>
@@ -322,7 +322,7 @@
 @if($product->pricings->count() > 0)
 <section class="py-20 lg:py-24 bg-white dark:bg-[#0B1118] border-b border-[#E8EDF2] dark:border-[#1E2D3D] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
                 BẢNG GIÁ MINH BẠCH
             </span>
@@ -370,10 +370,20 @@
                         @endif
                     </div>
 
-                    <div class="pt-8">
-                        <a href="{{ $pricing->cta_link ?: route('contact', ['product' => $product->slug, 'plan' => $pricing->plan_name]) }}" class="{{ $pricing->is_popular ? 'lush-btn-primary lush-btn-vip shadow-xl shadow-[#168BD2]/30' : 'lush-btn-secondary' }} w-full !justify-center !text-sm !py-3 font-bold">
-                            {{ $pricing->cta_text ?: 'Đăng Ký Bản Quyền' }}
-                        </a>
+                    <div class="pt-8 space-y-2">
+                        <button type="button"
+                            data-checkout-plan="{{ $pricing->plan_name }}"
+                            data-checkout-product="{{ $product->name }}"
+                            data-checkout-price="{{ number_format($pricing->price, 0, ',', '.') }}"
+                            data-checkout-raw-price="{{ (int)$pricing->price }}"
+                            data-checkout-cycle="{{ $pricing->billing_cycle === 'monthly' ? __('Monthly') : ($pricing->billing_cycle === 'yearly' ? __('Yearly') : __('Lifetime')) }}"
+                            class="{{ $pricing->is_popular ? 'lush-btn-primary lush-btn-vip shadow-xl shadow-[#168BD2]/30' : 'lush-btn-secondary' }} w-full !justify-center !text-sm !py-3 font-bold cursor-pointer">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                <span>{{ $pricing->cta_text ?: 'Đăng Ký Bản Quyền' }}</span>
+                            </span>
+                        </button>
+                        <p class="text-[10px] text-center text-[#718096] dark:text-[#94A3B8]">Kích hoạt tức thì qua VietQR • Hỗ trợ Ultraview 1-1</p>
                     </div>
                 </div>
             @endforeach

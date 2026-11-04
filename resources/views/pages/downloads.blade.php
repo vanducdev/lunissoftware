@@ -5,7 +5,7 @@
 @section('canonical_url', route('downloads.index'))
 
 @section('content')
-<div class="relative pt-4 pb-16 sm:pt-6 lg:pt-8 lg:pb-20 bg-white dark:bg-[#0B1118] overflow-hidden">
+<div class="relative pt-2.5 pb-14 sm:pt-3.5 lg:pt-4 lg:pb-16 bg-white dark:bg-[#0B1118] overflow-hidden">
     <!-- VIP Ambient Radiant Background Glow & Micro-Dot Grid -->
     <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#168BD2]/15 via-[#48B4E5]/8 to-transparent blur-3xl rounded-full pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(#168BD2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.12] pointer-events-none"></div>
@@ -14,14 +14,14 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Breadcrumbs -->
-        <div class="mb-4">
+        <div class="mb-2 sm:mb-2.5">
             <x-breadcrumb :items="[['label' => __('Download')]]" />
         </div>
 
         <!-- Header & Title Banner -->
-        <div class="text-center max-w-4xl mx-auto mb-10 lg:mb-12" data-aos="fade-up">
+        <div class="text-center max-w-4xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
             <!-- High-tech VIP Announcement Pill -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-4 backdrop-blur-md">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 dark:bg-[#111A24]/90 border border-[#168BD2]/35 shadow-xs mb-2.5 backdrop-blur-md">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#168BD2] opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-[#168BD2]"></span>
@@ -30,19 +30,19 @@
                 <span class="text-xs text-[#718096] dark:text-[#94A3B8] hidden sm:inline">• Official Verified Builds</span>
             </div>
 
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#172B3A] dark:text-white tracking-tight leading-[1.12]">
-                Trung Tâm Tải Về & <br />
+            <h1 class="text-2xl sm:text-4xl lg:text-[2.65rem] font-black text-[#172B3A] dark:text-white tracking-tight leading-tight">
+                Trung Tâm Tải Về & 
                 <span class="bg-gradient-to-r from-[#168BD2] via-[#0878BD] to-[#48B4E5] bg-clip-text text-transparent drop-shadow-xs">
                     Cập Nhật Phần Mềm
                 </span>
             </h1>
 
-            <p class="text-[#5A6E85] dark:text-[#94A3B8] mt-4 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+            <p class="text-[#5A6E85] dark:text-[#94A3B8] mt-2.5 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
                 Tải xuống các bộ cài đặt chính thức, được quét sạch mã độc 100%, ký số bảo mật SHA-256 và luôn cập nhật thuật toán mới nhất từ đội ngũ kỹ sư LushSoftware.
             </p>
 
             <!-- 4 Security & Quality Certification Badges -->
-            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-7 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0]">
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-4 text-xs font-semibold text-[#172B3A] dark:text-[#E2E8F0]">
                 <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-[#131D27]/80 border border-[#E8EDF2] dark:border-[#1E2D3D] shadow-2xs backdrop-blur-sm">
                     <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     <span>Quét sạch mã độc 100%</span>
@@ -81,6 +81,81 @@
             </div>
         </div>
 
+        @if(!empty($directFiles))
+            <!-- Direct Download Packages Hub (Tự động nhận diện từ thư mục dowload/) -->
+            <div class="mb-10" data-aos="fade-up">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 mb-5 border-b border-[#E8EDF2] dark:border-[#1E2D3D] gap-2">
+                    <div class="flex items-center gap-2.5">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_8px_#10B981]"></span>
+                        </span>
+                        <h3 class="text-sm font-black uppercase tracking-wider text-[#172B3A] dark:text-white flex items-center gap-2">
+                            <span>BỘ CÀI ĐẶT CHÍNH THỨC SẴN SÀNG TẢI TRỰC TIẾP</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">LIVE SERVER</span>
+                        </h3>
+                    </div>
+                    <span class="text-xs font-bold text-[#168BD2] bg-[#168BD2]/10 px-3 py-1 rounded-full border border-[#168BD2]/20 self-start sm:self-auto">
+                        {{ count($directFiles) }} TẬP TIN SẴN SÀNG TẢI
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    @foreach($directFiles as $df)
+                        <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-white to-[#F0F8FF]/80 dark:from-[#111A24] dark:to-[#0B1118] border-2 border-[#168BD2]/35 hover:border-[#168BD2] shadow-xl shadow-[#168BD2]/8 transition-all duration-300 group/file relative overflow-hidden">
+                            <!-- Background accent glow -->
+                            <div class="absolute -right-10 -bottom-10 w-36 h-36 bg-[#168BD2]/10 rounded-full blur-2xl pointer-events-none group-hover/file:bg-[#168BD2]/20 transition-all"></div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-[#168BD2] via-[#2094DB] to-[#48B4E5] text-white flex items-center justify-center shrink-0 shadow-lg shadow-[#168BD2]/35 group-hover/file:scale-105 transition-transform">
+                                    @if($df['extension'] === 'EXE' || $df['extension'] === 'MSI')
+                                        <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                                    @else
+                                        <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                                    @endif
+                                </div>
+
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-2 flex-wrap">
+                                        <h4 class="text-base sm:text-lg font-black text-[#172B3A] dark:text-white truncate group-hover/file:text-[#168BD2] transition-colors">
+                                            {{ $df['title'] }}
+                                        </h4>
+                                        <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider {{ $df['extension'] === 'EXE' ? 'bg-[#168BD2]/10 text-[#168BD2] border border-[#168BD2]/20' : 'bg-amber-500/10 text-amber-600 border border-amber-500/20' }}">
+                                            {{ $df['extension'] }}
+                                        </span>
+                                        <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+                                            {{ $df['version'] }}
+                                        </span>
+                                    </div>
+
+                                    <div class="flex items-center gap-2.5 mt-1.5 text-xs text-[#718096] dark:text-[#94A3B8] flex-wrap">
+                                        <span class="font-bold text-[#168BD2] font-mono">{{ $df['size_formatted'] }}</span>
+                                        <span>•</span>
+                                        <span>Cập nhật: {{ $df['updated_at'] }}</span>
+                                        <span>•</span>
+                                        <span class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                            Ký số sạch 100%
+                                        </span>
+                                    </div>
+
+                                    <div class="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                                        <a href="{{ $df['download_url'] }}" class="lush-btn-primary lush-btn-vip !py-2.5 !px-5 !text-xs font-bold shadow-md shadow-[#168BD2]/25 hover:shadow-xl hover:shadow-[#168BD2]/40 flex items-center justify-center gap-2 group/btn">
+                                            <svg class="w-4 h-4 text-white group-hover/btn:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                            <span>Tải Xuống Ngay ({{ $df['size_formatted'] }})</span>
+                                        </a>
+                                        <span class="text-[10.5px] font-mono text-[#718096] dark:text-[#64748B] truncate text-center sm:text-left" title="Mã bảo mật kiểm tra file (SHA256)">
+                                            SHA256: {{ $df['sha256'] }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
         <!-- Masterpiece Download Cards Grid -->
         <div class="space-y-8">
             @foreach($products as $p)
@@ -106,7 +181,7 @@
                                             <a href="{{ route('products.show', $p->slug) }}">{{ $p->name }}</a>
                                         </h2>
                                         <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[#168BD2]/10 text-[#168BD2] border border-[#168BD2]/20">
-                                            {{ $p->version ?? 'v2.4' }}
+                                            {{ $p->direct_file ? $p->direct_file['version'] : ($p->version ?? 'v2.4') }}
                                         </span>
                                         <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
                                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -117,9 +192,9 @@
                                     <div class="flex flex-wrap items-center gap-2 mt-1.5 text-xs text-[#718096] dark:text-[#94A3B8]">
                                         <span class="font-semibold text-[#172B3A] dark:text-white">{{ $p->category->name ?? 'SaaS Solution' }}</span>
                                         <span>•</span>
-                                        <span>Cập nhật: {{ $p->updated_at->format('d/m/Y') }}</span>
+                                        <span>Cập nhật: {{ $p->direct_file ? $p->direct_file['updated_at'] : $p->updated_at->format('d/m/Y') }}</span>
                                         <span>•</span>
-                                        <span class="font-mono text-[#168BD2]">Dung lượng: ~ 85 MB</span>
+                                        <span class="font-mono text-[#168BD2]">Dung lượng: {{ $p->direct_file ? $p->direct_file['size_formatted'] : '~ 85 MB' }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +224,12 @@
 
                         <!-- Right: Action Buttons Group -->
                         <div class="lg:col-span-5 flex flex-col gap-3 justify-center">
-                            @if($p->download_url)
+                            @if($p->direct_file)
+                                <a href="{{ $p->direct_file['download_url'] }}" class="lush-btn-primary lush-btn-vip !py-3.5 !text-sm !justify-center shadow-xl shadow-[#168BD2]/30 hover:shadow-2xl hover:shadow-[#168BD2]/45 hover:-translate-y-0.5 transition-all font-bold">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                    <span>Tải Bộ Cài Đặt {{ $p->direct_file['version'] }} ({{ $p->direct_file['size_formatted'] }})</span>
+                                </a>
+                            @elseif($p->download_url)
                                 <a href="{{ $p->download_url }}" target="_blank" class="lush-btn-primary lush-btn-vip !py-3.5 !text-sm !justify-center shadow-xl shadow-[#168BD2]/30 hover:shadow-2xl hover:shadow-[#168BD2]/45 hover:-translate-y-0.5 transition-all font-bold">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                                     <span>Tải Bản Cài Đặt Chính Thức</span>
@@ -187,7 +267,7 @@
 
         <!-- Interactive 3-Step Quick Setup Guide -->
         <div class="mt-24 lg:mt-32">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8" data-aos="fade-up">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#168BD2]/10 text-[#168BD2] text-xs font-black uppercase tracking-wider mb-3">
                     QUY TRÌNH 3 BƯỚC
                 </span>

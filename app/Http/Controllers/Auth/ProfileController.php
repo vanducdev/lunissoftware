@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
+use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -22,7 +23,12 @@ class ProfileController extends Controller
             ->take(15)
             ->get();
 
-        return view('auth.profile', compact('user', 'logs'));
+        $orders = Order::where(function ($q) use ($user) {
+            $q->where('user_id', $user->id)
+                ->orWhere('customer_email', $user->email);
+        })->with('product')->orderByDesc('created_at')->get();
+
+        return view('auth.profile', compact('user', 'logs', 'orders'));
     }
 
     public function updateProfile(Request $request): RedirectResponse

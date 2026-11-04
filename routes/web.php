@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminMediaController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminPartnerController;
 use App\Http\Controllers\Admin\AdminProductCategoryController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -17,10 +18,10 @@ use App\Http\Controllers\Admin\AdminTranslationController;
 use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
@@ -52,27 +53,33 @@ Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index
 Route::get('/news', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/news/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/downloads', [DownloadController::class, 'index'])->name('downloads.index');
+Route::get('/downloads/file/{file}', [DownloadController::class, 'downloadDirect'])->name('downloads.direct')->where('file', '.*');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
 
-// Authentication Routes
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::get('/forgot-password', [AuthController::class, 'showForgotForm'])->name('password.request');
-    Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
-});
+// Checkout & License Lookup
+Route::post('/checkout/create-order', [OrderController::class, 'createOrder'])->name('checkout.create');
+Route::post('/checkout/confirm-order/{order_code}', [OrderController::class, 'confirmPayment'])->name('checkout.confirm');
+Route::get('/license-check', [OrderController::class, 'licenseCheck'])->name('license.check');
+
+// Admin Authentication Routes (/lush-admin)
+Route::get('/lush-admin', [AuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/lush-admin', [AuthController::class, 'login']);
+
+// Legacy / Redirect Routes (Disabling public register and redirecting to admin portal)
+Route::get('/login', fn () => redirect()->route('admin.login'))->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', fn () => redirect()->route('home'))->name('register');
+Route::post('/register', fn () => redirect()->route('home'));
+Route::get('/forgot-password', [AuthController::class, 'showForgotForm'])->name('password.request');
+Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::put('/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
-    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+    Route::get('/profile', fn () => redirect()->route('home'))->name('profile');
 });
 
 // Admin Dashboard Routes
@@ -99,6 +106,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::patch('customers/{user}/status', [AdminCustomerController::class, 'toggleStatus'])->name('customers.toggle-status');
     Route::patch('customers/{user}/role', [AdminCustomerController::class, 'toggleRole'])->name('customers.toggle-role');
     Route::delete('customers/{user}', [AdminCustomerController::class, 'destroy'])->name('customers.destroy');
+
+    // Orders & License Management
+    Route::get('orders/export', [AdminOrderController::class, 'export'])->name('orders.export');
+    Route::post('orders/{order}/approve', [AdminOrderController::class, 'approvePayment'])->name('orders.approve');
+    Route::resource('orders', AdminOrderController::class);
 
     // Contacts Management & CSV Export
     Route::get('contacts/export', [AdminContactController::class, 'export'])->name('contacts.export');
